@@ -77,15 +77,17 @@ make -j$(nproc)
 
 **First defensive report on the surviving flaws:** [Red Eye Security — CVD](https://threat-intelligence.redeyesecurity.com/blog/php2shell-part-two-surviving-php-flaws-2026)
 
-| Contribution | Credited to |
-|-------------|-------------|
-| Findings, receipts, write-ups | Andrew Dorman (@acd421) |
-| var_destroy UAF prior art | dinosn (May 2026) |
-| Serialize re-entry class | janhelke (GH-24373) |
-| GC regression | evankford (GH-24488) |
-| Gap naming (public record) | Wiz research team |
-| Original CVE-2026-109618/19 | Calif, OpenAI, Wiz, lcfr-hax, tomash-areion |
-| Patch team | arnaud-lb, iluuu1994, bukka, ndossche |
+| Contribution | Credited to | How our work differs |
+|-------------|-------------|---------------------|
+| All findings, receipts, weapons, write-ups | Andrew Dorman (@acd421) | — |
+| var_destroy UAF (zero4) | dinosn ([May 2026](https://github.com/dinosn/php-8.5.5-var_destroy-uaf)) | dinosn published crash + RCE first; we independently re-derived, then weaponized on vanilla stripped binaries, added the C: format entry path, WordPress HTTP kills, and flock-drop delivery |
+| Serialize re-entry (zero5) | janhelke ([GH-24373](https://github.com/php/php-src/issues/24373)) | janhelke reported the crash; we built the first escalation from crash to full RCE (self-reclaim → forged object → `zif_system`) |
+| GC regression (zero2) | evankford ([GH-24488](https://github.com/php/php-src/issues/24488)) | evankford found the bug; we receipted the remote kill, the allocator-wall analysis, and the GC composition to controlled indirect call |
+| Surviving-gap naming | Wiz research team | Wiz named the gaps publicly without demonstration; we provided the first receipts |
+| Original CVE-2026-109618/19 | Calif, OpenAI, Wiz, lcfr-hax, tomash-areion | Those are the patched bugs; our package covers what survived the patch |
+| Patch team | arnaud-lb, iluuu1994, bukka, ndossche | — |
+
+**Session injection technique class**: prior research ([Exploit-DB #50157](https://www.exploit-db.com/docs/50157), 2021) demonstrated session-file poisoning via LFI (file inclusion). Our approach is different: we use serialize_handler format confusion to make PHP itself unserialize the injected payload — no LFI, no file inclusion, different delivery vector and different primitive. The php_binary variant, session-wipe, cross-tenant takeover, and stock-ini race are novel to this package.
 
 ---
 
