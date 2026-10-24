@@ -5,6 +5,10 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 **Author:** Andrew Dorman (@acd421)
 **Date:** 2026-10-21
 
+> **First defensive report on the surviving flaws:**
+> **[Red Eye Security — Coordinated Vulnerability Disclosure](https://threat-intelligence.redeyesecurity.com/blog/php2shell-part-two-surviving-php-flaws-2026)**
+> They broke the story first.
+
 ---
 
 ## Vulnerability Inventory
