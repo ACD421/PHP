@@ -1,4 +1,4 @@
-php2shell-zeros — vulnerability inventory
+php2shell-zeros — vulnerability inventory (CVSS 3.1 computed, not estimated)
 
 RECEIPT NOTE: The exploit chain is uid-independent — verified firing both RCEs
 and all crashers as uid=33(www-data). Receipt logs in weapons/receipts/ were
@@ -29,7 +29,7 @@ serialize-side mirror UAF (zero5)
   Prior: janhelke (GH-24373) reported crash; our work: first escalation to RCE
 
 enum-autoload boundary-crossing UAF (NEW — zero7/shape5)
-  CVSS: 8.5 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
+  CVSS: 8.1 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
   Attack vector: remote — session decode containing enum (E:) format objects
   Receipt: ASAN heap-use-after-free at var_unserializer.c:906 on 8.5.12
   Status: NOT FIXED (the sharing kills it — b4a63ec absent from 8.5.12)
@@ -39,7 +39,7 @@ enum-autoload boundary-crossing UAF (NEW — zero7/shape5)
 CONFIGURATION-DEPENDENT RCE (session layer):
 
 serialize_handler mismatch + key injection (zero1)
-  CVSS: 8.8 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
+  CVSS: 8.1 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
   Prerequisite: serialize_handler divergence (CVE-2026-115560 class)
   Receipt: uid at server privilege, live reverse shell, 5 independent chains
   Status: NOT FIXED (CVE-2026-115560 is advisory-only)
@@ -54,7 +54,7 @@ serialize_handler mismatch + key injection (zero1)
 WINDOWS-ONLY LOCAL RCE:
 
 O_NOFOLLOW=0 hardlink webshell (zero9)
-  CVSS: 7.2 (AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H)
+  CVSS: 7.7 (AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H)
   Prerequisite: local file-write access to session.save_path
   Receipt: WP4_RCE_OK as standard user on stock Windows builds
   Status: NOT FIXED
@@ -110,7 +110,7 @@ Slow-bleed TOCTOU / flock-drop insertion window
   channel for the UAF payload (6/6 receipted). No unserialize endpoint needed.
 
 Post-08f4b64 destructor-bypass + leak
-  CVSS: 5.5
+  CVSS: 4.3
   Note: in unreleased 8.5.13 preview
   Status: NOT FIXED (ships with 8.5.13)
   Prior: none
@@ -118,7 +118,7 @@ Post-08f4b64 destructor-bypass + leak
 INFO-LEAK TIER:
 
 Jammy save_path INI-UAF (Ubuntu 22.04 LTS)
-  CVSS: 5.3
+  CVSS: 2.8
   Status: NOT FIXED (Ubuntu never shipped the patch)
   Prior: none
   NEW — Jammy fleet composition weapon (shape8): all 4 stages chained
