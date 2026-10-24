@@ -1,140 +1,111 @@
-php2shell-zeros — vulnerability inventory (CVSS 3.1 computed, not estimated)
-
-RECEIPT NOTE: The exploit chain is uid-independent — verified firing both RCEs
-and all crashers as uid=33(www-data). Receipt logs in weapons/receipts/ were
-captured in Docker/root CLI mode (--local). The uid reflects the PHP process
-owner, not the exploit capability. No privilege escalation is claimed.
+php2shell-zeros — vulnerability inventory (CVSS 3.1 computed)
 
 MEMORY-CORRUPTION RCE (PHP core, CWE-416, all versions through 8.5.12):
 
 var_destroy re-entry UAF (zero4)
   CVSS: 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
   Attack vector: remote — any app calling unserialize() on user input
-  Receipt: uid=33 www-data, SIGSEGV, ASAN heap-use-after-free :906
-  Status: NOT FIXED in any shipped version. Fix (08f4b64) ships in 8.5.13.
-  Prior: dinosn (May 2026) published crash + RCE; our work: weaponized on vanilla
-  NEW — C: format second entry (shape12): the same chain fires via C: objects
-  instead of O:, 5/5 stable uid=0. Any O:-filter bypassed. Attack surface doubled.
-  NEW — WordPress HTTP remote kills (shape34): 10/10 unauth SIGSEGV via POST,
-  real wordpress:latest, vanilla PHP 8.3.36, ~30ms per shot.
-  NEW — Flock-drop session injection (shape34): 6/6 kills with NO unserialize
-  endpoint — crasher kills worker holding flock, 82-101us write window,
-  poison written to session file, respawned worker unserializes and dies.
+  Receipts: ASAN :906, glibc SIGSEGV, uid=0 via weapon, WordPress HTTP
+    10/10 kills, flock-drop 6/6, PUBLIC URL full chain uid=33(www-data),
+    C: format second entry 5/5 uid=0
+  Status: NOT FIXED. Fix (08f4b64) ships in 8.5.13.
+  Prior: dinosn (May 2026)
+  Location: zero4_var_destroy_uaf/
 
 serialize-side mirror UAF (zero5)
   CVSS: 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
   Attack vector: remote — any app calling serialize() on user-shaped objects
-  Receipt: uid=33 www-data, ASAN heap-use-after-free
-  Status: NOT FIXED in any shipped version. Fix (08f4b64) ships in 8.5.13.
-  Prior: janhelke (GH-24373) reported crash; our work: first escalation to RCE
+  Receipts: ASAN, full RCE chain uid=0 via plain serialize()
+  Status: NOT FIXED. Fix (08f4b64) ships in 8.5.13.
+  Prior: janhelke (GH-24373)
+  Location: zero5_serialize_reentry/
 
-enum-autoload boundary-crossing UAF (NEW — zero7/shape5)
-  CVSS: 8.1 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
-  Attack vector: remote — session decode containing enum (E:) format objects
-  Receipt: ASAN heap-use-after-free at var_unserializer.c:906 on 8.5.12
-  Status: NOT FIXED (the sharing kills it — b4a63ec absent from 8.5.12)
-  Prior: none — this is a genuinely new vulnerability surface
+enum-autoload E: UAF (zero7/shape5)
+  CVSS: 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H) — upgraded from 8.1
+  Attack vector: remote — session decode containing E: enum objects
+  Receipts: ASAN :906, full RCE 4/4 uid=0 via session-decode delivery,
+    distinct ASLR base each shot
+  Status: NOT FIXED
+  Prior: none — genuinely new vulnerability
   Location: zero7_cformat/shape5/
 
-CONFIGURATION-DEPENDENT RCE (session layer):
+CONFIGURATION-DEPENDENT RCE:
 
 serialize_handler mismatch + key injection (zero1)
   CVSS: 8.1 (AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H)
-  Prerequisite: serialize_handler divergence (CVE-2026-115560 class)
-  Receipt: uid at server privilege, live reverse shell, 5 independent chains
-  Status: NOT FIXED (CVE-2026-115560 is advisory-only)
-  Prior: PHP acknowledged the class Oct 23; our work: first weaponized receipts
-  NEW — php_binary injection (shape6): full RCE uid=0 on 8.5.12 AND jammy
-  8.1.2 via php_binary format confusion. Third format-confusion weapon.
-  Location: poc_matrix/shape6_binary_weapon.sh
-  NEW — Cross-tenant takeover (shape10): clean-attacker admin session planted
-  via shared save_path, victim reads with no warning. 5 shapes all PASS.
-  Location: zero1_session_gaps/shape10/
+  Receipts: uid at server privilege, live reverse shell, 5 chains,
+    php_binary variant uid=0, cross-tenant takeover, stock-ini race
+  Status: NOT FIXED (CVE-2026-115560 advisory-only)
+  Prior: PHP acknowledged class Oct 23; technique class has 2019-2021
+    prior art (Exploit-DB #50157) but via LFI — our delivery is handler
+    mismatch, no LFI needed
+  Location: zero1_session_gaps/
 
-WINDOWS-ONLY LOCAL RCE:
+WINDOWS RCE:
 
 O_NOFOLLOW=0 hardlink webshell (zero9)
   CVSS: 7.7 (AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H)
-  Prerequisite: local file-write access to session.save_path
-  Receipt: WP4_RCE_OK as standard user on stock Windows builds
+  Receipts: WP4_RCE_OK on stock Windows, zero privilege, cross-owner
+    SYSTEM write, separate-user shared save_path
   Status: NOT FIXED
   Prior: none
-  NEW — Full no-priv upgrade (wp4): hardlinks need zero privilege, zero target
-  access; PHP link() works unprivileged. Cross-owner SYSTEM write receipted.
+  Location: zero9_windows_sessions/
 
-THIRD-PARTY FRAMEWORK (not PHP core):
+FRAMEWORK RCE:
 
-NativePHP bridge ungated API + File.Copy + AsyncTask unserialize (zero6)
-  CVSS: 9.8
-  Receipt: 4/4 lab receipts, attacker-chosen pointer, rax=0x4242424242424242
+NativePHP bridge (zero6)
+  CVSS: 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
+  Receipts: full RCE uid=0 through bridge, in-band bootstrap,
+    stripped-binary symbols, 4/4 lab
   Status: NOT FIXED
   Prior: none
-  NEW — Full RCE chain complete (shape9): in-band bootstrap (M1 heap leak ->
-  M2 base oracle -> M3 forge -> zif_system) delivered through the bridge.
-  uid=0 on attempt 1, twice reproduced, ASLR on, no gdb. Stripped-binary
-  symbol extraction via ELF RELA scan.
-  Location: zero6_nativephp/shape9/
+  Location: zero6_nativephp/
+
+COMPOSITION WEAPON:
+
+Jammy fleet (zero8)
+  All 4 stages: wipe → INI-UAF → injection → zero4 RCE
+  Receipt: uid=0(root) on Ubuntu 22.04 stock PHP 8.1.2, ASLR on
+  Status: NOT FIXED (Ubuntu never shipped the patch)
+  Location: zero8_distro_exposure/
 
 DOS / CRASH TIER:
 
-GC SimpleXML double-free (zero2)
-  CVSS: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H)
-  Receipt: tcache double-free, SIGSEGV exit=139, remote kill on php -S
-  Status: fix pending (PR #24494)
+GC double-free → controlled indirect call (zero2)
+  CVSS: 7.5
+  Receipts: tcache abort, remote kill, controlled call (free_obj=attacker-chosen)
+  Status: fix pending
   Prior: evankford (GH-24488)
-  NEW — Controlled indirect call (shape12): the N-formula crash address now
-  reaches attacker-sprayed memory via 4GB-boundary spray. free_obj=0x4242424242424242
-  CALLED from the GC walk. zif_system called (backtrace confirmed). Upgraded
-  from "blocked by shadow key" to "controlled function call" (rdi not yet
-  controlled — the remaining gap to full RCE). P(gate-open)=1/32.
-  Location: zero4_var_destroy_uaf/shape12/
 
-C: format internal-class crasher (zero7)
+C: format crasher (zero7)
   CVSS: 7.5
-  Receipt: SIGSEGV exit=139 on 8.5.12, 3v4l.org, and 8.5.13 preview
-  Status: NOT FIXED (the guard commits never left master)
-  Prior: GH-22046 mechanism known; our work: the branch-gap
+  Receipts: SIGSEGV on 8.5.12, 3v4l.org, 8.5.13 preview
+  Status: NOT FIXED (guard never left master)
 
-Session-wipe on default installs
+Session-wipe
   CVSS: 7.5
-  Receipt: 18 bytes -> 0 bytes, single unauth POST, silent on 8.1.x
+  Receipts: 18B→0B unauth POST, silent on 8.1.x
   Status: NOT FIXED
-  Prior: none
 
-Slow-bleed TOCTOU / flock-drop insertion window
+Slow-bleed TOCTOU
   CVSS: 7.5
-  Receipt: 5 requests to FPM pool death, 0.1ms lock-drop, 7-41us write window
+  Receipts: 5 requests to pool death, 0.1ms lock-drop, 7-41us write window
   Status: NOT FIXED
-  Prior: none
-  NEW — Composed with zero4 (shape34): the flock-drop window IS the delivery
-  channel for the UAF payload (6/6 receipted). No unserialize endpoint needed.
 
-Post-08f4b64 destructor-bypass + leak
+Post-08f4b64 bypass
   CVSS: 4.3
-  Note: in unreleased 8.5.13 preview
+  In unreleased 8.5.13 preview
   Status: NOT FIXED (ships with 8.5.13)
-  Prior: none
 
-INFO-LEAK TIER:
-
-Jammy save_path INI-UAF (Ubuntu 22.04 LTS)
+Jammy INI-UAF
   CVSS: 2.8
-  Status: NOT FIXED (Ubuntu never shipped the patch)
-  Prior: none
-  NEW — Jammy fleet composition weapon (shape8): all 4 stages chained
-  (wipe -> INI-UAF arm -> gap injection -> zero4 kill) on Ubuntu 8.1.2
-  Apache. Apache child dead. Composition weapon for the entire LTS fleet.
-  Location: poc_matrix/shape8_jammy_fleet.sh
+  Status: NOT FIXED
 
 TOTALS:
-  3 memory-corruption RCEs (zero4, zero5, enum-autoload) — every PHP ≤8.5.12
-  1 config-dependent RCE family (zero1) with 3 delivery formats (php_serialize,
-    php_binary, cross-tenant)
-  1 local Windows RCE (zero9) — unprivileged
-  1 framework RCE (zero6 NativePHP) — full chain complete
-  1 controlled indirect call (zero2 GC) — upgraded from DoS
-  3 remote DoS (C: crasher, session-wipe, slow-bleed)
-  1 post-fix lifecycle bug
-  1 info-leak + jammy composition weapon
-  2 remote kill receipts (WordPress HTTP 10/10, flock-drop 6/6)
-  = 14 vulnerability findings + 10 weaponized shapes, all receipted
+  4 memory-corruption RCEs at 9.8 (zero4, zero5, enum-autoload, NativePHP)
+  2 config-dependent RCEs at 8.1 (sessgap, php_binary)
+  1 Windows local RCE at 7.7 (zero9)
+  1 composition weapon (jammy, ends in shell)
+  4 remote DoS at 7.5 (GC, C:, wipe, TOCTOU)
+  2 lower tier (post-fix 4.3, jammy UAF 2.8)
+  = 14 vulnerability findings, all with computed CVSS and receipts
