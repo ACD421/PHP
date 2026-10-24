@@ -1,54 +1,92 @@
-# php2shell-zeros — surviving-bug package against PHP 2026-10-21 security releases
+# php2shell-zeros
 
-Publication-ready findings against **fully-patched PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35**, NativePHP Mobile, and Windows PHP builds, with turnkey repro scripts and raw receipts. Author: Andrew Dorman (@acd421), 2026-10-21.
+Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP Mobile, and Windows PHP builds. Turnkey repro scripts, raw receipts, weaponized exploit chains.
 
-| # | Folder | Class | Receipt level |
-|---|--------|-------|---------------|
-| 1 | `zero1_session_gaps/` | session serialize_handler mismatch + upload-progress key injection → unauth object injection → **RCE** + **unauth session-wipe** on default installs | Full RCE, 5 independent receipts + negative control |
-| 2 | `zero2_gc_regression/` | GC double-free of SimpleXMLElement properties table (regression shipped *inside* the patch) | Double-free proven + remote kill + **controlled indirect call** via GC composition |
-| 3 | `zero3_patch_teardown/` | Verified analysis of what the patch actually fixed | gdb-verified closure of every bailout path |
-| 4 | `zero4_var_destroy_uaf/` | **var_destroy re-entry UAF in unserialize** | ASAN UAF, glibc SIGSEGV, full RCE chain (`uid=0`), C: format second entry (5/5), WordPress HTTP kills (10/10) |
-| 5 | `zero5_serialize_reentry/` | **php_var_serialize_destroy re-entry UAF** | ASAN heap-use-after-free + full RCE chain (`uid=0` via plain `serialize()`) |
-| 6 | `zero6_nativephp/` | NativePHP bridge: ungated API + File.Copy + AsyncTask unserialize | Full RCE through bridge (`uid=0`, in-band bootstrap, stripped-binary symbols) |
-| 7 | `zero7_cformat/` | C: format internal-class instantiation (141 classes, 5 crashers) + **enum-autoload boundary UAF** | SIGSEGV on stock builds, 3v4l.org, 8.5.13 preview |
-| 8 | `zero8_distro_exposure/` | Ubuntu jammy never got the patch (entire 22.04 LTS fleet exposed) | All original arms fire + `save_path` INI-UAF |
-| 9 | `zero9_windows_sessions/` | Windows PHP `O_NOFOLLOW` = 0 → unprivileged hardlink RCE | `WP4_RCE_OK` on stock builds, zero privilege |
-| 10 | `zero10_slow_bleed/` | Slow-bleed doctrine (all size mitigations defeated) | 124 receipts, TOCTOU kill-window |
-| — | `weapons/` | **php2shell.py** (recon → options → fire, 7 chains) + **pwn_unserialize.py** | Live-fire receipts: WordPress, Docker, jammy, 8.5.12, public URL, 3v4l.org |
+**Author:** Andrew Dorman (@acd421)
+**Date:** 2026-10-21
 
-## Build (once, for repros)
+---
+
+## Vulnerability Inventory
+
+| # | Finding | CVSS | Attack Vector | Status | Folder |
+|:-:|---------|:----:|--------------|:------:|--------|
+| 1 | var_destroy re-entry UAF (unserialize) | **9.8** | Remote via any `unserialize()` surface | 🔴 Not fixed | `zero4/` |
+| 2 | serialize-side mirror UAF | **9.8** | Remote via any `serialize()` surface | 🔴 Not fixed | `zero5/` |
+| 3 | Enum-autoload boundary-crossing UAF | **8.1** | Remote via session decode (E: format) | 🔴 Not fixed | `zero7/shape5/` |
+| 4 | Session serialize_handler mismatch RCE | **8.1** | Remote (config-dependent, CVE-2026-115560) | 🔴 Not fixed | `zero1/` |
+| 5 | php_binary format-confusion injection | **8.1** | Remote (third delivery format) | 🔴 Not fixed | `zero1/shape10/` |
+| 6 | Windows `O_NOFOLLOW`=0 hardlink RCE | **7.7** | Local (shared hosting, no privilege needed) | 🔴 Not fixed | `zero9/` |
+| 7 | NativePHP bridge ungated API RCE | **9.8** | Remote (every NativePHP mobile app) | 🔴 Not fixed | `zero6/` |
+| 8 | GC double-free → controlled indirect call | **7.5** | Remote crash + attacker-chosen call target | 🔴 Not fixed | `zero2/` |
+| 9 | C: format internal-class crasher | **7.5** | Remote DoS (141 classes, 5 crashers) | 🔴 Not fixed | `zero7/` |
+| 10 | Session-wipe on default installs | **7.5** | Remote unauth DoS (0-byte write) | 🔴 Not fixed | `zero1/` |
+| 11 | Slow-bleed TOCTOU / flock-drop window | **7.5** | Remote DoS + RCE insertion window | 🔴 Not fixed | `zero10/` |
+| 12 | Jammy fleet: Ubuntu 22.04 never patched | — | Entire LTS fleet exposed to all above | 🔴 Not fixed | `zero8/` |
+
+**CVSS 3.1 computed from formula, not estimated.** Full details: `CVE_COUNT.txt`
+
+---
+
+## Weapons
+
+| Weapon | What it does |
+|--------|-------------|
+| `php2shell.py` | Recon → option list → fire. 7 chain modules. Target / local / Docker modes. |
+| `pwn_unserialize.py` | Standalone var-layer UAF ripper. One command → `uid=0`. |
+| `pwn_zero4_live.php` | ASLR-on, in-band bootstrap. No gdb, no setarch. Heap leak → forge → `zif_system`. |
+
+```
+python3 weapons/php2shell.py --target http://host/
+python3 weapons/pwn_unserialize.py --local --php /path --chain zero4 --cmd 'id'
+bash RUN_ALL_ZEROS.sh
+```
+
+---
+
+## Live-Fire Receipts
+
+| Target | Chain | Receipt |
+|--------|-------|---------|
+| WordPress on PHP 8.3.36 (real app, vanilla) | zero4 | `uid=0(root)` |
+| php:8.5.11 Docker (official, stripped) | zero4 + zero5 | `uid=0(root)` ×2 |
+| Ubuntu jammy 8.1.2 (never-patched LTS) | zero4 | `uid=0(root)` |
+| PHP 8.5.12 (fully patched) | zero4 + zero5 | `uid=0(root)` ×2 |
+| WordPress HTTP endpoint | zero4 trigger | 10/10 kills, unauth POST |
+| FPM flock-drop injection | zero4 delivery | 6/6 kills, no unserialize surface |
+| Public Cloudflare URL | sessgap | Live interactive reverse shell |
+| 3v4l.org (live third-party) | C: crasher | SIGSEGV |
+| Windows 8.5.12 + 8.1.34 (stock) | zero9 hardlink | `WP4_RCE_OK` unprivileged |
+| NativePHP bridge (framework lab) | zero6 full chain | `uid=0` via in-band bootstrap |
+
+---
+
+## Build
 
 ```
 curl -sLO https://www.php.net/distributions/php-8.5.12.tar.gz && tar xzf php-8.5.12.tar.gz
-mkdir b && cd b
-../php-8.5.12/configure --disable-all --enable-session --enable-xml \
-  --enable-libxml --with-libxml --enable-dom --enable-simplexml \
-  --enable-cli --with-readline=/usr
+mkdir b && cd b && ../php-8.5.12/configure \
+  --disable-all --enable-session --enable-xml --enable-libxml --with-libxml \
+  --enable-dom --enable-simplexml --enable-cli --with-readline=/usr
 make -j$(nproc)
 ```
 
-## Repro quickstart
+---
 
-```
-bash zero1_session_gaps/repro/fin_8512.sh     # full RCE on 8.5.12 (self-contained lab)
-bash RUN_ALL_ZEROS.sh                          # entire arsenal, one command
-python3 weapons/php2shell.py --local --php ./sapi/cli/php --all  # fire every viable chain
-```
+## Credits
 
-## Full credit map
+| Contribution | Credited to |
+|-------------|-------------|
+| Findings, receipts, write-ups | Andrew Dorman (@acd421) |
+| var_destroy UAF prior art | dinosn (May 2026) |
+| Serialize re-entry class | janhelke (GH-24373) |
+| GC regression | evankford (GH-24488) |
+| Gap naming (public record) | Wiz research team |
+| Original CVE-2026-109618/19 | Calif, OpenAI, Wiz, lcfr-hax, tomash-areion |
+| Patch team | arnaud-lb, iluuu1994, bukka, ndossche |
 
-- **Findings, receipts, write-ups:** Andrew Dorman (@acd421)
-- **var_destroy UAF prior art:** dinosn (May 2026)
-- **serialize re-entry class:** janhelke (GH-24373)
-- **GC regression:** evankford (GH-24488)
-- **Gap naming (public record):** Wiz research team
-- **Original CVE-2026-109618/19 research:** Calif, OpenAI, Wiz, lcfr-hax, tomash-areion
-- **Patch team:** arnaud-lb, iluuu1994, bukka, ndossche
+---
 
-## Raw receipts
+## Disclosure
 
-Every zero folder contains its receipts. Weapons receipts in `weapons/receipts/`. Every claim is backed by a logged run.
-
-## Disclosure status
-
-Unfiled with php-src at publication time. The choice is the author's.
+Unfiled at publication time. The choice is the author's.
