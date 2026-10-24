@@ -1,0 +1,7 @@
+======================================================================
+shape34 mission 4 stretch — full RCE via session-file injection
+======================================================================
+[probe] php-fpm base=0x555555600000 zend_alloc chunks=['0x7ffff5400000']
+[sweep] 65 candidates (0x90000-0xd0000 per chunk)
+[sweep] 50/65 tried, dtor-marker runs=0, last=HTTP/1.1 200 OK (0s)
+[sweep] window exhausted without fire; dtor-marker runs=0

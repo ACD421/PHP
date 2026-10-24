@@ -1,0 +1,20 @@
+run: [P2] WINDOW RECEIPT: lock observed HELD at 1792873853.865604 (first blocked poll), held through 8319 blocked polls; acquired 90.1 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+run:      status='HTTP/1.1 503 Service Unavailable' dt=0.018s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+run:      [24-Oct-2026 15:30:54] WARNING: [pool www] child 1963382 exited on signal 11 (SIGSEGV) after 65.658929 seconds from start
+run:      [24-Oct-2026 15:30:55] WARNING: [pool www] child 1963381 exited on signal 11 (SIGSEGV) after 67.709771 seconds from start
+run: [P2] WINDOW RECEIPT: lock observed HELD at 1792873856.139953 (first blocked poll), held through 8281 blocked polls; acquired 100.6 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+run:      status='HTTP/1.1 503 Service Unavailable' dt=0.015s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+run:      [24-Oct-2026 15:30:56] WARNING: [pool www] child 1963497 exited on signal 11 (SIGSEGV) after 1.255129 seconds from start
+run:      [24-Oct-2026 15:30:57] WARNING: [pool www] child 1963496 exited on signal 11 (SIGSEGV) after 3.294811 seconds from start
+run: [P2] WINDOW RECEIPT: lock observed HELD at 1792873858.418941 (first blocked poll), held through 8404 blocked polls; acquired 82.3 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+run:      status='HTTP/1.1 503 Service Unavailable' dt=0.008s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+run:      [24-Oct-2026 15:30:59] WARNING: [pool www] child 1963504 exited on signal 11 (SIGSEGV) after 1.255951 seconds from start
+run:      [24-Oct-2026 15:31:00] WARNING: [pool www] child 1963503 exited on signal 11 (SIGSEGV) after 3.285813 seconds from start
+run: [P2] WINDOW RECEIPT: lock observed HELD at 1792873860.688773 (first blocked poll), held through 8419 blocked polls; acquired 81.8 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+run:      status='HTTP/1.1 503 Service Unavailable' dt=0.029s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+run:      [24-Oct-2026 15:31:01] WARNING: [pool www] child 1963511 exited on signal 11 (SIGSEGV) after 1.261807 seconds from start
+run:      [24-Oct-2026 15:31:02] WARNING: [pool www] child 1963510 exited on signal 11 (SIGSEGV) after 3.303782 seconds from start
+run: [P2] WINDOW RECEIPT: lock observed HELD at 1792873862.981224 (first blocked poll), held through 8421 blocked polls; acquired 88.5 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+run:      status='HTTP/1.1 503 Service Unavailable' dt=0.016s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+run:      [24-Oct-2026 15:31:03] WARNING: [pool www] child 1963518 exited on signal 11 (SIGSEGV) after 1.265901 seconds from start
+run:      [24-Oct-2026 15:31:04] WARNING: [pool www] child 1963517 exited on signal 11 (SIGSEGV) after 3.314158 seconds from start

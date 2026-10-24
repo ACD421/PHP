@@ -1,0 +1,6 @@
+--- lab up:
+READ-OK pid=1962202 sapi=fpm-fcgi handler=php keys=v
+--- fpm workers (glibc heap, ASLR off):
+pid 1962201 personality=00040000 zendalloc=MISSING
+pid 1962202 personality=00040000 zendalloc=MISSING
+session dir: /tmp/s34_fpm/sess

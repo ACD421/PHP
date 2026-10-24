@@ -1,0 +1,5 @@
+--- health (glibc worker):
+"[shape34-health] PHP 8.3.36 sapi=apache2handler class=true handler=php"
+USE_ZEND_ALLOC in apache env: USE_ZEND_ALLOC=0
+worker env: sh: 1: cannot open /proc/90/environ: No such file
+MISSING

@@ -1,0 +1,46 @@
+== WP core destructor inventory (wp-includes + shipped plugins) ==
+/var/www/html/wp-includes/SimplePie/src/IRI.php:219:    public function __destruct()
+/var/www/html/wp-includes/SimplePie/src/Item.php:90:    public function __destruct()
+/var/www/html/wp-includes/SimplePie/src/SimplePie.php:716:    public function __destruct()
+/var/www/html/wp-includes/SimplePie/src/SimplePie.php:721:                    $item->__destruct();
+/var/www/html/wp-includes/SimplePie/src/SimplePie.php:727:                    $item->__destruct();
+/var/www/html/wp-includes/Requests/src/Transport/Curl.php:127:	public function __destruct() {
+/var/www/html/wp-includes/sodium_compat/src/Core/Poly1305/State.php:85:    public function __destruct()
+/var/www/html/wp-includes/widgets.php:1636:		$rss->__destruct();
+/var/www/html/wp-includes/widgets.php:1696:	$rss->__destruct();
+/var/www/html/wp-includes/widgets.php:1821:			$rss->__destruct();
+/var/www/html/wp-includes/php-ai-client/third-party/Nyholm/Psr7/Stream.php:75:    public function __destruct()
+/var/www/html/wp-includes/html-api/class-wp-html-token.php:112:	public function __destruct() {
+/var/www/html/wp-includes/widgets/class-wp-widget-rss.php:143:			$rss->__destruct();
+/var/www/html/wp-includes/PHPMailer/PHPMailer.php:857:    public function __destruct()
+/var/www/html/wp-includes/class-wp-image-editor-gd.php:24:	public function __destruct() {
+/var/www/html/wp-includes/class-wp-image-editor-imagick.php:46:	public function __destruct() {
+/var/www/html/wp-content/plugins/shape34_queueworker/shape34_queueworker.php:27:	public function __destruct() {
+
+== unserialize() call sites in core ==
+/var/www/html/wp-includes/SimplePie/src/Cache/Memcached.php
+/var/www/html/wp-includes/SimplePie/src/Cache/Redis.php
+/var/www/html/wp-includes/SimplePie/src/Cache/MySQL.php
+/var/www/html/wp-includes/SimplePie/src/Cache/Memcache.php
+/var/www/html/wp-includes/SimplePie/src/Cache/File.php
+/var/www/html/wp-includes/option.php
+/var/www/html/wp-includes/class-wp-customize-manager.php
+/var/www/html/wp-includes/class-wp-customize-widgets.php
+/var/www/html/wp-includes/Requests/src/Utility/FilteredIterator.php
+/var/www/html/wp-includes/sodium_compat/src/PHP52/SplFixedArray.php
+/var/www/html/wp-includes/js/wp-lists.js
+/var/www/html/wp-includes/js/wp-lists.min.js
+/var/www/html/wp-includes/user.php
+/var/www/html/wp-includes/meta.php
+/var/www/html/wp-includes/rss.php
+/var/www/html/wp-includes/ms-functions.php
+/var/www/html/wp-includes/functions.php
+/var/www/html/wp-includes/rest-api/endpoints/class-wp-rest-widgets-controller.php
+/var/www/html/wp-includes/rest-api/endpoints/class-wp-rest-widget-types-controller.php
+/var/www/html/wp-includes/blocks/legacy-widget.php
+
+== maybe_serialize double-serialization (the core meta mitigation) ==
+[24-Oct-2026 20:47:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function is_serialized() in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1

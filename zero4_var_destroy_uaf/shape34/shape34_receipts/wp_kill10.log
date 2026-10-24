@@ -1,0 +1,27 @@
+control benign x3:
+  ctrl0 ('200', 0.02764606475830078, b'"[shape34-import] PHP 8.3.36 sapi=apache2handler result=true"')
+  ctrl1 ('200', 0.0162966251373291, b'"[shape34-import] PHP 8.3.36 sapi=apache2handler result=true"')
+  ctrl2 ('200', 0.016313791275024414, b'"[shape34-import] PHP 8.3.36 sapi=apache2handler result=true"')
+kills before shots: 0
+trigger x10 (a:1020, O:18:"Shape34_JobEnvelope", HTTP POST):
+  shot0  RemoteDisconnected       dt=0.027s kill=True
+  shot1  RemoteDisconnected       dt=0.029s kill=True
+  shot2  RemoteDisconnected       dt=0.029s kill=True
+  shot3  RemoteDisconnected       dt=0.033s kill=True
+  shot4  RemoteDisconnected       dt=0.028s kill=True
+  shot5  RemoteDisconnected       dt=0.035s kill=True
+  shot6  RemoteDisconnected       dt=0.033s kill=True
+  shot7  RemoteDisconnected       dt=0.036s kill=True
+  shot8  RemoteDisconnected       dt=0.282s kill=True
+  shot9  RemoteDisconnected       dt=0.030s kill=True
+kills after shots: 9
+  [Sat Oct 24 20:21:14.939814 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 63 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:39.970079 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 58 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:39.970121 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 59 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:39.970130 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 60 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:40.972916 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 61 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:40.972985 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 62 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:40.972991 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 95 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:41.977968 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 96 exit signal Segmentation fault (11)
+  [Sat Oct 24 20:21:41.977996 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 97 exit signal Segmentation fault (11)
+KILL RATE 10/10

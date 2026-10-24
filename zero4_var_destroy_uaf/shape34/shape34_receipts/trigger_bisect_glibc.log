@@ -1,0 +1,6 @@
+variant 1: CRASH (last line: variant=1 cls=D dup=1018 style=plain len=10127)
+variant 2: CRASH (last line: variant=2 cls=Shape34_JobEnvelope dup=1018 style=plain len=10146)
+variant 3: CRASH (last line: variant=3 cls=D dup=9998 style=plain len=10127)
+variant 4: CRASH (last line: variant=4 cls=Shape34_JobEnvelope dup=9998 style=prop len=10146)
+variant 5: CRASH (last line: variant=5 cls=Shape34_JobEnvelope dup=1018 style=prop len=10146)
+variant 6: CRASH (last line: variant=6 cls=Dp dup=1018 style=prop len=10128)

