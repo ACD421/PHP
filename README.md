@@ -99,4 +99,4 @@ make -j$(nproc)
 
 ## Disclosure
 
-Unfiled at publication time. The choice is the author's.
+Findings emailed to sec@php.net after public release. Awaiting response.
