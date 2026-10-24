@@ -1,0 +1,5 @@
+[1] victim login: VICTIM-LOGIN-OK uid=1337 role=user
+[1] session file: 27 bytes | head: b'uid|i:1337;role|s:4:"user";'
+[2] no-pipe multipart to victim vhost (cleanup=1 default): HTTP/1.1 404 Not Found
+[2] session file after: 27 bytes | head: b'uid|i:1337;role|s:4:"user";'
+[PASS] ctl (no pipe -> no wipe; uid/role intact)

