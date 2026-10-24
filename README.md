@@ -3,7 +3,7 @@
 Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP Mobile, and Windows PHP builds. Turnkey repro scripts, raw receipts, weaponized exploit chains.
 
 **Author:** Andrew Dorman (@acd421)
-**Date:** 2026-10-21
+**Date:** 2026-10-24
 
 > **First defensive report on the surviving flaws:**
 > **[Red Eye Security — Coordinated Vulnerability Disclosure](https://threat-intelligence.redeyesecurity.com/blog/php2shell-part-two-surviving-php-flaws-2026)**
