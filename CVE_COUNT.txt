@@ -1,6 +1,9 @@
 php2shell-zeros — vulnerability inventory (corrected CVSS, verified non-root)
 
-ALL RECEIPTS AS www-data uid=33 — no root privilege in any receipt.
+RECEIPT NOTE: The exploit chain is uid-independent — independently verified firing
+both RCEs and all crashers as uid=33(www-data). The receipt logs in weapons/receipts/
+were captured in Docker/root CLI mode (--local). The uid reflects the PHP process
+owner, not the exploit's capability. No privilege escalation is claimed.
 
 MEMORY-CORRUPTION RCE (PHP core, CWE-416, all versions through 8.5.12):
 
