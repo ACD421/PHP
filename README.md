@@ -75,6 +75,8 @@ make -j$(nproc)
 
 ## Credits
 
+**First defensive report on the surviving flaws:** [Red Eye Security — CVD](https://threat-intelligence.redeyesecurity.com/blog/php2shell-part-two-surviving-php-flaws-2026) — they broke the story on what survives the patch before this package was published.
+
 | Contribution | Credited to |
 |-------------|-------------|
 | Findings, receipts, write-ups | Andrew Dorman (@acd421) |
