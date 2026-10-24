@@ -1,0 +1,13 @@
+[Fri Oct 23 20:40:46 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18400) started
+[Fri Oct 23 20:40:47 2026] 127.0.0.1:46902 Accepted
+[Fri Oct 23 20:40:50 2026] PHP Fatal error:  Maximum execution time of 2 seconds exceeded in /tmp/lc_focus/doc/arm_target.php on line 1
+Stack trace:
+#0 {main}
+[Fri Oct 23 20:40:50 2026] 127.0.0.1:46902 [200]: POST /arm_target.php - Maximum execution time of 2 seconds exceeded in /tmp/lc_focus/doc/arm_target.php on line 1
+[Fri Oct 23 20:40:50 2026] 127.0.0.1:46902 Closing
+[Fri Oct 23 20:40:51 2026] 127.0.0.1:46906 Accepted
+[Fri Oct 23 20:40:51 2026] 127.0.0.1:46906 [200]: POST /lc_probe.php
+[Fri Oct 23 20:40:51 2026] 127.0.0.1:46906 Closing
+[Fri Oct 23 20:40:52 2026] 127.0.0.1:46920 Accepted
+[Fri Oct 23 20:40:52 2026] 127.0.0.1:46920 [200]: GET /lc_probe.php
+[Fri Oct 23 20:40:52 2026] 127.0.0.1:46920 Closing

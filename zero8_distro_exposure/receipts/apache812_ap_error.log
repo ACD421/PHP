@@ -1,0 +1,4 @@
+[Fri Oct 23 20:48:22.212769 2026] [unixd:alert] [pid 1598961] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 20:48:22.800676 2026] [php:error] [pid 1598961] [client 127.0.0.1:36312] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+[Fri Oct 23 20:48:22.800751 2026] [php:warn] [pid 1598961] [client 127.0.0.1:36312] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0
+[Fri Oct 23 20:48:23.678540 2026] [php:warn] [pid 1598961] [client 127.0.0.1:36328] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0

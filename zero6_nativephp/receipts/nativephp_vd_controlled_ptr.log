@@ -1,0 +1,25 @@
+warning: File "/tmp/php8512_build/plain2/sapi/cli/php" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/php8512_build/plain2/sapi/cli/php
+line to your configuration file "/root/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/root/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+payload_len=10215
+
+Program received signal SIGSEGV, Segmentation fault.
+php_var_unserialize_internal (rval=0x7ffff54b8020, p=<optimized out>, max=0x7ffff54a019f "", var_hash=0x7fffffff9f80) at /tmp/php8512_build/php-8.5.12/Zend/zend_types.h:682
+682		return pz->u1.v.type;
+#0  php_var_unserialize_internal (rval=0x7ffff54b8020, p=<optimized out>, max=0x7ffff54a019f "", var_hash=0x7fffffff9f80) at /tmp/php8512_build/php-8.5.12/Zend/zend_types.h:682
+#1  0x0000555555981b2b in php_var_unserialize (rval=<optimized out>, p=<optimized out>, max=<optimized out>, var_hash=<optimized out>) at /tmp/php8512_build/php-8.5.12/ext/standard/var_unserializer.c:909
+#2  0x0000555555981d09 in php_unserialize_with_options (return_value=0x7ffff54153e0, buf=0x7ffff54a0198 "R:1020;", buf_len=7, options=<optimized out>, function_name=<optimized out>) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1544
+#3  0x0000555555ac1e8e in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+#4  execute_ex (ex=0x7ffff5495000) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51019
+#5  0x0000555555a6c9f0 in zend_call_function (fci=<optimized out>, fci_cache=0x7fffffffa160) at /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1039
+rax            0x4242424242424242  4774451407313060418
+runner_exit = 0

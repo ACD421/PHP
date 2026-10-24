@@ -1,0 +1,9 @@
+mode=crasher n=20 endpoint=127.0.0.1:18314
+payload_wire_bytes=41
+outcomes: ok=0 kill(reset/empty)=20 refused=0 nook=0
+wall_time=0.68s  sustained_rate=29.5 req/s (all requests)
+distinct_server_pids_seen=0 []
+first_kill_at_request=0  first_refused_at_request=None
+master_rss_kb start=16224 end=134340 max=134340 drift=118116
+alive_children min=0 max=4 final=0 distinct_pool_states=2
+pool_state_timeline (first-seen): t=0.0s n=4; t=0.6s n=0

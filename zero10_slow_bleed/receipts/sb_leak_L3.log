@@ -1,0 +1,38 @@
+php=/tmp/php8512_build/plain3fix/sapi/cli/php shape=fb1 n=1000 env=USE_ZEND_ALLOC=0
+payload_bytes=10123 (wire 18305)
+outcomes: {'bailout-500': 1000}
+wall=20.7s rate=48.4 req/s
+rss_kb start=16056 end=40504 drift=24448 (23.88 MB)
+linear_slope=23.698 KB/request (24266 bytes/request)
+projected: 1000 req = 23.1 MB, 1M req = 22.6 GB
+server log LSan tail:
+nvariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:22 2026] 127.0.0.1:49357 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49358 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49358 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49358 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49359 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49359 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49359 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49360 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49360 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49360 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49361 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49361 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49361 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49362 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49362 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49362 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49363 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49363 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49363 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49364 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49364 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49364 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49365 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49365 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49365 Closing
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49366 Accepted
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49366 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:23 2026] 127.0.0.1:49366 Closing
+

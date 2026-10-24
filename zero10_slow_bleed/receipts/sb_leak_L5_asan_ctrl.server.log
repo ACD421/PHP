@@ -1,0 +1,604 @@
+[Fri Oct 23 21:29:28 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18354) started
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49971 Accepted
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49971 Closed without sending a request; it was probably just an unused speculative preconnection
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49971 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49973 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49973 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49973 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49974 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49974 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49974 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49975 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49975 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49975 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49976 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49976 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49976 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49977 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49977 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49977 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49978 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49978 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49978 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49979 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49979 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49979 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49980 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49980 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49980 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49981 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49981 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49981 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49982 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49982 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49982 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49983 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49983 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49983 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49984 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49984 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49984 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49985 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49985 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49985 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49986 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49986 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49986 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49987 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49987 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49987 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49988 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49988 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49988 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49989 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49989 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49989 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49990 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49990 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49990 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49991 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49991 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49991 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49992 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49992 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49992 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49993 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49993 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49993 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49994 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49994 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49994 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49995 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49995 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49995 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49996 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49996 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49996 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49997 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49997 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49997 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49998 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49998 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49998 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49999 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49999 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:49999 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:50160 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:50160 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:50160 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:63442 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:63442 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:63442 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55639 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55639 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55639 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55727 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55727 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55727 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55806 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55806 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55806 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55864 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55864 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55864 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55865 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55865 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55865 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55866 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55866 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55866 Closing
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55867 Accepted
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55867 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:29 2026] 127.0.0.1:55867 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55868 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55868 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55868 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55869 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55869 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55869 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55870 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55870 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55870 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55871 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55871 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55871 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55872 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55872 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55872 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55873 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55873 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55873 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55874 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55874 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55874 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55876 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55876 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55876 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55877 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55877 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55877 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55878 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55878 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55878 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55879 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55879 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55879 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55880 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55880 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55880 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55881 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55881 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55881 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55882 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55882 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55882 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55883 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55883 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55883 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55884 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55884 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55884 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55885 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55885 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55885 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55886 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55886 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55886 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55887 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55887 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55887 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55888 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55888 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55888 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55889 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55889 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55889 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55890 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55890 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55890 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55891 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55891 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55891 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55892 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55892 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55892 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55893 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55893 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55893 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55894 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55894 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55894 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55895 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55895 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55895 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55896 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55896 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55896 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55897 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55897 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55897 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55898 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55898 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55898 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55899 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55899 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55899 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55900 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55900 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55900 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55901 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55901 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55901 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55902 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55902 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55902 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55903 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55903 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55903 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55904 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55904 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55904 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55905 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55905 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55905 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55906 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55906 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55906 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55907 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55907 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55907 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55908 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55908 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55908 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55909 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55909 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55909 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55910 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55910 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55910 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55911 Accepted
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55911 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55911 Closing
+[Fri Oct 23 21:29:30 2026] 127.0.0.1:55912 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55912 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55912 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55913 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55913 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55913 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55914 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55914 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55914 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55915 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55915 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55915 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55916 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55916 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55916 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55917 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55917 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55917 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55918 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55918 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55918 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55919 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55919 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55919 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55920 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55920 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55920 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55921 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55921 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55921 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55922 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55922 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55922 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55923 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55923 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55923 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55924 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55924 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55924 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55925 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55925 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55925 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55926 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55926 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55926 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55927 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55927 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55927 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55928 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55928 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55928 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55929 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55929 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55929 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55930 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55930 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55930 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55931 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55931 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55931 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55932 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55932 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55932 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55933 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55933 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55933 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55934 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55934 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55934 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55935 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55935 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55935 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55936 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55936 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55936 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55937 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55937 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55937 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55938 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55938 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55938 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55939 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55939 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55939 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55940 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55940 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55940 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55941 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55941 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55941 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55942 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55942 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55942 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55943 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55943 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55943 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55944 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55944 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55944 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55945 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55945 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55945 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55946 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55946 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55946 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55947 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55947 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:55947 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57661 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57661 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57661 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57662 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57662 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57662 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57663 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57663 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57663 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57664 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57664 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57664 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57665 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57665 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57665 Closing
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57666 Accepted
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57666 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:31 2026] 127.0.0.1:57666 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57667 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57667 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57667 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57668 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57668 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57668 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57669 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57669 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57669 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57670 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57670 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57670 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57671 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57671 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57671 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57672 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57672 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57672 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57673 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57673 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57673 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57674 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57674 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57674 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57675 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57675 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57675 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57676 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57676 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57676 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57677 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57677 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57677 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57678 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57678 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57678 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57679 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57679 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57679 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57680 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57680 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57680 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57681 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57681 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57681 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57682 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57682 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57682 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57683 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57683 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57683 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57684 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57684 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57684 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57685 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57685 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57685 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57686 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57686 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57686 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57687 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57687 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57687 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57688 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57688 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57688 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57689 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57689 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57689 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57690 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57690 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57690 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57691 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57691 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57691 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57692 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57692 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57692 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57693 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57693 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57693 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57694 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57694 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57694 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57695 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57695 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57695 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57696 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57696 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57696 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57697 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57697 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57697 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57698 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57698 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57698 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57699 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57699 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57699 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57700 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57700 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57700 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57701 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57701 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57701 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57702 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57702 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57702 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57703 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57703 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57703 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57704 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57704 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57704 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57705 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57705 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57705 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57706 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57706 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57706 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57707 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57707 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57707 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57708 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57708 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57708 Closing
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57709 Accepted
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57709 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:32 2026] 127.0.0.1:57709 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57710 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57710 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57710 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57711 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57711 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57711 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57712 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57712 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57712 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57713 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57713 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57713 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57714 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57714 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57714 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57715 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57715 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57715 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57716 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57716 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57716 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57717 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57717 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57717 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57718 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57718 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57718 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57719 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57719 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57719 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57720 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57720 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57720 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57721 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57721 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57721 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57722 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57722 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57722 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57723 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57723 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57723 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57724 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57724 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57724 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57725 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57725 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57725 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57726 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57726 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57726 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57727 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57727 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57727 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57728 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57728 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57728 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57729 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57729 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57729 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57730 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57730 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57730 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57731 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57731 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57731 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 Closing

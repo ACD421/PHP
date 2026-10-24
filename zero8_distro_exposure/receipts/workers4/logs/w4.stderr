@@ -1,0 +1,63 @@
+[1599548] [Fri Oct 23 20:52:48 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18410) started
+[1599549] [Fri Oct 23 20:52:48 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18410) started
+[1599546] [Fri Oct 23 20:52:48 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18410) started
+[1599551] [Fri Oct 23 20:52:48 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18410) started
+[1599550] [Fri Oct 23 20:52:48 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18410) started
+[1599551] [Fri Oct 23 20:52:49 2026] 127.0.0.1:41980 Accepted
+[1599551] [Fri Oct 23 20:52:49 2026] 127.0.0.1:41980 [200]: GET /lc_probe.php
+[1599551] [Fri Oct 23 20:52:49 2026] 127.0.0.1:41980 Closing
+[1599551] [Fri Oct 23 20:52:49 2026] 127.0.0.1:41982 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2097152 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:41982 Closing
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:41996 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 6000640 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:41996 Closing
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42004 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42004 [200]: POST /lc_probe.php
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42004 Closing
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42006 Accepted
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42006 [200]: POST /lc_probe.php
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42006 Closing
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42016 Accepted
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42016 [200]: POST /lc_probe.php
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42016 Closing
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42032 Accepted
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42032 [200]: POST /lc_probe.php
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42032 Closing
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42034 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42034 [200]: POST /lc_probe.php
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42034 Closing
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42042 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42042 [200]: POST /lc_probe.php
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42042 Closing
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42046 Accepted
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42046 [200]: POST /lc_probe.php
+[1599551] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42046 Closing
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42054 Accepted
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42054 [200]: POST /lc_probe.php
+[1599546] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42054 Closing
+[1599548] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42068 Accepted
+[1599548] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42068 [200]: POST /lc_probe.php
+[1599548] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42068 Closing
+[1599550] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42082 Accepted
+[1599550] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42082 [200]: POST /lc_probe.php
+[1599550] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42082 Closing
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42086 Accepted
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42086 [200]: POST /lc_probe.php
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42086 Closing
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42088 Accepted
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42088 [200]: POST /lc_probe.php
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42088 Closing
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42094 Accepted
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42094 [200]: GET /lc_probe.php
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42094 Closing
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42108 Accepted
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42108 [200]: GET /lc_probe.php
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42108 Closing
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42122 Accepted
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42122 [200]: GET /lc_probe.php
+[1599549] [Fri Oct 23 20:52:50 2026] 127.0.0.1:42122 Closing

@@ -1,0 +1,3 @@
+[*] built plain trigger for gadget class AppCacheFlusher (10142 bytes)
+[fire 0] form field 'data': status=None dt=0.01s len=65 body[:300]='RemoteDisconnected: Remote end closed connection without response'
+[!] connection failure — target process may have died (crash manifest for the UAF).

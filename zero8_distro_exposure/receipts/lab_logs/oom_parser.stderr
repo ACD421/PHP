@@ -1,0 +1,15 @@
+[Fri Oct 23 20:38:08 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18303) started
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:59946 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:59946 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:59946 Closing
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:59952 Accepted
+[Fri Oct 23 20:38:09 2026] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2097152 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:59952 Closing
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:53029 Accepted
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:53029 [200]: POST /lc_probe.php
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:53029 Closing
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 Accepted
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:09 2026] 127.0.0.1:59974 Closing

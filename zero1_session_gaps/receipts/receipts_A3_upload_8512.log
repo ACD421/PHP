@@ -1,0 +1,37 @@
+==================================================================
+ A3a: upload_progress key injection, cleanup=0 (deterministic)
+ build: 8.5.12 cli-server | write=php_serialize read=php
+==================================================================
+-- POST multipart (PHP_SESSION_UPLOAD_PROGRESS carries the pipe payload) --
+STATUS: HTTP/1.1 200 OK
+--- session file (write side used php_serialize) ---
+-- READ request (default php handler) --
+[read.php] handler=php PHP 8.5.12 cli-server
+[read.php] var_dump:
+array(0) {
+}
+-- POP markers --
+[FAIL] WAKEUP_UP.txt missing
+[FAIL] DESTRUCT_UP.txt missing
+
+==================================================================
+ A3b: STOCK CONFIG - cleanup=1 (default), strict_mode=1 (default),
+      abort-mid-upload technique keeps the key
+==================================================================
+-- warm session first (strict_mode=1 accepts existing ids only) --
+-rw------- 1 root root    0 Oct 21 21:02 sess_9f491e5a6fc8de6651b425b3917297ce
+-rw------- 1 root root    0 Oct 21 21:02 sess_w8512upsid000000000000000000
+-- ABORTED multipart POST --
+ABORTED mid-upload (cleanup never reached)
+--- session file (after abort, pre-read) ---
+-- READ request (default php handler) --
+[read.php] handler=php PHP 8.5.12 cli-server
+[read.php] var_dump:
+array(0) {
+}
+-- POP markers --
+[FAIL] WAKEUP_UP.txt missing
+[FAIL] DESTRUCT_UP.txt missing
+==================================================================
+ done; artifacts in /tmp/p2s_up
+==================================================================

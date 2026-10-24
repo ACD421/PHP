@@ -1,0 +1,23 @@
+php2shell 1.0.0 — recon
+============================================================
+[*] multipart probe: 200 (0.10s)
+[*] version not in headers — chains keyed on version show UNKNOWN (pass --version to override)
+============================================================
+CHAINS (post-recon viability for this target):
+  [sessgap  ] VIABLE  session serialize_handler gap -> key injection -> gadget -> webshell -> revshell
+        -> fires on ANY PHP version given the write/read handler divergence + an app destructor gadget (this is an app-config bug class, not a memory bug)
+  [zero4    ] N/A      (not a remote target)
+  [zero5    ] N/A      (not a remote target)
+  [uprog    ] VIABLE  rfc1867 upload-progress UAF arms (kill manifests)
+        -> PHP ? <= 8.5.12 without the Oct-2026 patch (jammy 8.1.2-1ubuntu2.27 fleet + <=8.5.11 vanilla receipted; 8.3.36+/8.4.27+ have the patch)
+  [cformat  ] VIABLE  C: format internal-class crasher
+        -> crash/DoS class — needs an unserialize endpoint on target
+  [nativephp] NOT      NativePHP bridge: File.Copy -> AsyncTask spool poison -> unserialize
+        -> needs --native-bridge URL (the /_native/api/* surface)
+  [win-sess ] NOT      Windows session O_NOFOLLOW=0 file truncation
+        -> Windows victims only — this target is not Windows
+============================================================
+
+=== FIRE: [cformat] C: format internal-class crasher ===
+[*] C: crasher (Dom\Element) -> 200 (0.11s) '[import] PHP 8.5.11 result=true\nSCRIPT-END\n'
+[-] no crash signature — target class/layout differs

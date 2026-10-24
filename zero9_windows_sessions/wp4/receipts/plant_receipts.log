@@ -1,0 +1,3 @@
+2026-10-23 22:00:49 PLANTED-DIRECT user=andre mode=hardlink link=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x1\sess\sess_x1aaaaaaaaaaaaaaaaaaaaaaaaaa target=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x1\docroot\empty.php
+2026-10-23 22:00:51 PLANTED-DIRECT user=andre mode=symlink link=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x1\sess\sess_x3aaaaaaaaaaaaaaaaaaaaaaaaaa target=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x1\docroot\shell9.php
+2026-10-23 22:00:54 PLANTED-DIRECT user=andre mode=hardlink link=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\sys8512\sess\sess_x2aaaaaaaaaaaaaaaaaaaaaaaaaa target=C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\sys8512\docroot\sys.php

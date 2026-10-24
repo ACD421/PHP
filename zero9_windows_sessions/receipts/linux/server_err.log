@@ -1,0 +1,56 @@
+[Fri Oct 23 21:17:52 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18797) started
+[Fri Oct 23 21:17:52 2026] 127.0.0.1:56062 Accepted
+[Fri Oct 23 21:17:52 2026] 127.0.0.1:56062 [200]: GET /up.php
+[Fri Oct 23 21:17:52 2026] 127.0.0.1:56062 Closing
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56063 Accepted
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: open(/tmp/p2s_c3/symtest/sess/sess_symtest000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/p2s_c3/symtest/sess) in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  Cannot modify header information - headers already sent in /mnt/c/Users/andre/Downloads/php2shell-claude/wp3/docroot/up.php on line 2
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56063 [200]: POST /up.php
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56063 Closing
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56064 Accepted
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_A|B&quot; in Unknown on line 0
+[Fri Oct 23 21:17:53 2026] PHP Warning:  Cannot modify header information - headers already sent in /mnt/c/Users/andre/Downloads/php2shell-claude/wp3/docroot/up.php on line 2
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56064 [200]: POST /up.php
+[Fri Oct 23 21:17:53 2026] 127.0.0.1:56064 Closing

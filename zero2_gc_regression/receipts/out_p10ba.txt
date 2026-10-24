@@ -1,0 +1,4 @@
+survived
+bool(false)
+int(42)
+string(22) "a:1:{s:5:"after";i:1;}"

@@ -1,0 +1,13 @@
+N=0  clean (hits=1 trace=SD| len=79)
+N=1  clean (hits=1 trace=SD| len=79)
+N=2  clean (hits=1 trace=SD| len=79)
+N=3  clean (hits=1 trace=SD| len=79)
+N=4  clean (hits=1 trace=SD| len=79)
+N=5  clean (hits=1 trace=SD| len=79)
+N=6  ASAN-FIRE
+N=7  ASAN-FIRE
+N=8  ASAN-FIRE
+N=12  ASAN-FIRE
+== version matrix (N=24) ==
+/tmp/php8511_build/out/sapi/cli/php rc=0 :: hits=1 trace=SD| len=79
+/usr/bin/php8.1 rc=0 :: hits=1 trace=SD| len=79

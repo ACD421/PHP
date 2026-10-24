@@ -1,0 +1,6 @@
+run=1 master_pid=1644820 initial_pool_children=4 servers=5
+baseline benign_conc8: rate=312.3 req/s p50=23.9ms
+kill#1 outcome=empty -> pool_children=0 master_alive=True
+  pool=0 master_alive: benign probe outcome=reset
+SERVICE DEAD after 1 crasher requests (master zombie/cascade)
+kill attribution (pid -> kills-served-then-crashed): {'1644946': 186, '1644947': 184, '1644942': 194, '1644820': 195, '1644939': 180}  [master=1644820]

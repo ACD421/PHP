@@ -1,0 +1,7 @@
+php=/tmp/php8512_build/plain3fix/sapi/cli/php shape=ctrl n=1000 env=USE_ZEND_ALLOC=0
+payload_bytes=10108 (wire 18268)
+outcomes: {'survived': 1000}
+wall=15.2s rate=65.9 req/s
+rss_kb start=16152 end=17112 drift=960 (0.94 MB)
+linear_slope=0.201 KB/request (206 bytes/request)
+projected: 1000 req = 0.2 MB, 1M req = 0.2 GB

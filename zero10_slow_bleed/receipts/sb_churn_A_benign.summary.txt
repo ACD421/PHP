@@ -1,0 +1,11 @@
+mode=benign n=10000 endpoint=127.0.0.1:18310
+payload_wire_bytes=8
+outcomes: ok=10000 kill(reset/empty)=0 refused=0 nook=0
+wall_time=146.14s  sustained_rate=68.4 req/s (all requests)
+ok_rate=68.4 req/s  latency p50=15.3ms p95=19.2ms p99=22.1ms max=1023.1ms
+latency first-2500 p50=9.6ms vs last-2500 p50=15.7ms
+distinct_server_pids_seen=5 [1600252, 1600253, 1600254, 1600255, 1600256]
+first_kill_at_request=None  first_refused_at_request=None
+master_rss_kb start=16240 end=16792 max=16792 drift=552
+alive_children min=4 max=4 final=4 distinct_pool_states=1
+pool_state_timeline (first-seen): t=0.0s n=4

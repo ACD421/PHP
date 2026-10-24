@@ -1,0 +1,13 @@
+[Fri Oct 23 20:38:22 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18312) started
+[Fri Oct 23 20:38:22 2026] 127.0.0.1:50964 Accepted
+[Fri Oct 23 20:38:22 2026] 127.0.0.1:50964 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:22 2026] 127.0.0.1:50964 Closing
+[Fri Oct 23 20:38:22 2026] 127.0.0.1:50980 Accepted
+[Fri Oct 23 20:38:23 2026] 127.0.0.1:50980 Invalid request (Unexpected EOF)
+[Fri Oct 23 20:38:23 2026] 127.0.0.1:50980 Closing
+[Fri Oct 23 20:38:23 2026] 127.0.0.1:50984 Accepted
+[Fri Oct 23 20:38:23 2026] 127.0.0.1:50984 [200]: POST /lc_probe.php
+[Fri Oct 23 20:38:23 2026] 127.0.0.1:50984 Closing
+[Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 Accepted
+[Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:24 2026] 127.0.0.1:52708 Closing

@@ -1,0 +1,4 @@
+[Fri Oct 23 20:38:05 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18301) started
+[Fri Oct 23 20:38:06 2026] 127.0.0.1:49530 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:49530 [200]: GET /busy.php - Maximum execution time of 2 seconds exceeded in /tmp/lc_lab/timer_ctl/doc/busy.php on line 1
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:49530 Closing

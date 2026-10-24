@@ -1,0 +1,22 @@
+===== DevMode=ON (filtered token) ===== 
+SeChangeNotifyPrivilege Bypass traverse checking Enabled
+--- python os.symlink (existing target) --- 
+PY-SYMLINK-OK
+--- python os.symlink (dangling) --- 
+PY-SYMLINK-DANGLING-OK
+--- python os.link (hardlink control) --- 
+PY-LINK-OK
+ Volume in drive C is OS
+ Volume Serial Number is 8AA3-C303
+
+ Directory of C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab
+
+10/23/2026  10:11 PM    <DIR>          .
+10/23/2026  10:11 PM    <DIR>          ..
+10/23/2026  10:11 PM    <SYMLINK>      dang_ON.txt [C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\nope_ON.php]
+10/23/2026  10:11 PM                 4 hl_OFF.txt
+10/23/2026  10:11 PM                 4 hl_ON.txt
+10/23/2026  10:11 PM    <SYMLINK>      sym_ON.txt [C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\t.txt]
+10/23/2026  10:11 PM                 4 t.txt
+               5 File(s)             12 bytes
+               2 Dir(s)  51,489,300,480 bytes free

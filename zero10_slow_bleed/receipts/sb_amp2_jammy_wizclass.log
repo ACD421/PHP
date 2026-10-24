@@ -1,0 +1,8 @@
+=== A. chunked TE oversized body vs post_max_size (8.5.12, post_max 2M) ===
+CHUNKED-4MB response: b'HTTP/1.1 200 OK' b'body:' b'<br />\n<b>Warning</b>:  PHP Request Startup: POST Content-Length of 4194378 bytes exceeds the limit of 2097152 bytes in '
+--- server log ---
+[Fri Oct 23 22:20:34 2026] 127.0.0.1:56810 [200]: POST /sb_amp_victim.php
+=== B. Wiz-class headline on jammy 8.1.2: ~1MB dup-header wire ===
+amp81_xdups_1x150000     wire= 1200076B peak_real= 48234496B peak_int= 45989904B alloc/wire= 40.19x post=1 files=0 t=  93.8ms 8.1.2-1ubuntu2.27
+amp81_xdups_1x150000_r2  wire= 1200076B peak_real= 48234496B peak_int= 45989904B alloc/wire= 40.19x post=1 files=0 t=  72.2ms 8.1.2-1ubuntu2.27
+AMP2-DONE

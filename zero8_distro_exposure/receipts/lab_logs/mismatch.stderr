@@ -1,0 +1,15 @@
+[Fri Oct 23 20:38:20 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18309) started
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55984 Accepted
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55984 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55984 Closing
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55998 Accepted
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55998 [200]: POST /arm_target.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:55998 Closing
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56000 Accepted
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56000 [200]: POST /lc_probe.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56000 Closing
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 Accepted
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:56012 Closing

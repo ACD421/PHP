@@ -1,0 +1,52 @@
+php=/tmp/php8512_build/fixedasan/sapi/cli/php shape=ctrl n=200 env=USE_ZEND_ALLOC=0,ASAN_OPTIONS=detect_leaks=1,LSAN_OPTIONS=report_objects=0
+payload_bytes=10108 (wire 18268)
+outcomes: {'survived': 200}
+wall=4.7s rate=42.5 req/s
+rss_kb start=30144 end=103524 drift=73380 (71.66 MB)
+linear_slope=358.985 KB/request (367600 bytes/request)
+projected: 1000 req = 350.6 MB, 1M req = 342.4 GB
+server log LSan tail:
+Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57732 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57733 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57734 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57735 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57736 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57737 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57738 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57739 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57740 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57741 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57742 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57743 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57744 Closing
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 Accepted
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 [200]: POST /sb_leak_victim.php
+[Fri Oct 23 21:29:33 2026] 127.0.0.1:57746 Closing
+

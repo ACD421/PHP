@@ -1,0 +1,9 @@
+mode=bigoom n=20 endpoint=127.0.0.1:18315
+payload_wire_bytes=42017416
+outcomes: ok=0 kill(reset/empty)=0 refused=0 nook=20
+wall_time=82.51s  sustained_rate=0.2 req/s (all requests)
+distinct_server_pids_seen=0 []
+first_kill_at_request=None  first_refused_at_request=None
+master_rss_kb start=16276 end=20248 max=104504 drift=3972
+alive_children min=4 max=4 final=4 distinct_pool_states=1
+pool_state_timeline (first-seen): t=0.0s n=4

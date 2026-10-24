@@ -1,0 +1,13 @@
+[Fri Oct 23 20:38:08 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18302) started
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:53022 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:53022 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:53022 Closing
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38578 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38578 [200]: POST /arm_target.php
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38578 Closing
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38588 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38588 [200]: POST /lc_probe.php
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38588 Closing
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 Accepted
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:08 2026] 127.0.0.1:38600 Closing

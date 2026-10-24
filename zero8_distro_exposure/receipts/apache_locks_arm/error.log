@@ -1,0 +1,1 @@
+[Fri Oct 23 20:51:52.067550 2026] [unixd:alert] [pid 1599489] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive

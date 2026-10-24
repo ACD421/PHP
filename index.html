@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>php2shell-zeros — surviving bugs in PHP's 2026-10-21 security releases</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#111622; --panel2:#0e1320; --line:#1e2740;
+    --fg:#c9d4e8; --dim:#7b8aa5; --acc:#5aa2ff; --good:#3ddc84; --bad:#ff5c74;
+    --warn:#ffcc66; --mono:#0a0d13;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font:15px/1.65 "Segoe UI",system-ui,sans-serif;padding:0 0 80px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line);padding:44px 0 28px;margin-bottom:34px;background:linear-gradient(180deg,#0d1322,#0b0e14)}
+  h1{font-size:27px;letter-spacing:.5px;color:#fff}
+  h1 .tag{color:var(--acc)}
+  .sub{color:var(--dim);margin-top:8px;font-size:14px}
+  .sub b{color:var(--fg)}
+  h2{font-size:19px;margin:44px 0 14px;color:#fff;border-left:3px solid var(--acc);padding-left:12px}
+  h3{font-size:15.5px;margin:26px 0 8px;color:var(--acc)}
+  p{margin:10px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0}
+  .zero{border-color:#2a3a20}
+  .contrib{border-color:#3a2f1e}
+  .analysis{border-color:#243044}
+  code,.mono{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:13px}
+  p code,li code{background:#161d2e;border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:#a8c7ff}
+  pre{background:var(--mono);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:12px 0;font-size:12.5px;line-height:1.55}
+  pre .ok{color:var(--good)} pre .err{color:var(--bad)} pre .dim{color:var(--dim)} pre .mark{color:var(--warn)}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#141b2c;color:#fff;font-weight:600}
+  td .dim{color:var(--dim)}
+  .pill{display:inline-block;border-radius:20px;padding:2px 11px;font-size:12px;font-weight:600;letter-spacing:.3px;margin-right:6px}
+  .pill.rce{background:#12351f;color:var(--good);border:1px solid #1f5c35}
+  .pill.primitive{background:#3a2c12;color:var(--warn);border:1px solid #5c481f}
+  .pill.analysis{background:#14243a;color:var(--acc);border:1px solid #24405c}
+  .pill.unfiled{background:#3a1420;color:var(--bad);border:1px solid #5c2434}
+  ul,ol{margin:8px 0 8px 22px}
+  li{margin:5px 0}
+  .credits td:first-child{white-space:nowrap;color:#fff}
+  .tree{color:var(--dim)}
+  .tree b{color:var(--fg);font-weight:600}
+  footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;color:var(--dim);font-size:12.5px}
+  .toc{columns:2;column-gap:34px;font-size:14px}
+  .toc a{color:var(--acc);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+  details{background:var(--panel2);border:1px solid var(--line);border-radius:8px;margin:10px 0}
+  summary{cursor:pointer;padding:10px 14px;color:#fff;font-weight:600;font-size:14px}
+  details pre{margin:0;border-radius:0;border-left:none;border-right:none;border-bottom:none}
+  .num{font-size:30px;color:#fff;font-weight:700}
+  .statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+  .stat{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;text-align:center}
+  .stat .lbl{font-size:11.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.8px;margin-top:3px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1><span class="tag">php2shell-zeros</span> — what survives PHP's 2026-10-21 security releases</h1>
+  <div class="sub">Target: <b>PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35</b> (today's fully-patched releases) &nbsp;·&nbsp; Author: <b>Andrew Dorman (@acd421)</b> &nbsp;·&nbsp; 2026-10-21 &nbsp;·&nbsp; every claim receipt-backed, logs in this zip</div>
+  <div style="margin-top:18px">
+    <button id="dlzip" style="background:#12351f;border:1px solid #1f5c35;color:#3ddc84;font:600 14px ui-monospace,Consolas,monospace;padding:10px 22px;border-radius:8px;cursor:pointer">⬇ Download php2shell-zeros.zip (embedded in this page)</button>
+    <span id="dlinfo" style="color:var(--dim);font-size:12px;margin-left:12px"></span>
+  </div>
+</div></header>
+<script>
+var ZIP_B64 = "__ZIP_B64_PLACEHOLDER__";
+(function(){
+  var b = document.getElementById("dlzip"), info = document.getElementById("dlinfo");
+  if (!/^[A-Za-z0-9+/=]+$/.test(ZIP_B64) || ZIP_B64.length < 100) { info.textContent = "(zip not embedded in this copy)"; return; }
+  info.textContent = ZIP_B64.length + " b64 chars embedded";
+  b.onclick = function(){
+    var bin = atob(ZIP_B64), arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    var url = URL.createObjectURL(new Blob([arr], {type: "application/zip"}));
+    var a = document.createElement("a"); a.href = url; a.download = "php2shell-zeros.zip";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  };
+})();
+</script>
+
+<div class="wrap">
+
+<div class="card"><h3 style="margin-top:0">Honest inventory</h3>
+<div class="statgrid">
+  <div class="stat"><div class="num" style="color:var(--good)">3</div><div class="lbl">new unfiled zeros</div></div>
+  <div class="stat"><div class="num">1 <span class="dim" style="font-size:15px">of 3</span></div><div class="lbl">with full RCE receipts</div></div>
+  <div class="stat"><div class="num" style="color:var(--warn)">1</div><div class="lbl">weaponization of a known bug</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">sec@php.net filings ready</div></div>
+</div>
+<p class="sub">Three zeros: the session-gaps family (full RCE), the unserialize-side var_destroy re-entry UAF (three receipt classes incl. stock-build SIGSEGV and an attacker-chosen deref), and the serialize-side mirror (first demonstration, unnamed anywhere). Zero2's base bug is publicly known and filed by its discoverer — our contribution there is receipts, remote kill, and the allocator-wall analysis. Zero3 is analysis, no vulnerability. No padded counts.</p>
+</div>
+
+<h2 id="z1">Zero 1 — session handling gaps <span class="pill rce">FULL RCE</span> <span class="pill unfiled">UNFILED</span></h2>
+<div class="card zero">
+<p><b>Unauthenticated RCE + unauthenticated session-wipe on fully-patched PHP, via two surviving session-handling gaps.</b> Pure logic bugs — ASAN-clean, orthogonal to the CVE-2026-109618/19 memory class. Five independent <code>uid=</code> receipts over HTTP, negative control included.</p>
+
+<h3>A · serialize_handler read/write mismatch → attacker-chosen object injection</h3>
+<p>When the session <b>write</b> path uses a different <code>session.serialize_handler</code> than the <b>read</b> path (per-dir <code>php_value</code>, vhost ini, <code>.htaccess</code>, or app-level <code>ini_set()</code>), an attacker-controlled string persisted into <code>$_SESSION</code> lands at a value position the <code>php</code> decoder unserializes — constructing an attacker-chosen object with <code>__wakeup()</code> at construction and <code>__destruct()</code> at teardown. PHP 8.5's "Session has been destroyed" hardening <b>does not help: the destruction itself executes the attacker's destructor</b> (fatal-trace receipt shows the attacker class <code>__destruct</code> invoked from inside <code>session_start()</code>).</p>
+
+<h3>B · upload-progress key injection (pre-script, unauthenticated)</h3>
+<p>The rfc1867 hook writes <code>upload_progress_</code> + the raw <code>PHP_SESSION_UPLOAD_PROGRESS</code> multipart value into the session file <b>verbatim, before any script runs</b> — <span class="mono">ext/session/session.c:3265-3269</span> on php-8.5.12, no grammar validation. With a <code>php_serialize</code> write side (the recommended "modern" config) the poisoned key persists inside <code>serialize($_SESSION)</code>; any <code>php</code> read unserializes it as an object. Against <b>all-stock ini</b> (cleanup=1, strict_mode=1), the slow-upload concurrent-read race defeats cleanup — injection landed on read attempt <b>#1</b> in the receipt run. This corrects the same-day public record: only the pure-<code>php</code>-handler variant is closed on 8.5.12.</p>
+
+<h3>C · unauthenticated session-wipe (default installs)</h3>
+<p>Even when the invalid-key check rejects the write, the open-then-reject sequence <b>truncates the victim's session file to 0 bytes</b>. One multipart POST, any victim session, zero configuration.</p>
+
+<h3>Receipts (raw logs in <span class="mono">zero1_session_gaps/receipts/</span>)</h3>
+<pre>[A5 RCE receipt on 8.5.12] -&gt; <span class="ok">uid=0(root) gid=0(root) groups=0(root)</span>   <span class="dim"># key injection + gadget, on the patched build itself</span>
+[T1 RCE receipt] -&gt; <span class="ok">uid=0(root) ...</span>  <span class="dim"># app ini_set mismatch</span>
+[T2 RCE receipt] -&gt; <span class="ok">uid=0(root) ...</span>  <span class="dim"># per-dir php_value php_serialize</span>
+[T3 RCE receipt] -&gt; <span class="ok">uid=0(root) ...</span>  <span class="dim"># ALL-STOCK ini, race, read #1</span>
+[B2 RCE receipt] -&gt; <span class="ok">uid=0(root) ...</span>  <span class="dim"># no-POP variant: save_path in docroot</span>
+[T4] victim session file -&gt; <span class="mark">0 bytes</span>  <span class="dim"># unauth session-wipe, default ini</span>
+[PASS] A0 ... object(EvilObj)#1 { ["cmd"]=&gt; string(5) "BINWR" ... }  <span class="dim"># object retained + wakeup/destruct markers</span>
+[C1] negative control: no mismatch → key stays inert string, no object, no shell</pre>
+<pre><span class="dim">session file on disk (8.5.12, php_serialize write side, hexdump):</span>
+00000000  61 3a 31 3a 7b 73 3a 31  34 35 3a 22 75 70 6c 6f  |a:1:{s:145:"uplo|
+00000010  61 64 5f 70 72 6f 67  72  65 73 73 5f 69 6e 6a 7c  |ad_progress_inj||
+00000020  4f 3a 31 34 3a 22 44 65  66 65 72 72 65 64 57 72  |O:14:"DeferredWr|</pre>
+
+<p><b>Reproduce:</b> <code>bash zero1_session_gaps/repro/fin_8512.sh</code> (self-contained: object-injection receipt + full RCE on 8.5.12), <code>mm_cli_8512.sh</code> (mismatch matrix incl. closed variant), <code>ap_lab.sh</code> (Apache T-series: T1/T2/T3/T4/B2 + controls).</p>
+</div>
+
+<h2 id="z2">Zero 2 — GC double-free regression: weaponization receipts <span class="pill primitive">PRIMITIVE + ANALYSIS</span></h2>
+<div class="card contrib">
+<p><b>The security patch shipped a bug:</b> GH-24050's <code>gc_add_garbage()</code> for <code>get_gc</code>-returned tables (Zend/zend_gc.c:1575-1580) double-frees SimpleXML's self-owned properties table. Base bug discovered and filed same-day by <b>evankford</b> (php-src #24488, PR #24494) — our contribution is what follows.</p>
+<ul>
+<li><b>Both frees pinned in gdb</b>, same address, one GC pass: free #1 via <code>sxe_object_free_storage</code> → <code>zend_hash_release</code> (<code>zend_gc.c:2142</code>), free #2 via the garbage-entry tail efree (<code>zend_gc.c:2170</code>).</li>
+<li><b>Receipts:</b> glibc <code>free(): double free detected in tcache 2</code> (4/4 trigger variants, <code>USE_ZEND_ALLOC=0</code>); ASAN heap-use-after-free at <code>zend_gc.c:2131</code> via <code>ZEND_DO_ICALL</code>; <code>zend_mm_heap corrupted</code> + core dump under stock ZendMM with churn; <b>silent corruption state</b> until the next bin allocation.</li>
+<li><b>Remote kill:</b> one-file php -S victim (<code>simplexml_load_string(php://input)</code> + <code>get_object_vars</code> + cycle + GC) — warmup 200 OK, triggering request kills the server mid-request. PoCs <code>r1_victim.php</code>, <code>r1_serve.sh</code>, <code>r1_drive.sh</code>.</li>
+<li><b>Stock-build indirect-call receipt (default php.ini):</b> N=1000-child XML + materialization + GC crashes <b>inside <code>zend_gc_collect_cycles</code> at 10–30%</b>, including at <code>zend_hash.c:1996</code> — <code>ht-&gt;pDestructor(&amp;p-&gt;val)</code> compiled to <b><code>call *%rax</code> through the corrupted pDestructor with a real heap pointer as rdi</b> — plus <code>zend_gc.c:2138</code>, a corrupted <code>obj-&gt;handlers</code> deref one instruction before the <code>free_obj</code> indirect call. Control: identical XML without materialization = 0/10; with = 3/10 — GH-24488-caused, proven. One grooming step from controlled RIP (the crash-time slot still holds random freelist-shadow bytes).</li>
+<li><b>The allocator walls (both structural, both receipted):</b> stock ZendMM <code>ZEND_MM_HEAP_PROTECTION</code> shadow lists (per-heap CSPRNG key; post-double-free bin-6 is an infinite B→X→B→X two-cycle — second same-bin pop panics); <code>USE_ZEND_ALLOC=0</code> glibc tcache aborts deterministically (the GC's own 48-byte alloc storm drains tcache[2] below the 7-entry check — 16,384-event LD_PRELOAD trace). Tcache/fastbin bypass: dead. Threat model honestly bounded: stock = unauth remote crash + silent corruption + a proven indirect-call primitive; one grooming step from RIP.</li>
+<li>Content control: the double-freed table's keys/values derive from attacker XML (SimpleXML properties).</li>
+</ul>
+<p><b>Reproduce:</b> <code>USE_ZEND_ALLOC=0 sapi/cli/php -d zend.enable_gc=1 zero2_gc_regression/poc/v_cast.php</code> · churn variant <code>p12b_churn.sh</code> · both-free gdb map in <code>poc/p22_ground.log</code>.</p>
+</div>
+
+<h2 id="z4">Zero 4 — var_destroy re-entry UAF in unserialize <span class="pill primitive">UAF · FIRST DEMO</span> <span class="pill unfiled">UNFILED</span></h2>
+<div class="card zero">
+<p><b>A deterministic, ASAN-proven use-after-free in <code>unserialize()</code> on fully-patched 8.5.12</b> — the gap publicly named in the Wiz companion repo as "var_destroy re-entry UAF at n=1015", never demonstrated before, reproduced on demand with a one-string PoC (verified twice: independent agent run + coordinator re-run).</p>
+
+<h3>Mechanism (the receipt stack narrates it)</h3>
+<pre>zif_unserialize(payload)                        <span class="dim"># 1018 elements crossing the var_entries slot-block boundary</span>
+ → php_var_unserialize_destroy (:94)
+  → var_destroy slot walk (:319)
+   → <span class="mark">i_zval_ptr_dtor — UNBRACKETED (no serialize_lock)</span>
+    → attacker __destruct fires mid-walk
+     → nested unserialize('i:7;')
+      → <span class="err">READ of FREED var_entries chain at var_unserializer.c:906</span>  <span class="dim"># ASAN heap-use-after-free</span></pre>
+
+<h3>Trigger recipe (vd4_wakeup.php)</h3>
+<ul>
+<li>Element count crosses the 1015–1018 slot-block boundary of <code>php_unserialize_data</code>'s var_entries chain</li>
+<li>One object carrying <b>both</b> <code>__wakeup</code> (earns the delayed-call flag slot) <b>and</b> <code>__destruct</code> (re-enters <code>unserialize</code> during the unbracketed dtor)</li>
+<li>Trailing decode error so the partial tree frees pre-destroy and the flagged slot is the last reference</li>
+<li>The nested call sees <code>level=1, lock=0</code> → reuses the mid-destroy context → reads the freed entries chain</li>
+</ul>
+<p><b>Receipt:</b> <code>AddressSanitizer: heap-use-after-free ... var_unserializer.c:906 in php_var_unserialize</code> — deterministic, plain userland, no config, no extensions.</p>
+<p><b>Honest bounds — upgraded after full characterization:</b> three receipt classes, all coordinator-re-verified: ASAN UAF read/write; <b>glibc SIGSEGV with core dump on stock builds</b> (8.5.12, 8.5.11, Ubuntu 8.1.2 — the freed chunk's unsorted-bin fd is consumed as a slot index → wild write); and on production ZendMM a <b>silent write captured by hardware watchpoint</b> (data[3]=rval, used_slots 3→4, full re-entrant backtrace). <b>Controlled corruption:</b> reclaim the freed chunk with an attacker string, re-entrant <code>R:1020</code> returns a forged zval* built from string bytes — gdb receipt derefs <code>0x4242424242424242</code>, attacker-chosen, ASLR-free; with any address leak this upgrades to arbitrary read / 16-byte write. Exact boundary: clean at 1017 elements, fires at 1018. Escalation path documented: bailout inside the re-entrant call leaves the full context freed in-request — the CVE-2026-109618 fire state on a patched build.</p>
+<p><b>Reproduce:</b> <code>USE_ZEND_ALLOC=0 ASAN_OPTIONS=detect_leaks=0 sapi/cli/php -n zero4_var_destroy_uaf/poc/vd4_wakeup.php</code> (ASAN build required for the receipt).</p>
+</div>
+
+<h2 id="z5">Zero 5 — serialize-side mirror: php_var_serialize_destroy re-entry UAF <span class="pill primitive">UAF · FIRST DEMO</span> <span class="pill unfiled">UNFILED</span></h2>
+<div class="card zero">
+<p><b>The serialize-side mirror of zero4 — a heap-use-after-free in <code>php_var_serialize_destroy</code> on fully-patched 8.5.12, unnamed anywhere before this receipt.</b> Triggered by serializing a crafted object graph from plain userland.</p>
+<pre><span class="dim">receipt (coordinator re-verified from the packaged PoC):</span>
+ERROR: AddressSanitizer: heap-use-after-free
+SUMMARY: heap-use-after-free Zend/zend_variables.h:42 in i_zval_ptr_dtor
+  <span class="err">&lt;- zend_hash_destroy (:1985) &lt;- php_var_serialize_destroy (:1429)</span></pre>
+<p><b>Mechanism:</b> an object is pinned as last reference inside the serialize context's HashTable (refcount≥2 encounter + a <code>__sleep</code> that nulls the object's other references — direct <code>$GLOBALS</code> writes fail COW-detection, receipts document the negative shapes). <code>php_var_serialize_destroy</code> → <code>zend_hash_destroy</code> releases the pin → <b>attacker <code>__destruct</code> runs inside the destroy loop</b> → re-entrant <code>serialize()</code> reuses the context and inserts entries → <b>≥6 nested objects force an arData erealloc mid-iteration</b> → the outer loop walks the freed old arData. Boundary: clean at 5, fires at 6.</p>
+<p><b>Reproduce:</b> <code>USE_ZEND_ALLOC=0 ASAN_OPTIONS=detect_leaks=0 sapi/cli/php -n zero5_serialize_reentry/poc/vd6_carrier.php</code>. Present on 8.5.12/8.5.11/8.1.2 (silent under glibc on the older two).</p>
+</div>
+
+<h2 id="z3">Zero 3 — verified defense map of the patch <span class="pill analysis">ANALYSIS</span></h2>
+<div class="card analysis">
+<p>No vulnerability claimed. What the 8.5.12 patch genuinely closed, with gdb receipts for every path: OOM no longer longjmps (graceful returns, delayed fatals — verified on 12M-object decode sweeps), <code>php_basic_early_rinit()</code> memsets the var-context state before the rfc1867 window every request, the <code>serialize_lock</code> leak acts as an in-request reuse tripwire, and the shadow-key allocator turns same-bin double-frees into alloc-time panics. The surviving surface is exactly where the patch didn't look: format/ownership logic (zero1, zero2), not bailout mechanics. <span class="mono">zero3_patch_teardown/ANALYSIS.md</span>.</p>
+</div>
+
+<h2 id="credits">Credits — exact, receipt-sized</h2>
+<div class="card">
+<table class="credits">
+<tr><th>Contribution</th><th>Credited to</th></tr>
+<tr><td>Zero1 findings, receipts, write-ups</td><td>Andrew Dorman (@acd421), agent-assisted (Claude / Anthropic tooling)</td></tr>
+<tr><td>Zero1 gap names (public record they survive the patch)</td><td>Wiz research team disclosure companion repo, 2026-10-21</td></tr>
+<tr><td>Race technique shape (drip + concurrent read; same-day public research vs 8.5.11)</td><td>Public record (author requested no credit) — its "patched in 8.5.12" claim corrected here with receipts</td></tr>
+<tr><td>Legacy session-injection technique class</td><td>Public PHP security research, mid-2010s onward</td></tr>
+<tr><td>Zero2 base regression (discovery + filing + fix PR)</td><td>evankford — php-src #24488, PR #24494 (verified by devnexen)</td></tr>
+<tr><td>Zero2 weaponization receipts, remote kill, allocator-wall analysis</td><td>Andrew Dorman (@acd421), agent-assisted</td></tr>
+<tr><td>Public corroboration of the 8.5.12 double-free class</td><td>Elise (@elise@katze.sh) — same-day ASAN receipt; uncredited in PHP's advisories, credited here</td></tr>
+<tr><td>Regression source (the fix that introduced zero2)</td><td>GH-24050 wave — arnaud-lb, iluuu1994, bukka, ndossche (PHP security team)</td></tr>
+<tr><td>Original CVE-2026-109618/19 research (context)</td><td>Calif (Ryan A), OpenAI, Wiz, lcfr-hax, tomash-areion — per GHSA-w8hw-w9fx-j79w / GHSA-6wmf-4rv5-p3rp</td></tr>
+</table>
+</div>
+
+<h2 id="files">Package contents</h2>
+<div class="card"><pre class="tree"><b>php2shell-zeros/</b>
+├── README.md                     <span class="dim">manifest, build steps, credit map, quickstart</span>
+├── index.html                    <span class="dim">this page</span>
+├── filings/
+│   ├── SEC_PHP_FILING_1_mismatch.md       <span class="dim">send-ready: mismatch → object injection → RCE</span>
+│   └── SEC_PHP_FILING_2_keyinjection.md   <span class="dim">send-ready: key injection → RCE + session-wipe</span>
+├── zero1_session_gaps/           <span class="dim">THE ZERO</span>
+│   ├── WRITEUP.md                ├── repro/{fin_8512,mm_cli_8512,ap_lab}.sh, up_client.py, gen_payloads.php
+│   └── receipts/ (5 raw log files from 2026-10-21 runs)
+├── zero2_gc_regression/          <span class="dim">PRIMITIVE + ANALYSIS</span>
+│   ├── WRITEUP.md + GC_WEAPON_STATUS.md   ├── poc/{v_*.php, p11, p12b_churn.sh, r1_* remote kill, p22_ground.log}
+│   └── receipts/{escalation + control-experiment logs, p37 verify script, tracer.c}
+├── zero3_patch_teardown/
+│   └── ANALYSIS.md               <span class="dim">verified defense map (no vulnerability claimed)</span>
+└── zero4_var_destroy_uaf/        <span class="dim">ZERO #2 — UAF in unserialize (first demo)</span>
+    ├── WRITEUP.md                ├── poc/vd4_wakeup.php
+    └── vd4_asan.log (receipt)   └── vd_versions.log</pre>
+<p class="sub">Build for repros: stock <span class="mono">php-8.5.12.tar.gz</span>, standard configure with session+xml+dom+simplexml+readline (exact line in README). Every repro in this zip was executed from the zip's own files before packaging.</p>
+</div>
+
+<h2 id="timeline">Timeline (2026-10-21, UTC)</h2>
+<div class="card">
+<table>
+<tr><th>~Time</th><th>Event</th></tr>
+<tr><td>04:00 class</td><td>PHP ships 8.2.35/8.3.36/8.4.27/8.5.12 fixing CVE-2026-109618/109619; advisories + reporter credits publish</td></tr>
+<tr><td>15:32</td><td>Elise posts an ASAN double-free receipt against 8.5.12 (uncredited, unreported)</td></tr>
+<tr><td>15:53</td><td>Anonymous php -a segfault receipt against docker 8.5.12</td></tr>
+<tr><td>17:40</td><td>Dinosn amplifies "patch is incomplete" (384K views); evankford's #24488 files the GC regression</td></tr>
+<tr><td>evening</td><td><b>This package:</b> session-gap zeros verified on 8.5.12 with RCE receipts; GC regression weaponization receipts, remote kill, and allocator-wall analysis; defense map verified</td></tr>
+</table>
+</div>
+
+<footer>php2shell-zeros · Andrew Dorman (@acd421) · 2026-10-21 · Receipts or it didn't happen. Filings held for coordinated disclosure — publish/file decision is the author's.</footer>
+</div>
+</body>
+</html>

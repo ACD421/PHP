@@ -1,0 +1,19 @@
+BIG-DECODE tag=r6 iter=0 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=31.1 t=480947278180422
+BIG-DECODE tag=r6 iter=1 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=242.4 t=480947520585251
+BIG-DECODE tag=r6 iter=2 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=494.7 t=480948015315550
+BIG-DECODE tag=r6 iter=3 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=921.5 t=480948936886837
+SLOW-START tag=r6 iter=4 dur_ms=668.5 decoded=-9 t=480949605517792
+ENCODE-FALSE tag=r6 iter=5 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+ENCODE-FALSE tag=r6 iter=6 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+ENCODE-FALSE tag=r6 iter=7 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+BIG-DECODE tag=r6 iter=3059 decoded=3146058 disk_size=3146058 disk_inode=19 dur_ms=55.7 t=480950635895298
+BIG-DECODE tag=r6 iter=3060 decoded=3146055 disk_size=3146055 disk_inode=19 dur_ms=50.8 t=480950686732586
+BIG-DECODE tag=r6 iter=3061 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=71.9 t=480950758710014
+BIG-DECODE tag=r6 iter=3062 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=65.3 t=480950824051058
+BIG-DECODE tag=r6 iter=3063 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=78.3 t=480950902391206
+BIG-DECODE tag=r6 iter=3064 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=56.9 t=480950959296360
+BIG-DECODE tag=r6 iter=3065 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=62.1 t=480951021427924
+BIG-DECODE tag=r6 iter=3066 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=53.2 t=480951074640858
+BIG-DECODE tag=r6 iter=3067 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=51.7 t=480951126404818
+BIG-DECODE tag=r6 iter=3068 decoded=3146056 disk_size=3146056 disk_inode=19 dur_ms=81.0 t=480951207451117
+READER-DONE tag=r6 ok=5999 fail=1 max_decoded=3146058 big_decodes=14 slow_over_50ms=14

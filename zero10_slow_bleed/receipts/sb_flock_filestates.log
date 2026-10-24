@@ -1,0 +1,12 @@
+== flock file-state receipts (Fri Oct 23 22:17:56 CDT 2026) ==
+-- stock-ini fat-key drip (drip carries 2048KB PROG value) --
+pre-drip (empty victim session): 0 bytes
+mid-drip (FILE_START wrote the fat key): 2097477 bytes; head: upload_progress_AAAAAAAAAAAAAAAAAAAAAAAA
+after drip window (request still alive server-side at this rate): 0 bytes
+after the drip request finally dies (stock cleanup deletes): 0 bytes
+-- cleanup=0 app (/noc/): persistent poison --
+FULL: fat 2048KB key upload completed
+after FULL 2048KB poison upload: 2097496 bytes; head: upload_progress_AAAAAAAAAAAAAAAAAAAAAAAA
+FULL: fat 512KB key upload completed
+after FULL 512KB poison upload: 2622126 bytes
+victim view: {"ss_ms":3.11,"close_ms":1.21,"total_ms":4.31,"keys":2,"key_bytes":2621472,"pid":1810893}

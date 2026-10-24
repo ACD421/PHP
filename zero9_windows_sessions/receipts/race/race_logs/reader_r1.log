@@ -1,0 +1,8 @@
+BIG-DECODE tag=r1 iter=0 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=380.2 t=480947688786617
+BIG-DECODE tag=r1 iter=1 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=643.8 t=480948332740640
+BIG-DECODE tag=r1 iter=2 decoded=2100725 disk_size=2100725 disk_inode=11 dur_ms=928.0 t=480949261021066
+SLOW-START tag=r1 iter=3 dur_ms=367.8 decoded=-9 t=480949629013339
+ENCODE-FALSE tag=r1 iter=4 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+ENCODE-FALSE tag=r1 iter=5 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+ENCODE-FALSE tag=r1 iter=6 err={"type":2,"message":"session_start(): Failed to decode session object. Session has been destroyed","file":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/wp3\/wp3_race_reader.php","line":21} keys=[]
+READER-DONE tag=r1 ok=499 fail=1 max_decoded=2100725 big_decodes=3 slow_over_50ms=4

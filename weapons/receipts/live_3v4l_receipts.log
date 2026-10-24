@@ -1,0 +1,8 @@
+== C:-crasher Dom\Element classList (zero7) ==
+versions: 8.5.11 | released 2026-09-24 | took 0 ms, 0 MiB
+output  : 'Warning: Class Dom\\Element has no unserializer in /in/ReZAI on line 2\n<br/><i>Process exited with code <b title="Segmentation Fault">139</b>.</i>'
+
+== zero4 var_destroy re-entry trigger ==
+versions: 8.5.11 | released 2026-09-24 | took 0 ms, 0 MiB
+output  : 'outer ok=true\nSCRIPT-END\n'
+

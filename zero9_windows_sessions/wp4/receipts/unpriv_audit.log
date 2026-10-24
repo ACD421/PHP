@@ -1,0 +1,49 @@
+===== wp4 unpriv audit Fri 10/23/2026 21:52:58.39 ===== 
+--- whoami /priv (filtered token) --- 
+andre
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name          Description              State  
+======================= ======================== =======
+SeChangeNotifyPrivilege Bypass traverse checking Enabled
+--- [U1] cmd mklink /H (hardlink, existing target) --- 
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\unpriv_lab\hl_cmd.txt <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\unpriv_lab\t.txt
+--- [U2] powershell New-Item HardLink --- 
+PS-HARDLINK-OK
+--- [U3] python os.link + os.symlink (dangling file symlink) --- 
+PY-LINK-OK
+PY-SYMLINK-DANGLING-OK
+PY-SYMLINK-OK
+--- [U4] PHP link() (hardlink) stock builds --- 
+bool(true)
+bool(true)
+--- [U5] PHP symlink() (relative existing target, process CWD) stock builds --- 
+
+Warning: symlink(): Permission denied in Command line code on line 1
+bool(false)
+bool(false)
+
+Warning: symlink(): Permission denied in Command line code on line 1
+bool(false)
+bool(false)
+--- inventory --- 
+ Volume in drive C is OS
+ Volume Serial Number is 8AA3-C303
+
+ Directory of C:\Users\andre\Downloads\php2shell-claude\wp4\unpriv_lab
+
+10/23/2026  09:52 PM    <DIR>          .
+10/23/2026  09:52 PM    <DIR>          ..
+10/23/2026  09:52 PM    <SYMLINK>      dang_py.txt [C:\Users\andre\Downloads\php2shell-claude\wp4\unpriv_lab\no_such_target.php]
+10/23/2026  09:52 PM                 4 hl81.txt
+10/23/2026  09:52 PM                 4 hl85.txt
+10/23/2026  09:52 PM                 4 hl_cmd.txt
+10/23/2026  09:52 PM                 4 hl_ps.txt
+10/23/2026  09:52 PM                 4 hl_py.txt
+10/23/2026  09:52 PM    <SYMLINK>      sym_py.txt [C:\Users\andre\Downloads\php2shell-claude\wp4\unpriv_lab\t.txt]
+10/23/2026  09:52 PM                 4 t.txt
+               8 File(s)             24 bytes
+               2 Dir(s)  52,994,588,672 bytes free
+===== end ===== 

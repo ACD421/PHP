@@ -1,0 +1,7 @@
+php=/tmp/php8512_build/plain3fix/sapi/cli/php shape=fb1 n=1000 env=USE_ZEND_ALLOC=0
+payload_bytes=10123 (wire 18305)
+outcomes: {'bailout-500': 1000}
+wall=12.7s rate=78.5 req/s
+rss_kb start=16260 end=40708 drift=24448 (23.88 MB)
+linear_slope=23.686 KB/request (24254 bytes/request)
+projected: 1000 req = 23.1 MB, 1M req = 22.6 GB

@@ -1,0 +1,73 @@
+warning: File "/tmp/php8512_build/plain2/sapi/cli/php" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/php8512_build/plain2/sapi/cli/php
+line to your configuration file "/root/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/root/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x588600: php_var_serialize_destroy. (2 locations)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, php_var_serialize_destroy (d=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1426
+1426	PHPAPI void php_var_serialize_destroy(php_serialize_data_t d) {
+== OUTER destroy entry: d=0x7ffff5403040 arData=0x7ffff5482080 mask=-32 nNumUsed=16 nTableSize=16 pDestructor=0x555555b22310
+== old arData block (640B = 128 hash + 16 buckets x 32): 0x7ffff5482000 ; bucket-4 val: 0x7ffff5482100
+Temporary breakpoint 2 at 0x555555ad1880: file /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c, line 1542.
+
+Temporary breakpoint 2, zend_hash_do_fresize (ht=0x7ffff5403040, fallible=<optimized out>) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1542
+1542			zend_hash_rehash(ht);
+== RESIZE (mid-walk): old_data=0x7ffff5482000  new arData=0x7ffff5487100  -> old 640B block FREED
+   old_data == base ? YES
+Hardware watchpoint 3: *(unsigned long *)($base + 256)
+
+Hardware watchpoint 3: *(unsigned long *)($base + 256)
+
+Old value = 5
+New value = 4702111234474983745
+__memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:462
+462	../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: No such file or directory.
+== M1: FIRST write into the freed arData block @ 0x7ffff5482100
+#0  __memmove_avx_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:462
+#1  0x0000555555972c2f in memcpy (__len=<optimized out>, __src=<optimized out>, __dest=0x7ffff5482018) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29
+#2  zif_str_pad (execute_data=<optimized out>, return_value=0x7ffff54147a0) at /tmp/php8512_build/php-8.5.12/ext/standard/string.c:5971
+#3  0x0000555555ac1e8e in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+#4  execute_ex (ex=0x7ffff5482018) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51019
+#5  0x0000555555a6c9f0 in zend_call_function (fci=<optimized out>, fci_cache=0x7fffffff9550) at /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1039
+#6  0x0000555555a6ced7 in zend_call_function (fci_cache=0x7fffffff9550, fci=0x7fffffff9580) at /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1148
+#7  zend_call_known_function (fn=0x7ffff5404528, object=object@entry=0x7ffff5402668, called_scope=<optimized out>, retval_ptr=retval_ptr@entry=0x7fffffff9670, param_count=param_count@entry=0, params=params@entry=0x0, named_params=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1136
+#8  0x0000555555983a56 in zend_call_known_instance_method (params=0x0, param_count=0, retval_ptr=0x7fffffff9670, object=0x7ffff5402668, fn=<optimized out>) at /tmp/php8512_build/php-8.5.12/Zend/zend_API.h:904
+#9  php_var_serialize_call_sleep (fn=<optimized out>, obj=0x7ffff5402668) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:909
+#10 php_var_serialize_intern (buf=0x7fffffffa180, struc=<optimized out>, var_hash=0x7ffff5403040, in_rcn_array=<optimized out>, is_root=<optimized out>) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1298
+#11 0x0000555555985229 in php_var_serialize_intern (is_root=false, in_rcn_array=false, var_hash=0x7ffff5403040, struc=0x7ffff5459338, buf=0x7fffffffa180) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1088
+#12 php_var_serialize_nested_data (buf=0x7fffffffa180, struc=0x7ffff5414720, ht=0x7ffff54582d8, count=<optimized out>, incomplete_class=false, var_hash=0x7ffff5403040, in_rcn_array=false) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1088
+#13 0x0000555555982b28 in php_var_serialize_intern (buf=0x7fffffffa180, struc=<optimized out>, var_hash=0x7ffff5403040, in_rcn_array=<optimized out>, is_root=<optimized out>) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1382
+== groomed bucket-4 val now:
+0x7ffff5482100:	0x4141414141414141	0x0000000000000108
+0x7ffff5482110:	0x00007ffff54025c8	0x0000000000000000
+
+Program received signal SIGSEGV, Segmentation fault.
+i_zval_ptr_dtor (zval_ptr=<optimized out>) at /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:44
+44			if (!GC_DELREF(ref)) {
+== M2 (bonus, same run): stop after walk resumed on groomed block
+#0  i_zval_ptr_dtor (zval_ptr=<optimized out>) at /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:44
+#1  zval_ptr_dtor (zval_ptr=<optimized out>) at /tmp/php8512_build/php-8.5.12/Zend/zend_variables.c:84
+#2  0x0000555555ad607d in zend_hash_destroy (ht=ht@entry=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1985
+#3  0x0000555555988640 in php_var_serialize_destroy (d=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1429
+#4  0x00005555559886ca in zif_serialize (execute_data=0x7ffff5414510, return_value=0x7ffff5414430) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1450
+#5  0x0000555555ac1e8e in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+#6  execute_ex (ex=0x4141414141414141) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51019
+#7  0x0000555555ac66a0 in zend_execute (op_array=op_array@entry=0x7ffff549c000, return_value=return_value@entry=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+#8  0x0000555555b294da in zend_execute_script (type=type@entry=8, retval=retval@entry=0x0, file_handle=file_handle@entry=0x7fffffffca90) at /tmp/php8512_build/php-8.5.12/Zend/zend.c:1990
+#9  0x00005555559b9d68 in php_execute_script_ex (primary_file=<optimized out>, retval=<optimized out>) at /tmp/php8512_build/php-8.5.12/main/main.c:2688
+rax            0x555555b22310      93824998318864
+rbx            0x7ffff5403040      140737308012608
+rcx            0x28                40
+rdx            0x7ffff5454000      140737308344320
+rsi            0x555555fe73c0      93825003320256
+rdi            0x4141414141414141  4702111234474983745
+rip            0x555555b2231d      0x555555b2231d <zval_ptr_dtor+13>
+=> 0x555555b2231d <zval_ptr_dtor+13>:	subl   $0x1,(%rdi)

@@ -1,0 +1,38 @@
+To enable execution of this file add
+To completely disable this security protection add
+For more information about this security protection see the
+sizeof(HashTable)=56 sizeof(zend_object)=56 sizeof(zend_string)=32 sizeof(Bucket)=32
+Breakpoint 1 at 0x56eae0: file /tmp/php8512_build/php-8.5.12/ext/standard/string.c, line 3621.
+Breakpoint 2 at 0x4d5a40: file /tmp/php8512_build/php-8.5.12/ext/simplexml/simplexml.c, line 2198.
+Breakpoint 3 at 0x62a6e0: file /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c, line 2925.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+FREE1 props-ht=0x7ffff54591f8
+EFREE#1 of ht, bt:
+#0  _efree (ptr=0x7ffff54591f8) at /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:2925
+#1  0x0000555555acc053 in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2142
+#2  0x0000555555a3f529 in zif_gc_collect_cycles (execute_data=<optimized out>, return_value=0x7fffffffa530) at /tmp/php8512_build/php-8.5.12/Zend/zend_builtin_functions.c:170
+#3  0x0000555555ac1f59 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+EFREE#2 of ht, bt:
+#0  _efree (ptr=0x7ffff54591f8) at /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:2925
+#1  0x0000555555acbf76 in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2170
+#2  0x0000555555a3f529 in zif_gc_collect_cycles (execute_data=<optimized out>, return_value=0x7fffffffa530) at /tmp/php8512_build/php-8.5.12/Zend/zend_builtin_functions.c:170
+#3  0x0000555555ac1f59 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+=== AT MARKER: free_slot lists (bin: size, head, first 8 links) ===
+bin 0: head=(nil)
+bin 1: head=0x7ffff5403040 -> 0x7ffff5403050 -> 0x7ffff5403060 -> 0x7ffff5403070 -> 0x7ffff5403080 -> 0x7ffff5403090 -> 0x7ffff54030a0 -> 0x7ffff54030b0 -> 0x7ffff54030c0
+bin 2: head=0x7ffff5401090 -> 0x7ffff54010a8 -> 0x7ffff54010c0 -> 0x7ffff54010d8 -> 0x7ffff54010f0 -> 0x7ffff5401108 -> 0x7ffff5401120 -> 0x7ffff5401138 -> 0x7ffff5401150
+bin 3: head=0x7ffff5458340 -> 0x7ffff5458380 -> 0x7ffff54583a0 -> 0x7ffff5458320 -> 0x7ffff5458300 -> 0x7ffff54582e0 -> 0x7ffff54583c0 -> 0x7ffff54583e0 -> 0x7ffff5458400
+bin 4: head=0x7ffff5460528 -> 0x7ffff5460500 -> 0x7ffff54604d8 -> 0x7ffff5460460 -> 0x7ffff5460488 -> 0x7ffff5460550 -> 0x7ffff5460578 -> 0x7ffff54605a0 -> 0x7ffff54605c8
+bin 5: head=0x7ffff5473180 -> 0x7ffff54731b0 -> 0x7ffff54731e0 -> 0x7ffff5473210 -> 0x7ffff5473240 -> 0x7ffff5473270 -> 0x7ffff54732a0 -> 0x7ffff54732d0 -> 0x7ffff5473300
+bin 6: head=0x7ffff54591f8 -> 0x7ffff54592a0 -> 0x7ffff54591f8 -> 0x7ffff54592a0 -> 0x7ffff54591f8 -> 0x7ffff54592a0 -> 0x7ffff54591f8 -> 0x7ffff54592a0 -> 0x7ffff54591f8
+bin 7: head=0x7ffff548e080 -> 0x7ffff548e040 -> 0x7ffff548e100 -> 0x7ffff548e140 -> 0x7ffff548e180 -> 0x7ffff548e1c0 -> 0x7ffff548e200 -> 0x7ffff548e240 -> 0x7ffff548e280
+bin 8: head=0x7ffff5404050 -> 0x7ffff54040a0 -> 0x7ffff54040f0 -> 0x7ffff5404140 -> 0x7ffff5404190 -> 0x7ffff54041e0 -> 0x7ffff5404230 -> 0x7ffff5404280 -> 0x7ffff54042d0
+bin 9: head=0x7ffff5402120 -> 0x7ffff5402180 -> 0x7ffff54021e0 -> 0x7ffff5402240 -> 0x7ffff54022a0 -> 0x7ffff5402300 -> 0x7ffff5402360 -> 0x7ffff54023c0 -> 0x7ffff5402420
+bin 10: head=0x7ffff5457310 -> 0x7ffff5457380 -> 0x7ffff54573f0 -> 0x7ffff5457460 -> 0x7ffff54574d0 -> 0x7ffff5457540 -> 0x7ffff54575b0 -> 0x7ffff5457620 -> 0x7ffff5457690
+bin 11: head=0x7ffff549c000 -> 0x7ffff549c080 -> 0x7ffff549c100 -> 0x7ffff549c180 -> 0x7ffff549c200 -> 0x7ffff549c280 -> 0x7ffff549c300 -> 0x7ffff549c380 -> 0x7ffff549c400
+bin 12: head=0x7ffff545a140 -> 0x7ffff545a1e0 -> 0x7ffff545a280 -> 0x7ffff545a320 -> 0x7ffff545a3c0 -> 0x7ffff545a460 -> 0x7ffff545a500 -> 0x7ffff545a5a0 -> 0x7ffff545a640
+bin 13: head=0x7ffff548f240 -> 0x7ffff548f300 -> 0x7ffff548f3c0 -> 0x7ffff548f480 -> 0x7ffff548f540 -> 0x7ffff548f600 -> 0x7ffff548f6c0 -> 0x7ffff548f780 -> 0x7ffff548f840
+=== ht was 0x7ffff54591f8, efree count=2 ===
+ht block: next=0x7ffff54592a0 shadow@+48=0xc18eab91569412ed
+[Inferior 1 (process 1199119) killed]

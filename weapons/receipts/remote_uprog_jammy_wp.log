@@ -1,0 +1,18 @@
+--- PHP handler check (wp-admin dir vs root):
+H=php_serialize SAPI=apache2handler V=8.1.2-1ubuntu2.27
+H=php
+V-WP-JAMMY up on http://127.0.0.1:8080 (pid 1850746)
+victim: 200
+    arm#31 fs=450 -> 200
+    arm#32 fs=150 -> 200
+    arm#33 fs=250 -> 200
+    arm#34 fs=350 -> 200
+    arm#35 fs=450 -> 200
+    arm#36 fs=150 -> 200
+    arm#37 fs=250 -> 200
+    arm#38 fs=350 -> 200
+    arm#39 fs=450 -> 200
+[-] no kill signature in budget — target patched or shapes need tuning (jammy fleet + <=8.5.11 vanilla are the receipted classes)
+--- error log (segfault receipts):
+--- post-fire health:
+victim: 200

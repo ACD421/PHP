@@ -1,0 +1,3 @@
+binary: /usr/bin/php (PHP 8.1.2-1ubuntu2.27 (cli) (built: Oct 13 2026 18:55:46) (NTS))
+CRASH rc=139  HashContext  last-probe=[serialize]  passed=2
+8.1 matrix complete: 1 crashing classes

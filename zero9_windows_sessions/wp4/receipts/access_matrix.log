@@ -1,0 +1,36 @@
+===== CreateHardLink target-access matrix (filtered token) Fri 10/23/2026 22:00:43.62 ===== 
+[B0 normal target] 
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\hl_normal.txt <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\t_normal.txt
+PY-LINK-OK
+[B1 readonly-attribute target] 
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\hl_roattr.txt <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\t_roattr.txt
+PY-LINK-OK
+[B2 ACL deny write-data+append target] 
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\hl_denyw.txt <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\t_denyw.txt
+PY-LINK-OK
+[B3 ACL RX-only target] 
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\hl_rxonly.txt <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab\t_rxonly.txt
+PY-LINK-OK
+--- inventory --- 
+ Volume in drive C is OS
+ Volume Serial Number is 8AA3-C303
+
+ Directory of C:\Users\andre\Downloads\php2shell-claude\wp4\access_lab
+
+10/23/2026  10:00 PM    <DIR>          .
+10/23/2026  10:00 PM    <DIR>          ..
+10/23/2026  10:00 PM                 4 hlp_denyw.txt
+10/23/2026  10:00 PM                 4 hlp_normal.txt
+10/23/2026  10:00 PM                 4 hlp_roattr.txt
+10/23/2026  10:00 PM                 4 hlp_rxonly.txt
+10/23/2026  10:00 PM                 4 hl_denyw.txt
+10/23/2026  10:00 PM                 4 hl_normal.txt
+10/23/2026  10:00 PM                 4 hl_roattr.txt
+10/23/2026  10:00 PM                 4 hl_rxonly.txt
+10/23/2026  10:00 PM                 4 t_denyw.txt
+10/23/2026  10:00 PM                 4 t_normal.txt
+10/23/2026  10:00 PM                 4 t_roattr.txt
+10/23/2026  10:00 PM                 4 t_rxonly.txt
+              12 File(s)             48 bytes
+               2 Dir(s)  52,975,951,872 bytes free
+===== end ===== 

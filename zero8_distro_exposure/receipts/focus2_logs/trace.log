@@ -1,0 +1,160 @@
+1598296 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=31287, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libreadline.so.8", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=335936, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=940560, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libxml2.so.2", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1967384, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+1598296 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1598296 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+1598296 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0jl\265\250\17\325\345\273[\363\256\252\21\32\335\230"..., 68, 896) = 68
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libtinfo.so.6", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=200136, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libicuuc.so.70", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2062664, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libz.so.1", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=108936, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/liblzma.so.5", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=170456, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libicudata.so.70", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=29476472, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+1598296 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2260296, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+1598296 read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+1598296 read(3, "", 4096)               = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+1598296 close(3)                        = 0
+1598296 openat(AT_FDCWD, "/etc/localtime", O_RDONLY|O_CLOEXEC) = 3
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3592, ...}, AT_EMPTY_PATH) = 0
+1598296 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3592, ...}, AT_EMPTY_PATH) = 0
+1598296 read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\10\0\0\0\10\0\0\0\0"..., 4096) = 3592
+1598296 read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\10\0\0\0\10\0\0\0\0"..., 4096) = 2280
+1598296 close(3)                        = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/php8512_build/plain2/sapi/cli/php", {st_mode=S_IFREG|0755, st_size=49433016, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/php8512_build/plain2/sapi/cli", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/php8512_build/plain2/sapi", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/php8512_build/plain2", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/php8512_build", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=12288, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 openat(AT_FDCWD, "/tmp/php8512_build/plain2/sapi/cli/php-cli-server.ini", O_RDONLY) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/usr/local/lib/php-cli-server.ini", O_RDONLY) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/tmp/php8512_build/plain2/sapi/cli/php.ini", O_RDONLY) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/usr/local/lib/php.ini", O_RDONLY) = -1 ENOENT (No such file or directory)
+1598296 openat(AT_FDCWD, "/proc/self/maps", O_RDONLY) = 4
+1598296 newfstatat(4, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+1598296 read(4, "4194c000-4994c000 rw-s 00000000 "..., 1024) = 1024
+1598296 read(4, "009a000 08:30 6144              "..., 1024) = 1024
+1598296 read(4, "               /usr/lib/x86_64-l"..., 1024) = 1024
+1598296 read(4, "\n7f22cd3bd000-7f22cd415000 r--p "..., 1024) = 1024
+1598296 read(4, "                   /usr/lib/x86_"..., 1024) = 1024
+1598296 read(4, "0 \n7f22cd5ee000-7f22cd5fc000 r--"..., 1024) = 1024
+1598296 read(4, ".so.1\n7f22cd63f000-7f22cd640000 "..., 1024) = 1024
+1598296 read(4, "                    /usr/lib/x86"..., 1024) = 1024
+1598296 read(4, ":00 0 \n7f22cd95e000-7f22cd965000"..., 1024) = 1024
+1598296 read(4, "o.2\n7ffed1e57000-7ffed1e78000 rw"..., 1024) = 85
+1598296 close(4)                        = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 newfstatat(AT_FDCWD, "/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=12288, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 close(4)                        = 0
+1598296 write(2, "[Fri Oct 23 20:43:37 2026] PHP 8"..., 90) = 90
+1598296 write(2, "[Fri Oct 23 20:43:38 2026] 127.0"..., 52) = 52
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc/arm_target.php", {st_mode=S_IFREG|0644, st_size=21, ...}, 0) = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001", O_RDWR|O_CREAT|O_NOFOLLOW, 0600) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 flock(6, LOCK_EX)               = 0
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(6, "big|s:52428800:\"AAAAAAAAAAAAAAAA"..., 52428818, 0) = 52428818
+1598296 close(6)                        = 0
+1598296 openat(AT_FDCWD, "/tmp/phpmkk3kk3nmc3m9wJt0Up", O_RDWR|O_CREAT|O_EXCL, 0600) = 6
+1598296 write(6, "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"..., 1024) = 1024
+1598296 close(6)                        = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001", O_RDWR|O_CREAT|O_NOFOLLOW, 0600) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52429155, ...}, AT_EMPTY_PATH) = 0
+1598296 flock(6, LOCK_EX)               = 0
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52429155, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(6, "big|s:52428800:\"AAAAAAAAAAAAAAAA"..., 52429155, 0) = 52429155
+1598296 ftruncate(6, 0)                 = 0
+1598296 close(6)                        = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc/arm_target.php", {st_mode=S_IFREG|0644, st_size=21, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/doc/arm_target.php", O_RDONLY) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=21, ...}, AT_EMPTY_PATH) = 0
+1598296 read(6, "<?php echo \"ARM_OK\";\n", 21) = 21
+1598296 close(6)                        = 0
+1598296 write(2, "[Fri Oct 23 20:43:38 2026] 127.0"..., 71) = 71
+1598296 unlink("/tmp/phpmkk3kk3nmc3m9wJt0Up") = 0
+1598296 write(2, "[Fri Oct 23 20:43:38 2026] 127.0"..., 51) = 51
+1598296 close(5)                        = 0
+1598296 write(2, "[Fri Oct 23 20:43:38 2026] 127.0"..., 52) = 52
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc/lc_probe.php", {st_mode=S_IFREG|0755, st_size=1448, ...}, 0) = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001", O_RDWR|O_CREAT|O_NOFOLLOW, 0600) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 flock(6, LOCK_EX)               = 0
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(6, "big|s:52428800:\"AAAAAAAAAAAAAAAA"..., 52428818, 0) = 52428818
+1598296 close(6)                        = 0
+1598296 openat(AT_FDCWD, "/tmp/php6u43t7aq7vuo7oAeEev", O_RDWR|O_CREAT|O_EXCL, 0600) = 6
+1598296 write(6, "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"..., 4096) = 4096
+1598296 close(6)                        = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001", O_RDWR|O_CREAT|O_NOFOLLOW, 0600) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52429152, ...}, AT_EMPTY_PATH) = 0
+1598296 flock(6, LOCK_EX)               = 0
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=52429152, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(6, "big|s:52428800:\"AAAAAAAAAAAAAAAA"..., 52429152, 0) = 52429152
+1598296 ftruncate(6, 0)                 = 0
+1598296 close(6)                        = 0
+1598296 newfstatat(AT_FDCWD, "/tmp/lc_focus2/doc/lc_probe.php", {st_mode=S_IFREG|0755, st_size=1448, ...}, AT_SYMLINK_NOFOLLOW) = 0
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/doc/lc_probe.php", O_RDONLY) = 6
+1598296 newfstatat(6, "", {st_mode=S_IFREG|0755, st_size=1448, ...}, AT_EMPTY_PATH) = 0
+1598296 read(6, "<?php\n/* lc_probe.php - stale-st"..., 1448) = 1448
+1598296 openat(AT_FDCWD, "/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001", O_RDWR|O_CREAT|O_NOFOLLOW, 0600) = 7
+1598296 newfstatat(7, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 flock(7, LOCK_EX)               = 0
+1598296 newfstatat(7, "", {st_mode=S_IFREG|0644, st_size=52428818, ...}, AT_EMPTY_PATH) = 0
+1598296 pread64(7, "big|s:52428800:\"AAAAAAAAAAAAAAAA"..., 52428818, 0) = 52428818
+1598296 close(7)                        = 0
+1598296 unlink("/tmp/lc_focus2/sess/sess_lcsid00000000000000000000000001") = 0
+1598296 close(6)                        = 0
+1598296 write(2, "[Fri Oct 23 20:43:39 2026] 127.0"..., 69) = 69
+1598296 unlink("/tmp/php6u43t7aq7vuo7oAeEev") = 0
+1598296 write(2, "[Fri Oct 23 20:43:39 2026] 127.0"..., 51) = 51
+1598296 close(5)                        = 0

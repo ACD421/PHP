@@ -1,0 +1,42 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000056ba668cc01c in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2138
+2138						current->ref = GC_MAKE_GARBAGE(((char*)obj) - obj->handlers->offset);
+=== CAUGHT ===
+PC=0x56ba668cc01c RAX=0x7af8ccf14010 RDI=(nil)
+=> 0x56ba668cc01c <zend_gc_collect_cycles+4092>:	movslq (%r10),%r11
+#0  0x000056ba668cc01c in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2138
+#1  0x000056ba6683f529 in zif_gc_collect_cycles (execute_data=<optimized out>, return_value=0x7ffdcfa9d930) at /tmp/php8512_build/php-8.5.12/Zend/zend_builtin_functions.c:170
+#2  0x000056ba668c1f59 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+#3  execute_ex (ex=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51014
+#4  0x000056ba668c66a0 in zend_execute (op_array=op_array@entry=0x7af8cac9b000, return_value=return_value@entry=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005c58112cc01c in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2138
+2138						current->ref = GC_MAKE_GARBAGE(((char*)obj) - obj->handlers->offset);
+=== CAUGHT ===
+PC=0x5c58112cc01c RAX=0x7b68a0513010 RDI=(nil)
+=> 0x5c58112cc01c <zend_gc_collect_cycles+4092>:	movslq (%r10),%r11
+#0  0x00005c58112cc01c in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2138
+#1  0x00005c581123f529 in zif_gc_collect_cycles (execute_data=<optimized out>, return_value=0x7ffc234cf320) at /tmp/php8512_build/php-8.5.12/Zend/zend_builtin_functions.c:170
+#2  0x00005c58112c1f59 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+#3  execute_ex (ex=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51014
+#4  0x00005c58112c66a0 in zend_execute (op_array=op_array@entry=0x7b689dc9b000, return_value=return_value@entry=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005f181b8d615c in zend_hash_destroy (ht=ht@entry=0x7c7798258348) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1996
+1996							ht->pDestructor(&p->val);
+=== CAUGHT ===
+PC=0x5f181b8d615c RAX=0xa123b26d53caed20 RDI=0x7c77982c5000
+=> 0x5f181b8d615c <zend_hash_destroy+492>:	call   *%rax
+#0  0x00005f181b8d615c in zend_hash_destroy (ht=ht@entry=0x7c7798258348) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1996
+#1  0x00005f181b8cbefd in zend_gc_collect_cycles () at /tmp/php8512_build/php-8.5.12/Zend/zend_gc.c:2156
+#2  0x00005f181b83f529 in zif_gc_collect_cycles (execute_data=<optimized out>, return_value=0x7fff42818670) at /tmp/php8512_build/php-8.5.12/Zend/zend_builtin_functions.c:170
+#3  0x00005f181b8c1f59 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1360
+#4  execute_ex (ex=0x7c77982c5000) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51014

@@ -1,0 +1,7 @@
+== torn-file reader sweep (partial-pwrite products of worker death mid-write) ==
+full session encode: 16777234 bytes
+torn@ 2% (  335544 B): reader acq=     208 us -> FILE-DELETED (session destroyed)
+torn@25% ( 4194308 B): reader acq=    1428 us -> FILE-DELETED (session destroyed)
+torn@50% ( 8388617 B): reader acq=    2705 us -> FILE-DELETED (session destroyed)
+torn@75% (12582925 B): reader acq=    4248 us -> FILE-DELETED (session destroyed)
+torn@98% (16441689 B): reader acq=    6337 us -> FILE-DELETED (session destroyed)

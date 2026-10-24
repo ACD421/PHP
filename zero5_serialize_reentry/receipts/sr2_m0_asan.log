@@ -1,0 +1,63 @@
+=================================================================
+==1361077==ERROR: AddressSanitizer: heap-use-after-free on address 0x516000046689 at pc 0x5ca1b0845c27 bp 0x7fffadfe0820 sp 0x7fffadfe0810
+READ of size 1 at 0x516000046689 thread T0
+    #0 0x5ca1b0845c26 in i_zval_ptr_dtor /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:42
+    #1 0x5ca1b0845c26 in zval_ptr_dtor /tmp/php8512_build/php-8.5.12/Zend/zend_variables.c:84
+    #2 0x5ca1b077030d in zend_hash_destroy /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1985
+    #3 0x5ca1b02bdc28 in php_var_serialize_destroy /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1429
+    #4 0x5ca1b02bddb1 in zif_serialize /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1450
+    #5 0x5ca1b070c992 in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+    #6 0x5ca1b070c992 in execute_ex /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:116555
+    #7 0x5ca1b0704e60 in zend_execute /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+    #8 0x5ca1b085be9d in zend_execute_script /tmp/php8512_build/php-8.5.12/Zend/zend.c:1990
+    #9 0x5ca1b034af32 in php_execute_script_ex /tmp/php8512_build/php-8.5.12/main/main.c:2688
+    #10 0x5ca1b034b5b9 in php_execute_script /tmp/php8512_build/php-8.5.12/main/main.c:2728
+    #11 0x5ca1b085f880 in do_cli /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:960
+    #12 0x5ca1b0862015 in main /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:1383
+    #13 0x7680f6e29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #14 0x7680f6e29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #15 0x5ca1afa30f84 in _start (/tmp/php8512_build/asan2/sapi/cli/php+0x430f84)
+
+0x516000046689 is located 265 bytes inside of 640-byte region [0x516000046580,0x516000046800)
+freed by thread T0 here:
+    #0 0x7680f74b4537 in __interceptor_free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:127
+    #1 0x5ca1b0495245 in __zend_free /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:3976
+
+previously allocated by thread T0 here:
+    #0 0x7680f74b4887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x5ca1b04963d4 in __zend_malloc /tmp/php8512_build/php-8.5.12/Zend/zend_alloc.c:3947
+
+SUMMARY: AddressSanitizer: heap-use-after-free /tmp/php8512_build/php-8.5.12/Zend/zend_variables.h:42 in i_zval_ptr_dtor
+Shadow bytes around the buggy address:
+  0x0a2c80000c80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000c90: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000ca0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a2c80000cb0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000cc0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x0a2c80000cd0: fd[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000ce0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000cf0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000d00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a2c80000d10: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0a2c80000d20: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==1361077==ABORTING

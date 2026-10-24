@@ -1,0 +1,4 @@
+generated trigger: 10142 bytes (base64 13524)
+== 3v4l result (vanilla PHP 8.5.11):
+versions: 8.5.11 | released 2026-09-24 | took 0 ms, 0 MiB
+output  : 'outer ok=true\nhits recorded\nSCRIPT-END\n'

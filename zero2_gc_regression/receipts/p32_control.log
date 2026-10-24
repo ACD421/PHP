@@ -1,0 +1,11 @@
+--- control (no materialization) ---
+0 0 0 0 0 0 0 0 0 0 
+--- materialized (get_object_vars), 10x ---
+0 0 0 /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.sh: line 13: 1205240 Segmentation fault      timeout 30 $P -n -d zend.enable_gc=1 /tmp/gcx_sxe_big.php 1000 props > /dev/null 2>&1
+139 /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.sh: line 13: 1205242 Segmentation fault      timeout 30 $P -n -d zend.enable_gc=1 /tmp/gcx_sxe_big.php 1000 props > /dev/null 2>&1
+139 0 0 0 0 0 
+--- materialized ((array) cast), 10x ---
+0 /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.sh: line 19: 1205257 Segmentation fault      timeout 30 $P -n -d zend.enable_gc=1 /tmp/gcx_sxe_big.php 1000 cast > /dev/null 2>&1
+139 /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.sh: line 19: 1205259 Segmentation fault      timeout 30 $P -n -d zend.enable_gc=1 /tmp/gcx_sxe_big.php 1000 cast > /dev/null 2>&1
+139 0 0 0 0 0 /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.sh: line 19: 1205271 Segmentation fault      timeout 30 $P -n -d zend.enable_gc=1 /tmp/gcx_sxe_big.php 1000 cast > /dev/null 2>&1
+139 0 

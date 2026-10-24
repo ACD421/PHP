@@ -1,0 +1,10 @@
+[Fri Oct 23 20:49:41.792732 2026] [unixd:alert] [pid 1599037] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 20:49:42.147818 2026] [php:error] [pid 1599037] [client 127.0.0.1:46466] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1503232 bytes) in Unknown on line 0
+[Fri Oct 23 20:49:42.148019 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46466] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0
+[Fri Oct 23 20:49:42.999610 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: Session ini settings cannot be changed when a session is active in Unknown on line 0
+[Fri Oct 23 20:49:43.001522 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: open(upload_progress_/sess_lcsid00000000000000000000000001, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[Fri Oct 23 20:49:43.001684 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: Failed to read session data: files (path: upload_progress_) in Unknown on line 0
+[Fri Oct 23 20:49:43.001893 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (upload_progress_) in Unknown on line 0
+[Fri Oct 23 20:49:43.002871 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: open(upload_progress_/sess_lcsid00000000000000000000000001, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[Fri Oct 23 20:49:43.002981 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: Failed to read session data: files (path: upload_progress_) in Unknown on line 0
+[Fri Oct 23 20:49:43.003103 2026] [php:warn] [pid 1599037] [client 127.0.0.1:46468] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (upload_progress_) in Unknown on line 0

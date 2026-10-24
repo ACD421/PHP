@@ -1,0 +1,70 @@
+[Fri Oct 23 22:06:27.765641 2026] [core:warn] [pid 1767481] AH00098: pid file /tmp/sb_killwin/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Oct 23 22:06:27.766634 2026] [unixd:alert] [pid 1767484] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.766921 2026] [unixd:alert] [pid 1767485] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.767266 2026] [unixd:alert] [pid 1767486] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.767556 2026] [unixd:alert] [pid 1767487] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.768031 2026] [unixd:alert] [pid 1767488] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.768267 2026] [unixd:alert] [pid 1767489] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.768601 2026] [mpm_prefork:notice] [pid 1767481] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 23 22:06:27.768608 2026] [core:notice] [pid 1767481] AH00094: Command line: '/usr/sbin/apache2 -f /tmp/sb_killwin/httpd.conf'
+[Fri Oct 23 22:06:27.769009 2026] [unixd:alert] [pid 1767491] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:27.769212 2026] [unixd:alert] [pid 1767490] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:28.769505 2026] [mpm_prefork:error] [pid 1767481] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Fri Oct 23 22:06:32.774179 2026] [core:notice] [pid 1767481] AH00051: child pid 1767491 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:06:33.776593 2026] [unixd:alert] [pid 1767499] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:06:35.778150 2026] [core:notice] [pid 1767481] AH00051: child pid 1767485 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:06:35.778185 2026] [core:notice] [pid 1767481] AH00051: child pid 1767487 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:06:35.778188 2026] [core:notice] [pid 1767481] AH00051: child pid 1767490 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:49.215459 2026] [core:warn] [pid 1767683] AH00098: pid file /tmp/sb_killwin/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Oct 23 22:07:49.216826 2026] [unixd:alert] [pid 1767685] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.217317 2026] [unixd:alert] [pid 1767686] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.217527 2026] [unixd:alert] [pid 1767687] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.217924 2026] [unixd:alert] [pid 1767688] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.218405 2026] [unixd:alert] [pid 1767689] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.218714 2026] [unixd:alert] [pid 1767690] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.219055 2026] [mpm_prefork:notice] [pid 1767683] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 23 22:07:49.219070 2026] [core:notice] [pid 1767683] AH00094: Command line: '/usr/sbin/apache2 -f /tmp/sb_killwin/httpd.conf'
+[Fri Oct 23 22:07:49.219137 2026] [unixd:alert] [pid 1767691] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:49.219482 2026] [unixd:alert] [pid 1767692] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:51.221149 2026] [mpm_prefork:error] [pid 1767683] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Fri Oct 23 22:07:51.221187 2026] [core:notice] [pid 1767683] AH00051: child pid 1767686 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:51.221193 2026] [core:notice] [pid 1767683] AH00051: child pid 1767687 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:52.223034 2026] [core:notice] [pid 1767683] AH00051: child pid 1767688 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:52.223076 2026] [core:notice] [pid 1767683] AH00051: child pid 1767689 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:52.223920 2026] [unixd:alert] [pid 1767700] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:53.225818 2026] [core:notice] [pid 1767683] AH00051: child pid 1767690 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:07:53.226238 2026] [unixd:alert] [pid 1767701] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:53.226609 2026] [unixd:alert] [pid 1767702] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:54.228773 2026] [unixd:alert] [pid 1767703] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:07:54.229355 2026] [unixd:alert] [pid 1767704] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:25.263565 2026] [core:notice] [pid 1767683] AH00051: child pid 1767691 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:25.263630 2026] [core:notice] [pid 1767683] AH00051: child pid 1767692 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:26.264525 2026] [core:notice] [pid 1767683] AH00051: child pid 1767685 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:26.264552 2026] [core:notice] [pid 1767683] AH00051: child pid 1767700 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:26.264555 2026] [core:notice] [pid 1767683] AH00051: child pid 1767701 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:26.265236 2026] [unixd:alert] [pid 1767718] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:27.265908 2026] [core:notice] [pid 1767683] AH00051: child pid 1767702 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:27.266229 2026] [unixd:alert] [pid 1767719] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:27.266410 2026] [unixd:alert] [pid 1767720] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:28.269159 2026] [unixd:alert] [pid 1767721] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:28.269366 2026] [core:notice] [pid 1767683] AH00051: child pid 1767703 exit signal Segmentation fault (11), possible coredump in /etc/apache2
+[Fri Oct 23 22:08:28.269657 2026] [unixd:alert] [pid 1767722] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:28.270003 2026] [unixd:alert] [pid 1767723] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:08:29.272878 2026] [unixd:alert] [pid 1767724] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:27.470026 2026] [php:warn] [pid 1767718] [client 127.0.0.1:35998] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7
+[Fri Oct 23 22:09:38.631911 2026] [core:warn] [pid 1767744] AH00098: pid file /tmp/sb_killwin/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Oct 23 22:09:38.633821 2026] [unixd:alert] [pid 1767746] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.633845 2026] [unixd:alert] [pid 1767747] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.634030 2026] [unixd:alert] [pid 1767749] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.634033 2026] [unixd:alert] [pid 1767748] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.634403 2026] [unixd:alert] [pid 1767750] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.634660 2026] [unixd:alert] [pid 1767751] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.635028 2026] [mpm_prefork:notice] [pid 1767744] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 23 22:09:38.635037 2026] [core:notice] [pid 1767744] AH00094: Command line: '/usr/sbin/apache2 -f /tmp/sb_killwin/httpd.conf'
+[Fri Oct 23 22:09:38.635044 2026] [unixd:alert] [pid 1767752] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:38.635408 2026] [unixd:alert] [pid 1767753] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Fri Oct 23 22:09:39.637401 2026] [php:warn] [pid 1767747] [client 127.0.0.1:37470] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7
+[Fri Oct 23 22:09:39.845451 2026] [php:warn] [pid 1767749] [client 127.0.0.1:37474] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7
+[Fri Oct 23 22:09:40.058651 2026] [php:warn] [pid 1767748] [client 127.0.0.1:37478] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7
+[Fri Oct 23 22:09:40.280791 2026] [php:warn] [pid 1767750] [client 127.0.0.1:37486] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7
+[Fri Oct 23 22:09:40.503312 2026] [php:warn] [pid 1767751] [client 127.0.0.1:37492] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/sb_killwin/html/sb_ssprobe.php on line 7

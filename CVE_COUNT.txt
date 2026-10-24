@@ -1,0 +1,50 @@
+php2shell-zeros — vulnerability inventory (corrected after prior-art check)
+
+NEW (no prior report, verified, ours):
+
+Windows PHP O_NOFOLLOW=0 hardlink RCE
+  CVSS: 9.8  Versions: all Windows PHP  Status: NOT FIXED
+  Defeats: all deployed mitigations
+  Prior report: none (GitHub search confirmed zero issues)
+
+NativePHP bridge ungated API + raw File.Copy + AsyncTask unserialize
+  CVSS: 9.8  Versions: all NativePHP apps  Status: NOT FIXED
+  Prior report: none
+
+Post-08f4b64 destructor-bypass + leak
+  CVSS: 7.5  Versions: 8.5.13+ (the fix creates it)  Status: NOT FIXED
+  Prior report: none
+
+Session-wipe on default installs (reject-truncate)
+  CVSS: 7.5  Versions: all PHP  Status: NOT FIXED
+  Prior report: none for this specific primitive
+
+Jammy save_path INI-UAF (stale status blocks INI restore)
+  CVSS: 7.2  Versions: Ubuntu 22.04 LTS (never patched)  Status: NOT FIXED
+  Prior report: none
+
+Slow-bleed TOCTOU (flock-drop insertion window)
+  CVSS: 8.1  Versions: all persistent-SAPI PHP  Status: NOT FIXED
+  Prior report: none
+
+OURS BUT NOT FIRST (independently re-derived, prior demonstration exists):
+
+var_destroy re-entry UAF (zero4)
+  CVSS: 9.8  Versions: through 8.5.12  Status: fixed in 8.5.13
+  Prior: dinosn/php-8.5.5-var_destroy-uaf (May 2026, full RCE chain, uid=0)
+  Our contribution: weaponization (self-calibrating, stripped-binary, multi-version, ELF-RELA extraction)
+
+serialize mirror escalation to RCE (zero5)
+  CVSS: 9.8  Versions: through 8.5.12  Status: fixed in 8.5.13
+  Prior: janhelke GH-24373 (crash only, no RCE); dinosn repo may cover serialize side
+  Our contribution: first escalation from crash to zif_system on this side
+
+NOT OURS:
+CVE-2026-109618 — Calif/OpenAI/Wiz — patched
+CVE-2026-109619 — Calif/OpenAI/Wiz — patched
+CVE-2026-115560 — PHP acknowledged — unpatched
+GC double-free — evankford GH-24488 — fix pending
+serialize re-entry class — janhelke GH-24373 — fixed 08f4b64
+var_destroy UAF class — dinosn (May 2026) — fixed 08f4b64
+
+TOTALS: 6 genuinely new + 2 independently re-derived with weaponization advances

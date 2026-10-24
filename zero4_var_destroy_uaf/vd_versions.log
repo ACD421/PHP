@@ -1,0 +1,15 @@
+== /tmp/php8511_build/out/sapi/cli/php ==
+/mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/vd_versions.sh: line 5: 1201773 Segmentation fault      (core dumped) env USE_ZEND_ALLOC=0 $PHPBIN vd1b_dupkey_ok.php > /tmp/vd_ver.out 2>&1
+ver: PHP 8.5.11 (cli) (built: Oct 21 2026 21:09:39) (NTS)
+rc=139
+payload_len=10127
+== /usr/bin/php8.1 ==
+/mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/vd_versions.sh: line 5: 1201778 Segmentation fault      (core dumped) env USE_ZEND_ALLOC=0 $PHPBIN vd1b_dupkey_ok.php > /tmp/vd_ver.out 2>&1
+ver: PHP 8.1.2-1ubuntu2.27 (cli) (built: Oct 13 2026 18:55:46) (NTS)
+rc=139
+payload_len=10127
+== /usr/bin/php ==
+/mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/vd_versions.sh: line 5: 1201783 Segmentation fault      (core dumped) env USE_ZEND_ALLOC=0 $PHPBIN vd1b_dupkey_ok.php > /tmp/vd_ver.out 2>&1
+ver: PHP 8.1.2-1ubuntu2.27 (cli) (built: Oct 13 2026 18:55:46) (NTS)
+rc=139
+payload_len=10127

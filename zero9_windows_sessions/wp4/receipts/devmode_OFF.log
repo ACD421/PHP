@@ -1,0 +1,27 @@
+===== DevMode=OFF (filtered token) ===== 
+SeChangeNotifyPrivilege Bypass traverse checking Enabled
+--- python os.symlink (existing target) --- 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import os; os.symlink(r'C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\t.txt', r'C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\sym_OFF.txt'); print('PY-SYMLINK-OK')
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\devmode_lab\\t.txt' -> 'C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\devmode_lab\\sym_OFF.txt'
+--- python os.symlink (dangling) --- 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import os; os.symlink(r'C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\nope_OFF.php', r'C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab\dang_OFF.txt'); print('PY-SYMLINK-DANGLING-OK')
+               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\devmode_lab\\nope_OFF.php' -> 'C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\devmode_lab\\dang_OFF.txt'
+--- python os.link (hardlink control) --- 
+PY-LINK-OK
+ Volume in drive C is OS
+ Volume Serial Number is 8AA3-C303
+
+ Directory of C:\Users\andre\Downloads\php2shell-claude\wp4\devmode_lab
+
+10/23/2026  10:11 PM    <DIR>          .
+10/23/2026  10:11 PM    <DIR>          ..
+10/23/2026  10:11 PM                 4 hl_OFF.txt
+10/23/2026  10:11 PM                 4 t.txt
+               2 File(s)              8 bytes
+               2 Dir(s)  51,489,558,528 bytes free

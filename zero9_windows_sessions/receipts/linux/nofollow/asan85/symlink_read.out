@@ -1,0 +1,5 @@
+
+Warning: session_start(): open(/tmp/p2s_c3/nofollow/asan85/sess/sess_vicsid00000000000000000000000, O_RDWR) failed: Too many levels of symbolic links (40) in /mnt/c/Users/andre/Downloads/php2shell-claude/wp3/wp3_probe.php on line 9
+
+Warning: session_start(): Failed to read session data: files (path: /tmp/p2s_c3/nofollow/asan85/sess) in /mnt/c/Users/andre/Downloads/php2shell-claude/wp3/wp3_probe.php on line 9
+mode=read status=1 sid=vicsid00000000000000000000000

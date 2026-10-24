@@ -1,0 +1,27 @@
+/mnt/c/Users/andre/Downloads/php2shell-claude/sb_81matrix.sh: line 12: 1610679 Segmentation fault      (core dumped) $PHP -n -d error_reporting=0 -d display_errors=0 -r '
+$cls = $argv[1];
+$ser = "C:" . strlen($cls) . ":\x22$cls\x22:0:{}";
+try { $r = @unserialize($ser); } catch (Throwable $e) { exit(0); }
+if ($r === false) exit(0);
+if ((new ReflectionClass($cls))->implementsInterface("Serializable")) exit(0);
+foreach (["var_dump","print_r","serialize","foreach","props","var_export","json_encode","debug_zval_dump","clone"] as $probe) {
+    echo "$probe\n"; flush();
+    try {
+        switch ($probe) {
+            case "var_dump": var_dump($r); break;
+            case "print_r": print_r($r); break;
+            case "serialize": serialize($r); break;
+            case "foreach": foreach ($r as $k=>$v) {} break;
+            case "props": foreach ((new ReflectionClass($cls))->getProperties() as $p) { $p->setAccessible(true); $p->getValue($r); } break;
+            case "var_export": var_export($r); break;
+            case "json_encode": json_encode($r); break;
+            case "debug_zval_dump": debug_zval_dump($r); break;
+            case "clone": clone $r; break;
+        }
+    } catch (Throwable $e) {}
+    echo "ok-$probe\n"; flush();
+}
+' "$CLS" > /tmp/sb_81_one.log 2>&1
+binary: /usr/bin/php (PHP 8.1.2-1ubuntu2.27 (cli) (built: Oct 13 2026 18:55:46) (NTS))
+CRASH rc=139  HashContext  last-probe=[serialize]  passed=2
+8.1 matrix complete: 1 crashing classes

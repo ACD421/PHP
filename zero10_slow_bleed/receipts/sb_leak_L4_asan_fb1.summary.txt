@@ -1,0 +1,7 @@
+php=/tmp/php8512_build/fixedasan/sapi/cli/php shape=fb1 n=200 env=USE_ZEND_ALLOC=0,ASAN_OPTIONS=detect_leaks=1,LSAN_OPTIONS=report_objects=0
+payload_bytes=10123 (wire 18305)
+outcomes: {'bailout-500': 200}
+wall=4.2s rate=47.9 req/s
+rss_kb start=30092 end=111132 drift=81040 (79.14 MB)
+linear_slope=397.269 KB/request (406803 bytes/request)
+projected: 1000 req = 388.0 MB, 1M req = 378.9 GB

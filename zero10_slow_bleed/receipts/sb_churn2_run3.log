@@ -1,0 +1,10 @@
+run=3 master_pid=1722386 initial_pool_children=4 servers=5
+baseline benign_conc8: rate=163.3 req/s p50=44.6ms
+kill#1 outcome=empty -> pool_children=4 master_alive=True
+  state: servers=5 benign_conc8 rate=140.7 req/s p50=53.6ms
+kill#2 outcome=empty -> pool_children=4 master_alive=True
+  state: servers=5 benign_conc8 rate=132.7 req/s p50=56.1ms
+kill#3 outcome=empty -> pool_children=0 master_alive=True
+  pool=0 master_alive: benign probe outcome=reset
+SERVICE DEAD after 3 crasher requests (master zombie/cascade)
+kill attribution (pid -> kills-served-then-crashed): {'1722390': 210, '1722389': 91, '1722388': 339, '1722387': 314, '1722386': 360}  [master=1722386]

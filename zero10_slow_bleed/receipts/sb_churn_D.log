@@ -1,0 +1,8 @@
+initial pool: master + 4 children
+pool_children=4 servers=5  benign_conc8_rate=145.0 req/s p50=54.2ms p95=83.1ms
+pool_children=0 servers=1  benign_conc8_rate=0.0 req/s p50=-1.0ms p95=-1.0ms
+pool_children=0 servers=1  benign_conc8_rate=0.0 req/s p50=-1.0ms p95=-1.0ms
+pool_children=0 servers=1  benign_conc8_rate=0.0 req/s p50=-1.0ms p95=-1.0ms
+final: master alive=True pool_children=0
+after master-kill request: outcome=reset master alive=True
+post-death benign probe: outcome=reset

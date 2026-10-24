@@ -1,0 +1,22 @@
+[Fri Oct 23 20:38:20 2026] PHP 8.5.12 Development Server (http://127.0.0.1:18310) started
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:53058 Accepted
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:53058 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:53058 Closing
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:37878 Accepted
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in Unknown on line 0
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:37878 [200]: POST /arm_target.php
+[Fri Oct 23 20:38:20 2026] 127.0.0.1:37878 Closing
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37894 Accepted
+[Fri Oct 23 20:38:21 2026] PHP Warning:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in Unknown on line 0
+[Fri Oct 23 20:38:21 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in Unknown on line 0
+[Fri Oct 23 20:38:21 2026] PHP Warning:  PHP Request Startup: open(/dev/null/lc/sess_lcsid00000000000000000000000001, O_RDWR) failed: Not a directory (20) in Unknown on line 0
+[Fri Oct 23 20:38:21 2026] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /dev/null/lc) in Unknown on line 0
+[Fri Oct 23 20:38:21 2026] PHP Warning:  Cannot modify header information - headers already sent in /tmp/lc_lab/badpath/doc/lc_probe.php on line 19
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37894 [200]: POST /lc_probe.php
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37894 Closing
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 Accepted
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 [200]: GET /lc_probe.php
+[Fri Oct 23 20:38:21 2026] 127.0.0.1:37898 Closing

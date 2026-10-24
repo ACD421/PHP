@@ -1,0 +1,40 @@
+##### amp85 (/tmp/php8512_build/plain2/sapi/cli/php) #####
+amp85_baseline           wire=      76B peak_real=  2097152B peak_int=   451784B alloc/wire=27594.11x post=1 files=0 t=   5.2ms 8.5.12
+amp85_xdups_1x1000       wire=    8076B peak_real=  2097152B peak_int=   451784B alloc/wire=259.68x post=1 files=0 t=   5.2ms 8.5.12
+amp85_xdups_1x20000      wire=  160076B peak_real=  2097152B peak_int=   451784B alloc/wire= 13.10x post=1 files=0 t=  21.0ms 8.5.12
+amp85_xdups_1000x20      wire=  222905B peak_real=  2097152B peak_int=   532664B alloc/wire=  9.41x post=1000 files=0 t=  15.1ms 8.5.12
+amp85_cddups_1x1000      wire=   42076B peak_real=  2097152B peak_int=   451784B alloc/wire= 49.84x post=1 files=0 t=   6.8ms 8.5.12
+amp85_cddups_1x20000     wire=  840076B peak_real=  2097152B peak_int=   451784B alloc/wire=  2.50x post=1 files=0 t=  65.5ms 8.5.12
+amp85_cdfuzz_1x1000      wire=   42476B peak_real=  2097152B peak_int=   451784B alloc/wire= 49.37x post=1 files=0 t=  11.0ms 8.5.12
+amp85_cdfuzz_1x20000     wire=  848076B peak_real=  2097152B peak_int=   451784B alloc/wire=  2.47x post=1 files=0 t=  42.3ms 8.5.12
+amp85_cont_1000          wire=    8076B peak_real=  2097152B peak_int=   451784B alloc/wire=259.68x post=1 files=0 t=   5.6ms 8.5.12
+amp85_cont_20000         wire=  160076B peak_real=  2097152B peak_int=   716544B alloc/wire= 13.10x post=1 files=0 t=  12.2ms 8.5.12
+amp85_nocd_1000          wire=   26015B peak_real=  2097152B peak_int=   451704B alloc/wire= 80.61x post=0 files=0 t=   5.4ms 8.5.12
+amp85_nocd_20000         wire=  520015B peak_real=  2097152B peak_int=   451704B alloc/wire=  4.03x post=0 files=0 t=  36.4ms 8.5.12
+amp85_mixed_1000         wire=   62905B peak_real=  2097152B peak_int=   532664B alloc/wire= 33.34x post=1000 files=0 t=   7.3ms 8.5.12
+
+##### amp81 (/usr/bin/php) #####
+amp81_baseline           wire=      76B peak_real=  2097152B peak_int=   419704B alloc/wire=27594.11x post=1 files=0 t=   7.5ms 8.1.2-1ubuntu2.27
+amp81_xdups_1x1000       wire=    8076B peak_real=  2097152B peak_int=   693904B alloc/wire=259.68x post=1 files=0 t=   5.5ms 8.1.2-1ubuntu2.27
+amp81_xdups_1x20000      wire=  160076B peak_real=  8388608B peak_int=  6469904B alloc/wire= 52.40x post=1 files=0 t=  17.7ms 8.1.2-1ubuntu2.27
+amp81_xdups_1000x20      wire=  222905B peak_real=  4194304B peak_int=   596888B alloc/wire= 18.82x post=1000 files=0 t=  22.5ms 8.1.2-1ubuntu2.27
+amp81_cddups_1x1000      wire=   42076B peak_real=  2097152B peak_int=   709904B alloc/wire= 49.84x post=1 files=0 t=   6.6ms 8.1.2-1ubuntu2.27
+amp81_cddups_1x20000     wire=  840076B peak_real=  8388608B peak_int=  6789904B alloc/wire=  9.99x post=1 files=0 t=  59.4ms 8.1.2-1ubuntu2.27
+amp81_cdfuzz_1x1000      wire=   42476B peak_real=  4194304B peak_int=   645904B alloc/wire= 98.75x post=1 files=0 t=   7.0ms 8.1.2-1ubuntu2.27
+amp81_cdfuzz_1x20000     wire=  848076B peak_real=  6291456B peak_int=  5509904B alloc/wire=  7.42x post=1 files=0 t=  37.6ms 8.1.2-1ubuntu2.27
+amp81_cont_1000          wire=    8076B peak_real=  4194304B peak_int=   419704B alloc/wire=519.35x post=1 files=0 t=   5.2ms 8.1.2-1ubuntu2.27
+amp81_cont_20000         wire=  160076B peak_real=  2097152B peak_int=   716528B alloc/wire= 13.10x post=1 files=0 t=  10.0ms 8.1.2-1ubuntu2.27
+amp81_nocd_1000          wire=   26015B peak_real=  2097152B peak_int=   418912B alloc/wire= 80.61x post=0 files=0 t=   5.5ms 8.1.2-1ubuntu2.27
+amp81_nocd_20000         wire=  520015B peak_real=  2097152B peak_int=   418912B alloc/wire=  4.03x post=0 files=0 t=  28.1ms 8.1.2-1ubuntu2.27
+amp81_mixed_1000         wire=   62905B peak_real=  2097152B peak_int=   596888B alloc/wire= 33.34x post=1000 files=0 t=   8.3ms 8.1.2-1ubuntu2.27
+
+##### amp85 threshold: max_multipart_body_parts=200 #####
+thresh85_mixed100        wire=    6205B peak_real=  2097152B peak_int=   425912B alloc/wire=337.98x post=100 files=0 t=   5.7ms 8.5.12
+thresh85_mixed199        wire=   12442B peak_real=  2097152B peak_int=   433968B alloc/wire=168.55x post=199 files=0 t=   5.8ms 8.5.12
+thresh85_mixed200        wire=   12505B peak_real=  2097152B peak_int=   434008B alloc/wire=167.71x post=200 files=0 t=   5.9ms 8.5.12
+thresh85_mixed5000       wire=  318905 ERROR status=HTTP/1.1 200 OK resp='<br />\n<b>Warning</b>:  PHP Request Startup: Multipart body parts limit exceeded'
+thresh85_nocd5000        wire=  130015B peak_real=  2097152B peak_int=   413720B alloc/wire= 16.13x post=0 files=0 t=  14.2ms 8.5.12
+--- threshold server warnings (cap fired?) ---
+##### chunked TE probe on 8.5.12 php -S #####
+CHUNKED response: b'HTTP/1.1 200 OK' b'...' b'2097152 413800 1 0 1766682 8.5.12\n'
+AMP-LEG-DONE

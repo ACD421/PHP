@@ -1,0 +1,12 @@
+=== caught attempt 1 ===
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005cc1d18d615c in zend_hash_destroy (ht=ht@entry=0x76571d858268) at /tmp/php8512_build/php-8.5.12/Zend/zend_hash.c:1996
+1996							ht->pDestructor(&p->val);
+=== CAUGHT pass2 ===
+PC=0x5cc1d18d615c RAX=0x33914b97b7dbe884 RDI=0x76571d8be000 R10=0x10
+=> 0x5cc1d18d615c <zend_hash_destroy+492>:	call   *%rax
+0x33914b97b7dbe884:	/mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p36_catch.gdb:11: Error in sourced command file:
+Cannot access memory at address 0x33914b97b7dbe884

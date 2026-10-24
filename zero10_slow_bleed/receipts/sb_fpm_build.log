@@ -1,0 +1,4 @@
+PHP 8.5.12 (fpm-fcgi) (built: Oct 23 2026 21:16:57) (NTS)
+Copyright (c) The PHP Group
+-rwxr-xr-x 1 root root 49616480 Oct 23 21:17 sapi/fpm/php-fpm
+FPM-BUILD-DONE
