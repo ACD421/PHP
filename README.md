@@ -2,7 +2,7 @@
 
 Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP Mobile, and Windows PHP builds. Turnkey repro scripts, raw receipts, weaponized exploit chains.
 
-**Author:** Andrew Dorman (@acd421)
+**Authors:** Andrew Dorman (@acd421) · J4ck3LSyN (@J4ck3LSyN) · CFSD
 **Date:** 2026-10-24
 
 > **First defensive report on the surviving flaws:**
@@ -85,7 +85,7 @@ make -j$(nproc)
 
 | Contribution | Credited to | How our work differs |
 |-------------|-------------|---------------------|
-| All findings, receipts, weapons | Andrew Dorman (@acd421) | — |
+| All findings, receipts, weapons | Andrew Dorman (@acd421), J4ck3LSyN (@J4ck3LSyN), CFSD | — |
 | var_destroy UAF (zero4) | dinosn ([May 2026](https://github.com/dinosn/php-8.5.5-var_destroy-uaf)) | They published first; we weaponized on vanilla stripped binaries, added C: entry, WordPress HTTP, flock-drop, public URL chain |
 | Serialize re-entry (zero5) | janhelke ([GH-24373](https://github.com/php/php-src/issues/24373)) | They reported the crash; we built the first escalation to full RCE |
 | GC regression (zero2) | evankford ([GH-24488](https://github.com/php/php-src/issues/24488)) | They found the bug; we receipted remote kill + controlled indirect call |
