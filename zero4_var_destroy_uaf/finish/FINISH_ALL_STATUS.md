@@ -28,8 +28,8 @@ fresh ASLR base per shot):
 - Surface: `fa_wp_rce.php` lab plugin (shape34 receipted class: unauth
   REST import endpoint passing POST `data` straight to unserialize) with
   the Stage1/FIRE gadget classes declared in-process.
-- Offsets receipted per-binary (`poc_matrix/fa_dump_handlers.py` +
-  `extract_syms.py`): van85 libphp.so zend_empty_array=0x169cee0,
+- Offsets receipted per-binary (`weapons/lab/fa_dump_handlers.py` +
+  `weapons/lab/extract_syms.py`): van85 libphp.so zend_empty_array=0x169cee0,
   zif_system=0x5996e0, handlers dtor+16/gcn+136/gdi+160.
 - Fire: POST the exact `pwn_zero4_live.php` payload (a:1020 + Stage1
   dup-key). First shot g=0, no groom needed: leak→oracle→forge→call→
@@ -59,7 +59,7 @@ fresh ASLR base per shot):
 
 - Target: Ubuntu 22.04 jammy system PHP 8.1.2-1ubuntu2.27 (never shipped
   the Oct 2026 patch), Apache mod_php, STOCK ZendMM, ASLR on.
-- Offsets for the STRIPPED system .so: new `poc_matrix/fa_extract_so.py`
+- Offsets for the STRIPPED system .so: new `weapons/lab/fa_extract_so.py`
   (relocation-walk zif_system extraction; validated on wp83g+van85 first)
   → libphp8.1.so zif_system=0x209550, zend_empty_array=0x51c8a0 (nm -D);
   handler layout from the 8.1.2 header: gcn+128 gdi+152 (same as 8.3.36).
@@ -108,5 +108,5 @@ fresh ASLR base per shot):
 - `fa_jammy_cli.php` / `fa_jammy_reader.php` / `fa_jammy.sh` — jammy CLI
   validation + the four-stage composition weapon
 - `fa_jammy_debug.sh` — focused stage-4 debugger
-- `poc_matrix/fa_dump_handlers.py`, `poc_matrix/fa_extract_so.py` — per-binary
+- `weapons/lab/fa_dump_handlers.py`, `weapons/lab/fa_extract_so.py` — per-binary
   offset tooling (works stripped)

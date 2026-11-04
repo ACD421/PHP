@@ -1,6 +1,6 @@
 #!/bin/bash
 # fa_jammy_debug.sh — focused stage-4 debug: apache up, plant, shot, inspect
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+ART=$(cd "$(dirname "$0")" && pwd)
 ROOT=/tmp/fa_jammy
 PORT=18380
 URL=http://127.0.0.1:$PORT

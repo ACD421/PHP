@@ -6,12 +6,18 @@
 #   X2  server as NT AUTHORITY\SYSTEM (schtasks, XAMPP-service shape) -> chain -> RCE
 #   X4  plant by a SECOND STANDARD-USER principal (wp4ten) -> chain -> RCE
 #   H10 cross-volume hardlink negative (if a second volume exists)
-WP4=/c/Users/andre/Downloads/php2shell-claude
+HERE=$(cd "$(dirname "$0")" && pwd)
+W4=$HERE
+WP4=$(cd "$HERE/.." && pwd)
 WP3=$WP4/wp3
-PY=/c/Python313/python
+if [ ! -x "$WP3/winphp/8512/php.exe" ]; then
+  for _c in /c/Users/andre/Downloads/php2shell-claude/wp3 /mnt/c/Users/andre/Downloads/php2shell-claude/wp3; do
+    if [ -x "$_c/winphp/8512/php.exe" ]; then WP3=$_c; break; fi
+  done
+fi
+PY=${PY:-/c/Python313/python}
 UPCLIENT=$WP4/wp2/wp2_upclient.py
 PHP85=$WP3/winphp/8512/php.exe
-W4=$WP4/wp4
 REC=$W4/receipts
 SRVPID=""
 
@@ -108,7 +114,7 @@ printf 'data' > "$AL/t_normal.txt"
 printf 'data' > "$AL/t_roattr.txt";  MSYS_NO_PATHCONV=1 attrib +R "$(cygpath -w "$AL/t_roattr.txt")"
 printf 'data' > "$AL/t_denyw.txt";   MSYS_NO_PATHCONV=1 icacls "$(cygpath -w "$AL/t_denyw.txt")" /deny "andre:(WD,AD)" >/dev/null
 printf 'data' > "$AL/t_rxonly.txt";  MSYS_NO_PATHCONV=1 icacls "$(cygpath -w "$AL/t_rxonly.txt")" /inheritance:r /grant "andre:(RX)" /grant "Administrators:(F)" /grant "SYSTEM:(F)" >/dev/null
-runas /trustlevel:0x20000 "cmd /c C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\wp4_access.bat"
+runas /trustlevel:0x20000 "cmd /c $(cygpath -w "$W4/wp4_access.bat")"
 sleep 5
 cat "$REC/access_matrix.log"
 fi
@@ -174,7 +180,8 @@ upload_tmp_dir = "$drive/tmp"
 EOF
 cp "$WP3/docroot/up.php" "$LAB/docroot/up.php"
 : > "$OUT"
-MSYS_NO_PATHCONV=1 schtasks /create /tn WP4SYS /tr "cmd /c C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\wp4_sys.bat" /sc once /st 23:59 /ru SYSTEM /f
+SYS_BAT=$(cygpath -w "$W4/wp4_sys.bat")
+MSYS_NO_PATHCONV=1 schtasks /create /tn WP4SYS /tr "cmd /c $SYS_BAT" /sc once /st 23:59 /ru SYSTEM /f
 MSYS_NO_PATHCONV=1 schtasks /run /tn WP4SYS
 up=NO
 for i in $(seq 1 60); do
@@ -255,7 +262,8 @@ echo "volumes: $VOLS"
 for v in $VOLS; do
   if [ "$v" != "C" ] && [ -d "/$v/" ]; then
     printf 'x' > "/$v/wp4_h10_target.txt" 2>/dev/null || continue
-    cmd //c "mklink /H C:\\Users\\andre\\Downloads\\php2shell-claude\\wp4\\h10_link.txt ${v}:\\wp4_h10_target.txt" 2>&1 | head -2
+    H10=$(cygpath -w "$W4/h10_link.txt")
+    cmd //c "mklink /H $H10 ${v}:\\wp4_h10_target.txt" 2>&1 | head -2
     rm -f "/$v/wp4_h10_target.txt" "$W4/h10_link.txt"
     break
   fi

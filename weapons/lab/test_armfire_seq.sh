@@ -1,6 +1,9 @@
 #!/bin/bash
 # Rigorous arm->fire sequence + negative control on the WP jammy victim.
 set -u
+LAB=$(cd "$(dirname "$0")" && pwd)
+WEAPONS=$(cd "$LAB/.." && pwd)
+REPO=$(cd "$LAB/../.." && pwd)
 NEG=${1:-0}   # 1 = negative control (fire without arm)
 PORT=8080
 SID=wp0123456789abcdefghijklmnopqrstu
@@ -18,9 +21,9 @@ restart_victim
 echo "[seq] victim fresh; front: $(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:$PORT/)"
 
 if [ "$NEG" = "0" ]; then
-  bash /mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/lab/test_arm_wp.sh 2>/dev/null | grep -E 'ARM status|front'
+  bash $LAB/test_arm_wp.sh 2>/dev/null | grep -E 'ARM status|front'
 fi
 
-bash /mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/lab/test_fire_wp.sh 2>/dev/null | grep -E 'fire#|KILL|front'
+bash $LAB/test_fire_wp.sh 2>/dev/null | grep -E 'fire#|KILL|front'
 echo "[seq] x.log tail: $(tail -2 /tmp/v_wp/x.log 2>/dev/null | tr '\n' ' ')"
 grep -icE 'exhausted' /tmp/v_wp/error.log | sed 's/^/[seq] exhausted-lines: /'

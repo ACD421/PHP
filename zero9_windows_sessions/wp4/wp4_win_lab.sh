@@ -19,11 +19,17 @@
 #       -> original session vars PREFIX the webshell -> WEBSHELL
 #   X1  plant the H4 shape from a FILTERED (non-elevated) token -> same RCE
 #   X3  plant the W6 dangling-symlink shape from a FILTERED token (Dev Mode) -> RCE
-WP4=/c/Users/andre/Downloads/php2shell-claude
+HERE=$(cd "$(dirname "$0")" && pwd)
+WP4=$(cd "$HERE/.." && pwd)
 WP3=$WP4/wp3
-PY=/c/Python313/python
-UPCLIENT=$WP3/../wp2/wp2_upclient.py
-REC=$WP4/wp4/receipts
+if [ ! -x "$WP3/winphp/8512/php.exe" ]; then
+  for _c in /c/Users/andre/Downloads/php2shell-claude/wp3 /mnt/c/Users/andre/Downloads/php2shell-claude/wp3; do
+    if [ -x "$_c/winphp/8512/php.exe" ]; then WP3=$_c; break; fi
+  done
+fi
+PY=${PY:-/c/Python313/python}
+UPCLIENT=$WP4/wp2/wp2_upclient.py
+REC=$HERE/receipts
 PHP85=$WP3/winphp/8512/php.exe
 PHP81=$WP3/winphp/8134/php.exe
 mkdir -p "$REC"

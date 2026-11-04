@@ -3,7 +3,10 @@
 #  1. C: crasher (zero7): C:11:"Dom\Element" + classList read -> NULL write
 #  2. zero4 var_destroy re-entry trigger (with in-code gadget class)
 set -u
-OUT=/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/receipts
+LAB=$(cd "$(dirname "$0")" && pwd)
+WEAPONS=$(cd "$LAB/.." && pwd)
+REPO=$(cd "$LAB/../.." && pwd)
+OUT=$WEAPONS/receipts
 VER=8.5.11
 
 run3v4l() {

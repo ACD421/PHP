@@ -5,13 +5,15 @@
 # cli-server (Apache/mod_php respawns workers instead).
 set -u
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+ART=$(cd "$(dirname "$0")" && pwd)
+REPO=$(cd "$ART/../.." && pwd)
+OUT=$REPO/zero4_var_destroy_uaf/finish/fa_mission2
 ROOT=/tmp/fa_sess_lab
 PORT=18391
 SID=faenumsess00000000000000000000A
 RUNS=${1:-3}
 
-rm -rf "$ROOT"; mkdir -p "$ROOT/html" "$ROOT/sess"
+rm -rf "$ROOT"; mkdir -p "$ROOT/html" "$ROOT/sess" "$OUT"
 cp "$ART/fa_enum_sess.php" "$ROOT/html/"
 rm -f /tmp/fa_enum_sess /tmp/fa_enum_sess_diag.log
 
@@ -50,6 +52,6 @@ for r in $(seq 1 "$RUNS"); do
 done
 echo "---- diag (last) ----"
 cat /tmp/fa_enum_sess_diag.log 2>/dev/null
-} | tee /tmp/fa_enum_sess_receipt.log
+} | tee "$OUT/fa_enum_sess_receipt.log"
 pkill -f "127.0.0.1:$PORT" 2>/dev/null
-echo "receipt: /tmp/fa_enum_sess_receipt.log"
+echo "receipt: $OUT/fa_enum_sess_receipt.log"

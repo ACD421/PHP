@@ -14,7 +14,7 @@
 #               session file wiped (unauth session-destroy primitive)
 #   T6  B2    : RCE via docroot save_path (session file = webshell, SetHandler)
 # =============================================================================
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+ART=$(cd "$(dirname "$0")" && pwd)
 ROOT=/tmp/p2s_ap
 PORT=18220
 URL=http://127.0.0.1:$PORT

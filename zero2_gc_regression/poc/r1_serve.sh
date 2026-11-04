@@ -5,7 +5,7 @@ set -u
 PORT=${2:-18196}
 ROOT=/tmp/php2shell_r
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
-DIR=/mnt/c/Users/andre/Downloads/php2shell-claude
+DIR=$(cd "$(dirname "$0")" && pwd)
 
 start() {
   stop >/dev/null 2>&1

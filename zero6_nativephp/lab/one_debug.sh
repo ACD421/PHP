@@ -1,6 +1,6 @@
 #!/bin/bash
 # Dump full gdb output for one staged calib run.
-LAB=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab
+LAB=$(cd "$(dirname "$0")" && pwd)
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
 SPOOL="$LAB/storage/framework/async/payload"
 CALIB_ID=calib-0000-0000-0000-000000000000

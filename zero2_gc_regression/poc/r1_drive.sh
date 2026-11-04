@@ -3,7 +3,7 @@
 set -u
 PORT=${1:-18196}
 N=${2:-5}
-DIR=/mnt/c/Users/andre/Downloads/php2shell-claude
+DIR=$(cd "$(dirname "$0")" && pwd)
 printf '<root><a>1</a><b>2</b><c>3</c></root>' > /tmp/r1.xml
 for i in $(seq 1 "$N"); do
   R=$(curl -s --max-time 5 -X POST --data-binary @/tmp/r1.xml "http://127.0.0.1:$PORT/index.php" 2>&1)

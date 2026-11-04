@@ -60,7 +60,7 @@ mariadb, REAL WordPress), `import.php` (queue-import unserialize endpoint),
 | zero5 | serialize-side mirror UAF | local,docker | PHP <= 8.5.12 (receipted on vanilla 8.3.36 + 8.5.11/8.5.12; use zero4 on 8.1) |
 | uprog | rfc1867 upload-progress arms (CVE-2026-109618/19 shapes) | remote | unpatched fleet (jammy 8.1.2-1ubuntu2.27, <=8.5.11 without the Oct-2026 patch) |
 | cformat | C: internal-class crasher (zero7) | remote | every 8.4/8.5 release branch (the b50b30c/4bf700e guard never left master) |
-| nativephp | NativePHP bridge chain (zero6) | remote | every NativePHP mobile app (bridge + spool poison; lab receipts in ../php2shell-claude/nativephp_lane/receipts/) |
+| nativephp | NativePHP bridge chain (zero6) | remote | every NativePHP mobile app (bridge + spool poison; lab receipts in ../zero6_nativephp/receipts/) |
 | win-sess | Windows O_NOFOLLOW=0 (zero9) | remote | Windows PHP builds (listed NOT VIABLE elsewhere) |
 
 ## Honest bounds
@@ -78,7 +78,7 @@ mariadb, REAL WordPress), `import.php` (queue-import unserialize endpoint),
   budget (with the original 8M memory_limit the first arm produced a 500
   OOM — the weapon now discriminates OOM 500s from crash 500s and keeps
   firing). Kill evidence for the jammy class remains the prior receipts in
-  `../php2shell-claude/receipts_8512/lc_session_state/`. Vanilla 8.5.11 also
+  `../zero8_distro_exposure/receipts/`. Vanilla 8.5.11 also
   survived the arm shapes — arms are jammy-calibrated; retune per target or
   use zero4/sessgap there.
 - cformat is crash/DoS tier (fixed NULL offsets, not controllable RIP); the

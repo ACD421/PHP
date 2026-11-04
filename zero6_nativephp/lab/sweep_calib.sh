@@ -3,7 +3,7 @@
 # payload (same lengths as the real stage payloads: same task-id length,
 # same addr-string length) so the allocation stream matches exactly.
 # Usage: sweep_calib.sh [base] [addr_len]
-LAB=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab
+LAB=$(cd "$(dirname "$0")" && pwd)
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
 SPOOL="$LAB/storage/framework/async/payload"
 BASE=${1:-1017}

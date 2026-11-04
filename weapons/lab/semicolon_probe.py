@@ -2,9 +2,10 @@
 """Where does the ';' cut live: $_POST or the session hook?"""
 import socket
 import subprocess
+import os
 import sys
 
-sys.path.insert(0, "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from php2shell import multipart_body
 
 HOST, PORT = "127.0.0.1", 8085

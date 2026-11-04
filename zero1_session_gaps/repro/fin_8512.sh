@@ -8,7 +8,7 @@
 #     gadget -> webshell in docroot -> executed over HTTP.
 # =============================================================================
 PHP8512=/tmp/php8512_build/plain2/sapi/cli/php
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+ART=$(cd "$(dirname "$0")" && pwd)
 ROOT=/tmp/p2s_fin
 PORT=18230
 URL=http://127.0.0.1:$PORT

@@ -15,8 +15,10 @@
 # Target: Ubuntu 22.04 jammy system PHP 8.1.2 + Apache 2.4.52 mod_php,
 # STOCK ZendMM, ASLR on, no gdb.
 # =============================================================================
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
-OUT=$ART/receipts_8512/fa_mission3
+LAB=$(cd "$(dirname "$0")" && pwd)
+REPO=$(cd "$LAB/../.." && pwd)
+ART=$LAB
+OUT=$REPO/zero4_var_destroy_uaf/finish/fa_mission3
 ROOT=/tmp/fa_jammy
 PORT=18380
 URL=http://127.0.0.1:$PORT

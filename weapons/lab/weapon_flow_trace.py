@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Trace the weapon's exact sessgap flow step by step."""
 import subprocess
+import os
 import sys
 import time
 
-sys.path.insert(0, "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from php2shell import (multipart_body, build_gadget_injection, WEBSHELL,
                        raw_post, http_req)
 

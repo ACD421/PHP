@@ -20,7 +20,9 @@ def main():
         line = "%s PLANTED-DIRECT user=%s mode=%s link=%s target=%s\n" % (
             time.strftime("%Y-%m-%d %H:%M:%S"), os.getlogin(), mode, link, target)
         # receipt written BY THE FILTERED-TOKEN PROCESS itself
-        with open(r"C:\Users\andre\Downloads\php2shell-claude\wp4\receipts\plant_receipts.log", "a") as f:
+        receipt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "receipts", "plant_receipts.log")
+        os.makedirs(os.path.dirname(receipt), exist_ok=True)
+        with open(receipt, "a") as f:
             f.write(line)
         print("PLANTED-DIRECT %s %s -> %s" % (mode, link, target))
         return

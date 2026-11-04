@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Bisect the weapon's sessgap body vs the working manual probe."""
+import os
 import sys
-sys.path.insert(0, "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from php2shell import (multipart_body, build_gadget_injection, WEBSHELL,
                        raw_post)
 

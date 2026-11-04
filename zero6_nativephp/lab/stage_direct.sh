@@ -1,7 +1,7 @@
 #!/bin/bash
 # Direct stage test with shape-identical payloads (64-char padded addr).
 # $1 = Leak|Write|Call, $2 = chunk, $3 = base, $4 = d, $5 = dtor, $6 = base-count
-LAB=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab
+LAB=$(cd "$(dirname "$0")" && pwd)
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
 SPOOL="$LAB/storage/framework/async/payload"
 STAGE=${1:-Leak}

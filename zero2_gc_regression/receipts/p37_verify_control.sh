@@ -3,8 +3,9 @@
 # A = with materialization (arms GH-24488) -> expect ~10-30% crashes
 # B = without materialization (control)    -> expect 0 crashes
 P=/tmp/php8512_build/plain2/sapi/cli/php
+HERE=$(cd "$(dirname "$0")" && pwd)
 cd /tmp/poc || exit 1
-cp /mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix/p32_control.php .
+cp "$HERE/p32_control.php" .
 
 cat > p37_armed.php <<'EOF'
 <?php

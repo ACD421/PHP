@@ -6,7 +6,7 @@
 # Receipt: /tmp/pwned_zero4 contains uid=...
 # Usage: bash pwn_zero4.sh [php-binary] [cmdfile]
 PHP=${1:-/tmp/php8512_build/plain2/sapi/cli/php}
-ART=/mnt/c/Users/andre/Downloads/php2shell-claude/poc_matrix
+ART=$(cd "$(dirname "$0")" && pwd)
 CMDFILE=${2:-/tmp/e}
 
 echo "=== pwn_zero4: calibrating (gdb discovery on the lab binary) ==="

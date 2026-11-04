@@ -4,8 +4,8 @@
 # -> AsyncTask.Dispatch -> runner-lane unserialize -> VD re-entry UAF
 # (unpatched in fully-patched PHP 8.5.12, same code as shipped 8.4.27).
 set -u
-LAB=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab
-RECEIPTS=/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/receipts
+LAB=$(cd "$(dirname "$0")" && pwd)
+RECEIPTS=$(cd "$LAB/../receipts" && pwd)
 PHP8512=/tmp/php8512_build/plain2/sapi/cli/php
 ASAN=/tmp/php8512_build/asan2/sapi/cli/php
 PORT=8811

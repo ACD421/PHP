@@ -13,13 +13,14 @@ from a page in the app's webview):
           GET  /_assets/leak.txt              (asset handler serves it back)
   events: POST /_native/api/events            (PaymentCompleted forgery)
 """
+import os
 import json
 import sys
 import urllib.request
 import urllib.parse
 
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8811"
-LAB = sys.argv[2] if len(sys.argv) > 2 else "/mnt/c/Users/andre/Downloads/php2shell-claude/nativephp_lane/lab"
+LAB = sys.argv[2] if len(sys.argv) > 2 else os.path.dirname(os.path.abspath(__file__))
 TASK = "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 
 

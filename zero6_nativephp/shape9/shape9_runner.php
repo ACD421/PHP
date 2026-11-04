@@ -213,7 +213,7 @@ class NativeAsyncFire {
 }
 
 /* ---- AsyncTaskRunner::runTask shape ---- */
-define('LAB_ROOT', __DIR__);
+define('LAB_ROOT', getenv('NPHP_LAB') ?: __DIR__);
 $id = getenv('NATIVEPHP_TASK_ID') ?: ($argv[1] ?? '');
 
 $path = LAB_ROOT . '/storage/framework/async/payload/' . $id . '.task';
