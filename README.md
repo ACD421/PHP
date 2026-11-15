@@ -18,7 +18,7 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 | 1 | var_destroy re-entry UAF | **9.8** | Remote via `unserialize()` — WordPress, Docker, public URL | 🔴 Not fixed | `zero4/` |
 | 2 | serialize-side mirror UAF | **9.8** | Remote via `serialize()` | 🔴 Not fixed | `zero5/` |
 | 3 | Enum-autoload E: UAF | **9.8** | Remote via session decode | 🔴 Not fixed | `zero7/shape5/` |
-| 4 | NativePHP bridge RCE | **9.8** | Remote via bridge API | 🔴 Not fixed | `zero6/` |
+| 4 | NativePHP bridge RCE | **9.8** | Remote via bridge API | 🟢 Patched | `zero6/` |
 | 5 | Session serialize_handler RCE | **8.1** | Remote (config-dependent, CVE-2026-115560) | 🔴 Not fixed | `zero1/` |
 | 6 | php_binary format injection | **8.1** | Remote (third delivery format) | 🔴 Not fixed | `zero1/shape10/` |
 | 7 | Windows `O_NOFOLLOW`=0 RCE | **7.7** | Local (no privilege needed) | 🔴 Not fixed | `zero9/` |
@@ -29,6 +29,8 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 | 12 | Jammy fleet composition | — | Ubuntu 22.04 LTS — all above, chained | 🔴 Not fixed | `zero8/` |
 
 **CVSS 3.1 computed from formula.** Full details: `CVE_COUNT.txt`
+
+**NativePHP (zero6):** reported via RedEye CVD; fixed 2026-10-25 in `nativephp/mobile 4.6.1` + `nativephp/mobile-file 1.0.3`. Advisories (6 credited to acd421): `GHSA-9884-fw9c-mq85`, `GHSA-7927-vv5p-fv4f`, `GHSA-3w4w-cchh-qvrw`, `GHSA-83jv-8h7x-287p`, `GHSA-9g37-88p8-75j2`, `GHSA-76px-r497-93p9`.
 
 ---
 
