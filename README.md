@@ -15,7 +15,7 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 
 | # | Finding | CVSS | Attack Vector | Status | Folder |
 |:-:|---------|:----:|--------------|:------:|--------|
-| 1 | var_destroy re-entry UAF | **9.8** | Remote via `unserialize()` — WordPress, Docker, public URL | 🟢 Fixed | `zero4/` |
+| 1 | var_destroy re-entry UAF | **9.8** | Remote via `unserialize()` — O:, C:, E: enum autoload, session decode (flock-drop) | 🟢 Fixed | `zero4/` |
 | 2 | serialize-side mirror UAF | **9.8** | Remote via `serialize()` | 🟢 Fixed | `zero5/` |
 | 3 | Enum-autoload E: UAF | **9.8** | Remote via session decode | 🟢 Fixed | `zero7/shape5/` |
 | 4 | NativePHP bridge RCE | **9.8** | Remote via bridge API | 🟢 Patched | `zero6/` |
@@ -34,7 +34,7 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 
 **As of PHP 8.5.13** (also 8.4.28, 8.3.37, 8.2.36; advisories 2026-11-19, 8:05 AM America/Chicago). [Changelog](https://www.php.net/ChangeLog-8.php#8.5.13). [GH-24373](https://github.com/php/php-src/issues/24373) and [GH-24488](https://github.com/php/php-src/issues/24488) are in the `php-8.5.13` tag; the published changelog omits those NEWS lines. The post-08f4b64 teardown / lock-strand leftover (`CVE_COUNT`) is still unpatched in that tag. CVE-2026-129182 is a follow-on to the October PHP2Shell backtrace fix (CVE-2026-109619), already treated as closed in 8.5.12 — not counted as a new match here.
 
-- 1 / 2: [GH-24373](https://github.com/php/php-src/issues/24373) / [08f4b64](https://github.com/php/php-src/commit/08f4b64e0ae69e51ca95b54717dc74405ba5f0f9). Row 1 also likely [GH-24433](https://github.com/php/php-src/issues/24433) / [2b99297](https://github.com/php/php-src/commit/2b99297b76457100e1688e49697bb0e6a5124327) (vd4 / incomplete records).
+- 1 / 2: [GH-24373](https://github.com/php/php-src/issues/24373) / [08f4b64](https://github.com/php/php-src/commit/08f4b64e0ae69e51ca95b54717dc74405ba5f0f9). Row 1 entries, all closed at this tag by 08f4b64 (context NULLed before `var_destroy`, independent of format or sink): direct `unserialize()` of `O:` (WordPress HTTP, Docker, public URL); `C:` custom-serialization second entry (shape12, 5/5 uid=0); session decode with no app unserialize sink, including flock-drop (shape34, 6/6). `E:` enum-autoload as an entry into the same destroy-walk UAF (finish/mission 2; also row 3) is closed by 08f4b64 (repo `fixedasan` receipt) and additionally locked by [b4a63ec](https://github.com/php/php-src/commit/b4a63ecd709ba6452be84c2842b475d8384f82c6). Row 1 also likely [GH-24433](https://github.com/php/php-src/issues/24433) / [2b99297](https://github.com/php/php-src/commit/2b99297b76457100e1688e49697bb0e6a5124327) (vd4 / incomplete records). The `C:` empty-object crashers remain row 9 (still open); they are not a leftover of this UAF.
 - 3: enum-autoload context lock [b4a63ec](https://github.com/php/php-src/commit/b4a63ecd709ba6452be84c2842b475d8384f82c6).
 - 5 / 6: [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx) / [522afb6](https://github.com/php/php-src/commit/522afb690fd0c8a23f0b0bbe3d9ee1564599d59c) (row 6 is the shape10 php_binary path).
 - 7: still broken — `O_NOFOLLOW` is still `#define`d to 0 under `PHP_WIN32`; uid check still `#ifndef PHP_WIN32`.
