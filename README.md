@@ -15,24 +15,32 @@ Publication-ready security research: unpatched vulnerabilities in PHP, NativePHP
 
 | # | Finding | CVSS | Attack Vector | Status | Folder |
 |:-:|---------|:----:|--------------|:------:|--------|
-| 1 | var_destroy re-entry UAF | **9.8** | Remote via `unserialize()` — WordPress, Docker, public URL | 🟢 Patched in 8.5.13 ([GH-24373](https://github.com/php/php-src/issues/24373) / [08f4b64](https://github.com/php/php-src/commit/08f4b64e0ae69e51ca95b54717dc74405ba5f0f9)); likely also [GH-24433](https://github.com/php/php-src/issues/24433) / [2b99297](https://github.com/php/php-src/commit/2b99297b76457100e1688e49697bb0e6a5124327) (vd4 / incomplete records) | `zero4/` |
-| 2 | serialize-side mirror UAF | **9.8** | Remote via `serialize()` | 🟢 Patched in 8.5.13 ([GH-24373](https://github.com/php/php-src/issues/24373) / [08f4b64](https://github.com/php/php-src/commit/08f4b64e0ae69e51ca95b54717dc74405ba5f0f9)) | `zero5/` |
-| 3 | Enum-autoload E: UAF | **9.8** | Remote via session decode | 🟢 Patched in 8.5.13 ([b4a63ec](https://github.com/php/php-src/commit/b4a63ecd709ba6452be84c2842b475d8384f82c6)) | `zero7/shape5/` |
+| 1 | var_destroy re-entry UAF | **9.8** | Remote via `unserialize()` — WordPress, Docker, public URL | 🟢 Fixed | `zero4/` |
+| 2 | serialize-side mirror UAF | **9.8** | Remote via `serialize()` | 🟢 Fixed | `zero5/` |
+| 3 | Enum-autoload E: UAF | **9.8** | Remote via session decode | 🟢 Fixed | `zero7/shape5/` |
 | 4 | NativePHP bridge RCE | **9.8** | Remote via bridge API | 🟢 Patched | `zero6/` |
-| 5 | Session serialize_handler RCE | **8.1** | Remote (config-dependent, CVE-2026-115560) | 🟢 Patched in 8.5.13 ([CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx) / [522afb6](https://github.com/php/php-src/commit/522afb690fd0c8a23f0b0bbe3d9ee1564599d59c)) | `zero1/` |
-| 6 | php_binary format injection | **8.1** | Remote (third delivery format) | 🟢 Patched in 8.5.13 (same [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx) / [522afb6](https://github.com/php/php-src/commit/522afb690fd0c8a23f0b0bbe3d9ee1564599d59c), shape10 path) | `zero1/shape10/` |
-| 7 | Windows `O_NOFOLLOW`=0 RCE | **7.7** | Local (no privilege needed) | 🔴 Still broken as of 8.5.13 (`O_NOFOLLOW` still `#define`d to 0 under `PHP_WIN32`; uid check still `#ifndef PHP_WIN32`) | `zero9/` |
-| 8 | GC double-free → controlled call | **7.5** | Remote crash + attacker-chosen call | 🟢 Patched in 8.5.13 ([GH-24488](https://github.com/php/php-src/issues/24488) / [5bd92da](https://github.com/php/php-src/commit/5bd92da0abd34fe141938ac44d137eea060bbd0c); upstream [f963484](https://github.com/php/php-src/commit/f9634847258a8c3ed6c12bb79104eba60bb631ea)) | `zero2/` |
-| 9 | C: format crasher | **7.5** | Remote DoS (141 classes) | 🔴 Still broken as of 8.5.13 (FC-1 empty-object crashers) | `zero7/` |
-| 10 | Session-wipe | **7.5** | Remote unauth DoS | 🔴 Still broken as of 8.5.13 | `zero1/` |
-| 11 | Slow-bleed TOCTOU | **7.5** | Remote DoS + RCE insertion window | 🟡 Likely partial in 8.5.13 ([CVE-2026-126714](https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp) / [2139e7e](https://github.com/php/php-src/commit/2139e7e6ceb03eca00bda03bb7da57da6cb33cf8)); DoS leftovers still broken (C:-format worker kill, flock-hold lockout, no-Content-Disposition part-counter bypass) | `zero10/` |
-| 12 | Jammy fleet composition | — | Ubuntu 22.04 LTS — all above, chained | 🔴 Still broken as of 8.5.13 (not php-src; Ubuntu jammy packaging) | `zero8/` |
+| 5 | Session serialize_handler RCE | **8.1** | Remote (config-dependent, CVE-2026-115560) | 🟢 Fixed | `zero1/` |
+| 6 | php_binary format injection | **8.1** | Remote (third delivery format) | 🟢 Fixed | `zero1/shape10/` |
+| 7 | Windows `O_NOFOLLOW`=0 RCE | **7.7** | Local (no privilege needed) | 🔴 Not fixed | `zero9/` |
+| 8 | GC double-free → controlled call | **7.5** | Remote crash + attacker-chosen call | 🟢 Fixed | `zero2/` |
+| 9 | C: format crasher | **7.5** | Remote DoS (141 classes) | 🔴 Not fixed | `zero7/` |
+| 10 | Session-wipe | **7.5** | Remote unauth DoS | 🔴 Not fixed | `zero1/` |
+| 11 | Slow-bleed TOCTOU | **7.5** | Remote DoS + RCE insertion window | 🟡 Partial | `zero10/` |
+| 12 | Jammy fleet composition | — | Ubuntu 22.04 LTS — all above, chained | 🔴 Not fixed | `zero8/` |
 
 **CVSS 3.1 computed from formula.** Full details: `CVE_COUNT.txt`
 
 **NativePHP (zero6):** reported via RedEye CVD; fixed 2026-10-25 in `nativephp/mobile 4.6.1` + `nativephp/mobile-file 1.0.3`. Advisories (6 credited to acd421): `GHSA-9884-fw9c-mq85`, `GHSA-7927-vv5p-fv4f`, `GHSA-3w4w-cchh-qvrw`, `GHSA-83jv-8h7x-287p`, `GHSA-9g37-88p8-75j2`, `GHSA-76px-r497-93p9`.
 
 **As of PHP 8.5.13** (also 8.4.28, 8.3.37, 8.2.36; advisories 2026-11-19, 8:05 AM America/Chicago). [Changelog](https://www.php.net/ChangeLog-8.php#8.5.13). [GH-24373](https://github.com/php/php-src/issues/24373) and [GH-24488](https://github.com/php/php-src/issues/24488) are in the `php-8.5.13` tag; the published changelog omits those NEWS lines. The post-08f4b64 teardown / lock-strand leftover (`CVE_COUNT`) is still unpatched in that tag. CVE-2026-129182 is a follow-on to the October PHP2Shell backtrace fix (CVE-2026-109619), already treated as closed in 8.5.12 — not counted as a new match here.
+
+- 1 / 2: [GH-24373](https://github.com/php/php-src/issues/24373) / [08f4b64](https://github.com/php/php-src/commit/08f4b64e0ae69e51ca95b54717dc74405ba5f0f9). Row 1 also likely [GH-24433](https://github.com/php/php-src/issues/24433) / [2b99297](https://github.com/php/php-src/commit/2b99297b76457100e1688e49697bb0e6a5124327) (vd4 / incomplete records).
+- 3: enum-autoload context lock [b4a63ec](https://github.com/php/php-src/commit/b4a63ecd709ba6452be84c2842b475d8384f82c6).
+- 5 / 6: [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx) / [522afb6](https://github.com/php/php-src/commit/522afb690fd0c8a23f0b0bbe3d9ee1564599d59c) (row 6 is the shape10 php_binary path).
+- 7: still broken — `O_NOFOLLOW` is still `#define`d to 0 under `PHP_WIN32`; uid check still `#ifndef PHP_WIN32`.
+- 8: [GH-24488](https://github.com/php/php-src/issues/24488) / [5bd92da](https://github.com/php/php-src/commit/5bd92da0abd34fe141938ac44d137eea060bbd0c); upstream [f963484](https://github.com/php/php-src/commit/f9634847258a8c3ed6c12bb79104eba60bb631ea).
+- 9 / 10 / 12: still broken (row 9: FC-1 empty-object crashers; row 12: Ubuntu jammy packaging, not php-src).
+- 11: likely partial — [CVE-2026-126714](https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp) / [2139e7e](https://github.com/php/php-src/commit/2139e7e6ceb03eca00bda03bb7da57da6cb33cf8); DoS leftovers still broken (C:-format worker kill, flock-hold lockout, no-Content-Disposition part-counter bypass).
 
 ---
 
