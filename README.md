@@ -137,6 +137,10 @@ Record from the Oct 24–Nov 5 security@ thread and a Nov 5 Root complaint to Ke
 
 4. **Embargo and intake terms not in the published policy.** A "90 days embargo" and "GHSA-only" intake were asserted, though the published policy accepts security@php.net and post-fix disclosure.
 
-5. **Code of Conduct.** Derogatory language in CNA correspondence ("Calif [expletive] up"); the dispute was dismissed as "ego stroking" by Stas Malyshev.
+5. **Code of Conduct.** Derogatory language in CNA correspondence. Ilija Tovilo (Oct 24):
+
+> Just because Calif fucked up doesn't mean you should too.
+
+The dispute was dismissed as "ego stroking" by Stas Malyshev.
 
 6. **Uneven precedent.** Another party's lane was credited after a leak, while the admitted PoC source was denied.
